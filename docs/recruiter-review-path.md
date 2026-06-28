@@ -40,7 +40,7 @@ Open one README and one documentation file from each flagship repository:
 
 ## Portfolio Interpretation
 
-- Repositories marked as archive candidates are intentionally not part of the recruiter path.
+- Archived repositories are intentionally not part of the recruiter path.
 - Learning projects remain public only as history; they are not presented as current AI engineering evidence.
 - Internal or employer-owned work is not used as public portfolio evidence.
 - Missing screenshots, metrics, or demos should be treated as known gaps unless a repository documents verified evidence.

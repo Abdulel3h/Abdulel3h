@@ -59,7 +59,7 @@ I prefer AI systems that are understandable, constrained, and useful:
 | Flagship AI projects | [ChatUB](https://github.com/Abdulel3h/ChatUB), [absher-insight](https://github.com/Abdulel3h/absher-insight), [architect-of-intelligence](https://github.com/Abdulel3h/architect-of-intelligence), [Stadium](https://github.com/Abdulel3h/Stadium) |
 | Portfolio system | [Abdulelah](https://github.com/Abdulel3h/Abdulelah) |
 | Hackathon and product concepts | [alpha-ai-innovations](https://github.com/Abdulel3h/alpha-ai-innovations), [midad-landing](https://github.com/Abdulel3h/midad-landing) |
-| Learning and archive candidates | Older static exercises, placeholders, duplicates, and incomplete scaffolds are intentionally not highlighted. |
+| Archived learning projects | Older static exercises, placeholders, duplicates, and incomplete scaffolds are intentionally not highlighted. |
 
 Detailed ranking and curation notes: [Repository Strategy](./docs/repository-strategy.md)
 
