@@ -24,12 +24,12 @@ I build AI projects that connect real users, domain context, and deployable soft
 
 | Project | Engineering focus | Why it matters |
 | --- | --- | --- |
+| [Abdulelah AI Portfolio](https://github.com/Abdulel3h/Abdulelah) | Next.js, TypeScript, structured content, SEO, portfolio assistant | Connects the website, project case studies, role-specific resumes, and AI assistant into one portfolio system. |
 | [ChatUB](https://github.com/Abdulel3h/ChatUB) | Arabic LLM assistant, semantic search, local AI, Flask, Ollama | Demonstrates how a university-specific assistant can answer student questions using trusted academic content. |
 | [Absher Insight AI](https://github.com/Abdulel3h/absher-insight) | AI security analytics, FastAPI, synthetic behavior data, anomaly-style rules | Explores proactive risk detection for government-style digital services without exposing real user data. |
-| [Althil](https://www.abdulelah.de/projects/althil) | Google Cloud, Vertex AI, BigQuery, Cloud Run, geospatial decision support | Hackathon case study for urban thermal-comfort planning and AI-assisted shade-canopy recommendations. |
 | [Architect of Intelligence](https://github.com/Abdulel3h/architect-of-intelligence) | TanStack Start, TypeScript, structured AI workflows, Zod validation | Shows modern AI platform architecture with server-side validation, bilingual output, and fallback behavior. |
 | [Stadium Gate Monitor](https://github.com/Abdulel3h/Stadium) | YOLO, OpenCV, Flask APIs, operations dashboard | Applies computer vision to crowd monitoring, gate status, alerting, and staff-distribution decisions. |
-| [Abdulelah AI Portfolio](https://github.com/Abdulel3h/Abdulelah) | Next.js, TypeScript, structured content, SEO, portfolio assistant | Connects the website, project case studies, role-specific resumes, and AI assistant into one portfolio system. |
+| [Alpha AI Innovations](https://github.com/Abdulel3h/alpha-ai-innovations) | Arabic AI advisory concept, React, TanStack Router, structured service catalog | Shows Arabic-first AI product thinking with conservative prototype boundaries and documented validation gaps. |
 
 ## Engineering Philosophy
 
@@ -63,6 +63,8 @@ I prefer AI systems that are understandable, constrained, and useful:
 
 Detailed ranking and curation notes: [Repository Strategy](./docs/repository-strategy.md)
 
+Recruiter review sequence: [Recruiter Review Path](./docs/recruiter-review-path.md)
+
 ## Recommended Review Path
 
 If you are evaluating my work for an AI engineering role, start here:
@@ -72,6 +74,7 @@ If you are evaluating my work for an AI engineering role, start here:
 3. [architect-of-intelligence](https://github.com/Abdulel3h/architect-of-intelligence) for TypeScript AI platform architecture.
 4. [Stadium](https://github.com/Abdulel3h/Stadium) for computer vision and operational dashboards.
 5. [Abdulelah](https://github.com/Abdulel3h/Abdulelah) for the full portfolio system and technical presentation.
+6. [alpha-ai-innovations](https://github.com/Abdulel3h/alpha-ai-innovations) for Arabic AI product and advisory-service concept work.
 
 ## Public Portfolio Standard
 
