@@ -36,23 +36,23 @@ These repositories should be pinned first.
 | `midad-landing` | Keep public as a financial-inclusion product concept, but do not pin until accessibility and screenshots improve. |
 | `Abdulel3h` | Keep public as the profile repository. |
 
-## Archive Or Private Candidates
+## Archived Or Private Repositories
 
-These repositories should not be part of the visible recruiter path:
+These repositories should not be part of the visible recruiter path. Public early-work repositories were archived on June 28, 2026 so they remain available as history without looking like current portfolio evidence.
 
 | Repository | Recommendation |
 | --- | --- |
-| `Ali` | Archive or make private; duplicate static mockup. |
-| `ali2` | Archive or make private; duplicate static mockup. |
-| `EtecResults` | Archive; placeholder repository. |
+| `Ali` | Archived; duplicate static mockup. |
+| `ali2` | Archived; duplicate static mockup. |
+| `EtecResults` | Archived; placeholder repository. |
 | `etec-results` | Archive or make private; duplicate static mockup. |
-| `ex-1` | Archive; one-file static exercise. |
-| `example` | Archive or rebuild as a complete AI/VR case study. |
-| `FlowerDatabase` | Archive; early Java OOP console exercise. |
-| `LearnEnglish` | Archive; early PHP/MySQL learning project. |
-| `madad` | Archive; early static Arabic prototype. |
-| `midad` | Archive or merge into `midad-landing`; incomplete scaffold. |
-| `Data-Structures-Project` | Archive; empty repository. |
+| `ex-1` | Archived; one-file static exercise. |
+| `example` | Archived; rebuild only if it becomes a complete AI/VR case study. |
+| `FlowerDatabase` | Archived; early Java OOP console exercise. |
+| `LearnEnglish` | Archived; early PHP/MySQL learning project. |
+| `madad` | Archived; early static Arabic prototype. |
+| `midad` | Archived; merge into `midad-landing` only if the scaffold becomes useful. |
+| `Data-Structures-Project` | Archived; empty repository. |
 | Internal removed-from-portfolio repositories | Archive or make private; not suitable for public branding. |
 
 ## Repository Quality Bar
