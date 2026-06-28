@@ -1,95 +1,89 @@
+<p align="center">
+  <img src="./assets/github-profile-header.svg" alt="Abdulelah Alkhathami - AI Engineer focused on LLM applications, Cloud AI, and applied machine learning" />
+</p>
+
 # Abdulelah Alkhathami
 
-**AI Engineer focused on LLM applications, applied machine learning, cloud AI, and production-minded AI systems.**
+**AI Engineer focused on LLM applications, applied machine learning, Cloud AI, and production-minded AI systems.**
 
 [Website](https://abdulelah.de) | [LinkedIn](https://linkedin.com/in/abdulelah-alkhathami-853845311) | [GitHub](https://github.com/Abdulel3h) | [Email](mailto:me@abdulelah.de)
 
-I build AI projects that connect real users, domain context, and deployable software. My strongest work sits at the intersection of LLM applications, Arabic-first AI experiences, intelligent search, decision-support systems, and cloud architecture.
+I build AI projects that connect real users, domain context, and deployable software. My strongest work sits at the intersection of Arabic-first AI experiences, context-aware assistants, intelligent search, security analytics, computer vision, and cloud architecture.
 
-## About Me
+## What I Build
 
-I am an AI Engineer with a Computer Information Systems background and a portfolio focused on practical AI systems rather than generic software demos.
+| Area | What it means in my work |
+| --- | --- |
+| LLM applications | Local and cloud-oriented assistants that use domain context instead of generic chatbot behavior. |
+| Applied machine learning | Prototypes for anomaly-style detection, computer vision, behavioral analytics, and decision support. |
+| Cloud AI | Systems designed around APIs, deployment paths, storage, observability, and managed AI services. |
+| Arabic AI products | Interfaces and knowledge flows built for Arabic-first users and bilingual product contexts. |
+| Engineering communication | READMEs, architecture notes, tradeoffs, and limitations that help reviewers understand the system quickly. |
 
-My projects explore how AI can support students, digital-security teams, urban planners, legal guidance flows, financial-inclusion products, and operations teams. I care about clear architecture, truthful documentation, privacy-aware design, and interfaces that make AI behavior understandable to users.
+## Featured AI Systems
 
-## Core Expertise
+| Project | Engineering focus | Why it matters |
+| --- | --- | --- |
+| [ChatUB](https://github.com/Abdulel3h/ChatUB) | Arabic LLM assistant, semantic search, local AI, Flask, Ollama | Demonstrates how a university-specific assistant can answer student questions using trusted academic content. |
+| [Absher Insight AI](https://github.com/Abdulel3h/absher-insight) | AI security analytics, FastAPI, synthetic behavior data, anomaly-style rules | Explores proactive risk detection for government-style digital services without exposing real user data. |
+| [Althil](https://www.abdulelah.de/projects/althil) | Google Cloud, Vertex AI, BigQuery, Cloud Run, geospatial decision support | Hackathon case study for urban thermal-comfort planning and AI-assisted shade-canopy recommendations. |
+| [Architect of Intelligence](https://github.com/Abdulel3h/architect-of-intelligence) | TanStack Start, TypeScript, structured AI workflows, Zod validation | Shows modern AI platform architecture with server-side validation, bilingual output, and fallback behavior. |
+| [Stadium Gate Monitor](https://github.com/Abdulel3h/Stadium) | YOLO, OpenCV, Flask APIs, operations dashboard | Applies computer vision to crowd monitoring, gate status, alerting, and staff-distribution decisions. |
+| [Abdulelah AI Portfolio](https://github.com/Abdulel3h/Abdulelah) | Next.js, TypeScript, structured content, SEO, portfolio assistant | Connects the website, project case studies, role-specific resumes, and AI assistant into one portfolio system. |
 
-- **LLM applications:** context-aware assistants, grounded responses, prompt and response design, local AI prototypes
-- **NLP and search:** Arabic text handling, semantic similarity, intelligent retrieval, knowledge structuring
-- **Applied machine learning:** anomaly-style detection, behavior simulation, computer-vision workflows, decision support
-- **Cloud AI:** Google Cloud and Azure AI exposure, API-oriented architecture, deployment-aware system design
-- **AI product engineering:** recruiter-ready documentation, bilingual UX, responsible AI flows, dashboard concepts
+## Engineering Philosophy
 
-## Featured Projects
+I prefer AI systems that are understandable, constrained, and useful:
 
-### [ChatUB](https://github.com/Abdulel3h/ChatUB)
+- Ground responses in real domain material whenever possible.
+- Separate prototypes from production claims.
+- Design data boundaries before model behavior.
+- Make APIs, fallbacks, and failure modes explicit.
+- Document architecture, setup, limitations, and future work.
+- Avoid invented metrics, inflated achievements, or vague AI language.
 
-Local Arabic AI academic assistant for University of Bisha students. ChatUB uses local FAQ data, multilingual sentence embeddings, semantic search, Flask, and Ollama to answer academic questions with university-specific context.
+## Technical Stack
 
-**Focus:** LLM applications, Arabic NLP, semantic search, local AI, education technology
+| Layer | Tools and concepts |
+| --- | --- |
+| AI and data | Python, NLP, LLM applications, semantic search, SentenceTransformers, anomaly detection, computer vision |
+| Backend | FastAPI, Flask, API route design, Pydantic, Zod, REST-style services |
+| Frontend | TypeScript, React, Next.js, TanStack Start, Vite, Tailwind CSS |
+| Cloud and deployment | Google Cloud exposure, Azure AI Services exposure, Vercel, Cloud Run concepts, Cloud Storage concepts, BigQuery concepts |
+| Product delivery | Arabic-first UX, technical writing, architecture diagrams, dashboard design, privacy-aware flows |
 
-**Portfolio case study:** [ChatUB on abdulelah.de](https://www.abdulelah.de/projects/chatub)
+## Repository Map
 
-### [Absher Insight AI](https://github.com/Abdulel3h/absher-insight)
+| Category | Repositories |
+| --- | --- |
+| Flagship AI projects | [ChatUB](https://github.com/Abdulel3h/ChatUB), [absher-insight](https://github.com/Abdulel3h/absher-insight), [architect-of-intelligence](https://github.com/Abdulel3h/architect-of-intelligence), [Stadium](https://github.com/Abdulel3h/Stadium) |
+| Portfolio system | [Abdulelah](https://github.com/Abdulel3h/Abdulelah) |
+| Hackathon and product concepts | [alpha-ai-innovations](https://github.com/Abdulel3h/alpha-ai-innovations), [midad-landing](https://github.com/Abdulel3h/midad-landing) |
+| Learning and archive candidates | Older static exercises, placeholders, duplicates, and incomplete scaffolds are intentionally not highlighted. |
 
-Proactive digital-security analytics prototype for government-style services. The project uses FastAPI, synthetic behavior data, anomaly-style rules, dashboard views, and privacy-by-design thinking to model suspicious activity scenarios.
+Detailed ranking and curation notes: [Repository Strategy](./docs/repository-strategy.md)
 
-**Focus:** AI security, UEBA concepts, anomaly detection, FastAPI, dashboards, synthetic data
+## Recommended Review Path
 
-**Portfolio case study:** [Absher Insight AI on abdulelah.de](https://www.abdulelah.de/projects/absher-insight-ai)
+If you are evaluating my work for an AI engineering role, start here:
 
-### [Althil](https://www.abdulelah.de/projects/althil)
+1. [ChatUB](https://github.com/Abdulel3h/ChatUB) for LLM and Arabic NLP work.
+2. [absher-insight](https://github.com/Abdulel3h/absher-insight) for AI security and decision-support thinking.
+3. [architect-of-intelligence](https://github.com/Abdulel3h/architect-of-intelligence) for TypeScript AI platform architecture.
+4. [Stadium](https://github.com/Abdulel3h/Stadium) for computer vision and operational dashboards.
+5. [Abdulelah](https://github.com/Abdulel3h/Abdulelah) for the full portfolio system and technical presentation.
 
-Urban thermal-comfort decision-support platform developed during the Intelligent Planet Hackathon hosted by KFUPM in collaboration with Google Cloud. Althil helps planners evaluate shade-canopy locations using sun paths, heat exposure, location data, and cloud-based analysis concepts.
+## Public Portfolio Standard
 
-**Focus:** Google Cloud, Vertex AI, BigQuery, Cloud Run, geospatial decision support, AI for sustainability
+I keep public claims conservative. Projects are documented with:
 
-**Note:** Althil is presented as a portfolio case study; there is no public GitHub repository currently available.
+- What the system does
+- What architecture it uses
+- What is prototype-level
+- What needs more evaluation
+- What should be improved before production use
 
-### [Abdulelah AI Portfolio](https://github.com/Abdulel3h/Abdulelah)
-
-Next.js portfolio platform that unifies projects, role-specific resumes, blog content, SEO metadata, and an embedded portfolio assistant. It is built to present AI engineering work as structured case studies instead of isolated demos.
-
-**Focus:** Next.js, TypeScript, AI portfolio systems, structured data, recruiter UX, API routes
-
-**Live site:** [abdulelah.de](https://abdulelah.de)
-
-### [Architect of Intelligence](https://github.com/Abdulel3h/architect-of-intelligence)
-
-AI infrastructure platform prototype with TanStack Start, TypeScript, structured AI workflows, server-side validation, bilingual output, and graceful fallbacks for optional integrations.
-
-**Focus:** AI workflow APIs, Zod schemas, TanStack Start, TypeScript, OpenAI-compatible flows
-
-**Live demo:** [architect-of-intelligence.vercel.app](https://architect-of-intelligence.vercel.app)
-
-### [Stadium Gate Monitor](https://github.com/Abdulel3h/Stadium)
-
-Computer-vision operations prototype for stadium gate monitoring. It combines YOLO, OpenCV, Flask, and a live dashboard to estimate crowding, occupancy, alerts, and staff distribution.
-
-**Focus:** computer vision, YOLO, OpenCV, Flask APIs, operational dashboards
-
-## Technology Stack
-
-**AI and data:** Python, NLP, LLM applications, semantic search, SentenceTransformers, anomaly detection, computer vision, dashboards
-
-**Backend and APIs:** FastAPI, Flask, API route design, Pydantic, Zod, REST-style services
-
-**Frontend:** TypeScript, React, Next.js, TanStack Start, Vite, Tailwind CSS
-
-**Cloud and deployment:** Google Cloud exposure, Azure AI Services exposure, Vercel, Cloud Run concepts, Cloud Storage concepts, BigQuery concepts
-
-**Product and documentation:** AI UX, Arabic-first interfaces, technical writing, architecture diagrams, privacy-aware flows
-
-## Architecture and AI Focus
-
-I approach AI projects as complete systems:
-
-- Start from a real user problem and domain context
-- Separate prototype behavior from production claims
-- Prefer grounded responses and structured knowledge over generic chatbot behavior
-- Design APIs, dashboards, and fallback paths around observable system behavior
-- Document architecture, limitations, setup, and future work clearly
-- Avoid inflated metrics or achievements unless they are externally verified
+Internal or employer-owned work is not used as public portfolio evidence.
 
 ## Contact
 
