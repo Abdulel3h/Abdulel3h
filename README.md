@@ -1,96 +1,63 @@
-<p align="center">
-  <img src="./assets/github-profile-header.svg" alt="Abdulelah Alkhathami - AI Engineer focused on LLM applications, Cloud AI, and applied machine learning" />
-</p>
+![Abdulelah Alkhathami — AI Product Builder. Arabic-first AI Systems. Useful to people. Accountable by design.](assets/profile/hero.svg)
 
 # Abdulelah Alkhathami
 
-**AI Engineer focused on LLM applications, applied machine learning, Cloud AI, and production-minded AI systems.**
+**AI Product Builder · Arabic-first AI Systems**<br>
+LLM Applications · Agentic Workflows · Trustworthy AI
 
-[Website](https://abdulelah.de) | [LinkedIn](https://linkedin.com/in/abdulelah-alkhathami-853845311) | [GitHub](https://github.com/Abdulel3h) | [Email](mailto:me@abdulelah.de)
+I build AI products around useful workflows, explicit boundaries, and behavior we can evaluate.
 
-I build AI projects that connect real users, domain context, and deployable software. My strongest work sits at the intersection of Arabic-first AI experiences, context-aware assistants, intelligent search, security analytics, computer vision, and cloud architecture.
+[Portfolio](https://abdulelah.de) · [Projects](#featured-work) · [LinkedIn](https://linkedin.com/in/abdulelah-alkhathami-853845311) · [Contact](mailto:me@abdulelah.de)
 
-## What I Build
+<p dir="rtl">أبني منتجات ذكاء اصطناعي تبدأ من احتياج المستخدم، بصلاحيات واضحة ونتائج قابلة للتقييم.</p>
 
-| Area | What it means in my work |
-| --- | --- |
-| LLM applications | Local and cloud-oriented assistants that use domain context instead of generic chatbot behavior. |
-| Applied machine learning | Prototypes for anomaly-style detection, computer vision, behavioral analytics, and decision support. |
-| Cloud AI | Systems designed around APIs, deployment paths, storage, observability, and managed AI services. |
-| Arabic AI products | Interfaces and knowledge flows built for Arabic-first users and bilingual product contexts. |
-| Engineering communication | READMEs, architecture notes, tradeoffs, and limitations that help reviewers understand the system quickly. |
+## AI Mission Control
 
-## Featured AI Systems
+![Interactive decision challenge: a customer requests order 5521, which the session does not own. The model proposes lookup_order. Choose your response below.](assets/profile/mission-control.svg)
 
-| Project | Engineering focus | Why it matters |
-| --- | --- | --- |
-| [Abdulelah AI Portfolio](https://github.com/Abdulel3h/Abdulelah) | Next.js, TypeScript, structured content, SEO, portfolio assistant | Connects the website, project case studies, role-specific resumes, and AI assistant into one portfolio system. |
-| [ChatUB](https://github.com/Abdulel3h/ChatUB) | Arabic LLM assistant, semantic search, local AI, Flask, Ollama | Demonstrates how a university-specific assistant can answer student questions using trusted academic content. |
-| [Absher Insight AI](https://github.com/Abdulel3h/absher-insight) | AI security analytics, FastAPI, synthetic behavior data, anomaly-style rules | Explores proactive risk detection for government-style digital services without exposing real user data. |
-| [Architect of Intelligence](https://github.com/Abdulel3h/architect-of-intelligence) | TanStack Start, TypeScript, structured AI workflows, Zod validation | Shows modern AI platform architecture with server-side validation, bilingual output, and fallback behavior. |
-| [Stadium Gate Monitor](https://github.com/Abdulel3h/Stadium) | YOLO, OpenCV, Flask APIs, operations dashboard | Applies computer vision to crowd monitoring, gate status, alerting, and staff-distribution decisions. |
-| [Alpha AI Innovations](https://github.com/Abdulel3h/alpha-ai-innovations) | Arabic AI advisory concept, React, TanStack Router, structured service catalog | Shows Arabic-first AI product thinking with conservative prototype boundaries and documented validation gaps. |
+**An illustrative challenge:** the guard passes the message. The model requests another customer's order. What should the system do?
 
-## Engineering Philosophy
+**[Allow the call →](missions/allow.md)** · **[Verify authorization →](missions/verify.md)** · **[Escalate →](missions/escalate.md)**
 
-I prefer AI systems that are understandable, constrained, and useful:
+The model can request an action. **The system decides whether it is allowed.**<br>
+[How this works](missions/README.md) · [Inspect the real Raqmi implementation](https://github.com/Abdulel3h/llm-application-engineering-Raqmi/blob/main/TOOL_CALLING.md)
 
-- Ground responses in real domain material whenever possible.
-- Separate prototypes from production claims.
-- Design data boundaries before model behavior.
-- Make APIs, fallbacks, and failure modes explicit.
-- Document architecture, setup, limitations, and future work.
-- Avoid invented metrics, inflated achievements, or vague AI language.
+## What I build
 
-## Technical Stack
+- **AI products** — domain-aware LLM applications with clear user workflows.
+- **Agentic systems** — tool calling, bounded orchestration, authorization and escalation paths.
+- **Trustworthy behavior** — structured outputs, guardrails and inspectable evaluations.
+- **Product experience** — Arabic/English interfaces that make complex tasks approachable.
 
-| Layer | Tools and concepts |
-| --- | --- |
-| AI and data | Python, NLP, LLM applications, semantic search, SentenceTransformers, anomaly detection, computer vision |
-| Backend | FastAPI, Flask, API route design, Pydantic, Zod, REST-style services |
-| Frontend | TypeScript, React, Next.js, TanStack Start, Vite, Tailwind CSS |
-| Cloud and deployment | Google Cloud exposure, Azure AI Services exposure, Vercel, Cloud Run concepts, Cloud Storage concepts, BigQuery concepts |
-| Product delivery | Arabic-first UX, technical writing, architecture diagrams, dashboard design, privacy-aware flows |
+## Featured work
 
-## Repository Map
+[![Raqmi — Bilingual AI Retail Support. AI agents and LLM engineering.](assets/projects/raqmi.svg)](https://github.com/Abdulel3h/llm-application-engineering-Raqmi)
 
-| Category | Repositories |
-| --- | --- |
-| Flagship AI projects | [ChatUB](https://github.com/Abdulel3h/ChatUB), [absher-insight](https://github.com/Abdulel3h/absher-insight), [architect-of-intelligence](https://github.com/Abdulel3h/architect-of-intelligence), [Stadium](https://github.com/Abdulel3h/Stadium) |
-| Portfolio system | [Abdulelah](https://github.com/Abdulel3h/Abdulelah) |
-| Hackathon and product concepts | [alpha-ai-innovations](https://github.com/Abdulel3h/alpha-ai-innovations), [midad-landing](https://github.com/Abdulel3h/midad-landing) |
-| Archived learning projects | Older static exercises, placeholders, duplicates, and incomplete scaffolds are intentionally not highlighted. |
+**[Raqmi](https://github.com/Abdulel3h/llm-application-engineering-Raqmi)** — a fictional-store notebook case study connecting bilingual support to application-authorized tools. Inspect native tool transcripts, independent ownership checks, and captured DeepSeek/ALLaM evaluations.
 
-Detailed ranking and curation notes: [Repository Strategy](./docs/repository-strategy.md)
+[![Abdulelah.de — A portfolio with an AI assistant. Product and bilingual experience.](assets/projects/portfolio.svg)](https://github.com/Abdulel3h/Abdulelah)
 
-Recruiter review sequence: [Recruiter Review Path](./docs/recruiter-review-path.md)
+**[Abdulelah AI Portfolio](https://github.com/Abdulel3h/Abdulelah)** — a Next.js portfolio that connects typed project facts, bilingual content and a server-side assistant. The engineering challenge: keeping the interface and assistant grounded in the same identity and work.
 
-## Recommended Review Path
+[![Architect — Structured AI workflow prototype. AI workflows and product systems.](assets/projects/architect.svg)](https://github.com/Abdulel3h/architect-of-intelligence)
 
-If you are evaluating my work for an AI engineering role, start here:
+**[Architect of Intelligence](https://github.com/Abdulel3h/architect-of-intelligence)** — a bilingual workflow prototype for opportunity scans and architecture generation. Zod contracts and deterministic fallbacks keep outputs usable when optional AI integrations are unavailable.
 
-1. [ChatUB](https://github.com/Abdulel3h/ChatUB) for LLM and Arabic NLP work.
-2. [absher-insight](https://github.com/Abdulel3h/absher-insight) for AI security and decision-support thinking.
-3. [architect-of-intelligence](https://github.com/Abdulel3h/architect-of-intelligence) for TypeScript AI platform architecture.
-4. [Stadium](https://github.com/Abdulel3h/Stadium) for computer vision and operational dashboards.
-5. [Abdulelah](https://github.com/Abdulel3h/Abdulelah) for the full portfolio system and technical presentation.
-6. [alpha-ai-innovations](https://github.com/Abdulel3h/alpha-ai-innovations) for Arabic AI product and advisory-service concept work.
+**Also explore:** [ChatUB](https://github.com/Abdulel3h/ChatUB), local Arabic FAQ retrieval and generation · [Absher Insight](https://github.com/Abdulel3h/absher-insight), synthetic behavioral-risk analytics · [Stadium](https://github.com/Abdulel3h/Stadium), vision-based gate monitoring.
 
-## Public Portfolio Standard
+## How I build AI
 
-I keep public claims conservative. Projects are documented with:
+![Understand the user; design the workflow; bound the model; authorize in code; evaluate behavior; ship a usable product.](assets/profile/how-i-build.svg)
 
-- What the system does
-- What architecture it uses
-- What is prototype-level
-- What needs more evaluation
-- What should be improved before production use
+Evaluation means reading the failures, too. Prototype results stay separate from production claims.
 
-Internal or employer-owned work is not used as public portfolio evidence.
+## Selected stack
 
-## Contact
+| Layer | Demonstrated in my repositories |
+|---|---|
+| AI engineering | Python · Pydantic · LLM tool calling · SentenceTransformers · Ollama |
+| Backend | FastAPI · Flask · server-side API routes · Zod |
+| Product / frontend | TypeScript · React · Next.js · TanStack Start |
+| Infrastructure | Local vLLM inference · Vercel deployment configuration |
 
-- Website: [abdulelah.de](https://abdulelah.de)
-- LinkedIn: [linkedin.com/in/abdulelah-alkhathami-853845311](https://linkedin.com/in/abdulelah-alkhathami-853845311)
-- GitHub: [github.com/Abdulel3h](https://github.com/Abdulel3h)
-- Email: [me@abdulelah.de](mailto:me@abdulelah.de)
+[Review the evidence](docs/recruiter-review-path.md) · [Repository map](docs/repository-strategy.md) · **[Let's talk](mailto:me@abdulelah.de)**

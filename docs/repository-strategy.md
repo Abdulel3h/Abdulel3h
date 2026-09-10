@@ -1,88 +1,50 @@
-# Repository Strategy
+# Repository strategy
 
-This document explains how the public GitHub profile should be interpreted by recruiters and technical reviewers.
+Audit date: 10 September 2026. Scope: the eleven public repositories returned by the account listing and public repository search, their default-branch file trees, READMEs and metadata. Implementation samples were reviewed for the six recommended pins. The visual GitHub profile and current pin order were not accessible through the available read surface.
 
-## Review Standard
+## Flagships
 
-The profile should make one message obvious within 30 seconds:
+| Project | Why feature it | Boundary |
+|---|---|---|
+| [Raqmi](https://github.com/Abdulel3h/llm-application-engineering-Raqmi) | Strongest directly inspectable LLM engineering case: native calls, independent authorization and captured evaluation evidence | Fictional-store notebook capstone; live and offline results are separate |
+| [Abdulelah](https://github.com/Abdulel3h/Abdulelah) | Product delivery: bilingual portfolio, typed content and assistant routes | A personal portfolio; avoid general production-scale claims |
+| [Architect of Intelligence](https://github.com/Abdulel3h/architect-of-intelligence) | Structured bilingual workflows with validation and fallback paths | Prototype with optional service integrations |
 
-> Abdulelah builds serious AI systems and documents them with engineering discipline.
+## Supporting work
 
-That means the public profile should prioritize:
+| Project | Why retain it in the review path |
+|---|---|
+| [ChatUB](https://github.com/Abdulel3h/ChatUB) | Local Arabic FAQ retrieval and generation; answer-quality evaluation remains future work |
+| [Absher Insight](https://github.com/Abdulel3h/absher-insight) | Synthetic security analytics and explainable behavioral rules; no government affiliation or calibrated detector performance is implied |
+| [Stadium](https://github.com/Abdulel3h/Stadium) | Vision-to-operations prototype with camera-specific calibration limits |
+| [Abdulel3h](https://github.com/Abdulel3h/Abdulel3h) | Profile, shared branding and the decision challenge; not an additional product |
 
-- AI relevance over volume
-- Architecture clarity over visual noise
-- Honest prototype boundaries over inflated claims
-- Finished documentation over unfinished experiments
-- Personal, hackathon, research, and open-source work over internal work
+## Keep public without featuring
 
-## Flagship Projects
+| Repository | Observed state | Recommendation |
+|---|---|---|
+| FlowerDatabase | Already archived; Java exercise | Preserve as early coursework |
+| LearnEnglish | Already archived; PHP/MySQL learning project | Preserve as early coursework |
+| Data-Structures-Project | Already archived; only a README | Preserve history; no pin |
+| najeh | Empty and not archived | Candidate for later archiving, or add implementation when ready; no action taken |
 
-These repositories should be pinned first.
+The previous profile linked `alpha-ai-innovations` and `midad-landing`, which were absent from both current public listings. They are removed from the curated profile path; their existence or deletion is not inferred. No repository has been deleted, archived, renamed or made public by this redesign.
 
-| Rank | Repository | Category | Why it belongs in the top six |
-| --- | --- | --- | --- |
-| 1 | `Abdulelah` | Portfolio system | Best recruiter entry point; shows Next.js, TypeScript, structured content, SEO, resumes, and portfolio assistant behavior. |
-| 2 | `ChatUB` | LLM application | Strongest Arabic NLP and local AI assistant project. |
-| 3 | `absher-insight` | AI security | Strongest AI security, anomaly-style detection, and dashboard concept. |
-| 4 | `architect-of-intelligence` | AI platform | Strongest modern TypeScript architecture for structured AI workflows. |
-| 5 | `Stadium` | Computer vision | Strongest operational computer-vision project. |
-| 6 | `alpha-ai-innovations` | AI advisory concept | Strong Arabic AI product concept; keep claims conservative unless validated. |
+## Exact recommended pin order
 
-## Supporting Projects
+1. `llm-application-engineering-Raqmi`
+2. `Abdulelah`
+3. `architect-of-intelligence`
+4. `ChatUB`
+5. `absher-insight`
+6. `Stadium`
 
-| Repository | Recommendation |
-| --- | --- |
-| `midad-landing` | Keep public as a financial-inclusion product concept, but do not pin until accessibility and screenshots improve. |
-| `Abdulel3h` | Keep public as the profile repository. |
+The available GitHub tools do not expose pin mutation. Apply this order through **Customize your pins** on the profile.
 
-## Archived Or Private Repositories
+## Positioning
 
-These repositories should not be part of the visible recruiter path. Public early-work repositories were archived on June 28, 2026 so they remain available as history without looking like current portfolio evidence.
+Suggested bio: `AI Product Builder | Arabic-first AI Systems | LLM applications, agentic workflows and trustworthy AI | abdulelah.de`
 
-| Repository | Recommendation |
-| --- | --- |
-| `Ali` | Archived; duplicate static mockup. |
-| `ali2` | Archived; duplicate static mockup. |
-| `EtecResults` | Archived; placeholder repository. |
-| `etec-results` | Archive or make private; duplicate static mockup. |
-| `ex-1` | Archived; one-file static exercise. |
-| `example` | Archived; rebuild only if it becomes a complete AI/VR case study. |
-| `FlowerDatabase` | Archived; early Java OOP console exercise. |
-| `LearnEnglish` | Archived; early PHP/MySQL learning project. |
-| `madad` | Archived; early static Arabic prototype. |
-| `midad` | Archived; merge into `midad-landing` only if the scaffold becomes useful. |
-| `Data-Structures-Project` | Archived; empty repository. |
-| Internal removed-from-portfolio repositories | Archive or make private; not suitable for public branding. |
+The profile emphasizes useful workflows, authorization outside the model, evidence and product experience. It intentionally omits unverified scale, employers, customer outcomes and broad skill claims.
 
-## Repository Quality Bar
-
-Every showcased repository should include:
-
-- Clear overview and problem statement
-- Architecture diagram or system flow
-- Quick start instructions
-- Tech stack and deployment notes
-- Screenshots or demo media when available
-- Security, privacy, or prototype limitations
-- Roadmap and future work
-- Conservative, evidence-backed claims only
-
-## Manual GitHub Actions
-
-The GitHub API available in this environment can update repository metadata, but it did not allow profile bio or pinned repository changes.
-
-Recommended profile bio:
-
-```text
-AI Engineer | LLM Applications | Cloud AI | Building production-minded AI systems
-```
-
-Recommended pinned repository order:
-
-1. `Abdulelah`
-2. `ChatUB`
-3. `absher-insight`
-4. `architect-of-intelligence`
-5. `Stadium`
-6. `alpha-ai-innovations`
+Descriptions, topics and social-preview uploads are prepared in [GitHub settings](github-settings.md). These are proposed values, not a claim that settings have been changed.
