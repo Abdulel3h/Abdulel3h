@@ -1,63 +1,74 @@
-![Abdulelah Alkhathami — AI Product Builder. Arabic-first AI Systems. Useful to people. Accountable by design.](assets/profile/hero.svg)
+<picture>
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/profile/hero-mobile-dark.svg">
+  <source media="(max-width: 600px)" srcset="assets/profile/hero-mobile-light.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/profile/hero-dark.svg">
+  <img src="assets/profile/hero-light.svg" width="800" alt="AI Product Builder — AI that earns the next step.">
+</picture>
 
-# Abdulelah Alkhathami
+**Abdulelah Alkhathami · عبدالإله الخثعمي**<br>
+Arabic-first AI, from model behavior to product experience.
 
-**AI Product Builder · Arabic-first AI Systems**<br>
-LLM Applications · Agentic Workflows · Trustworthy AI
+<picture>
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/profile/permission-mobile-dark.svg">
+  <source media="(max-width: 600px)" srcset="assets/profile/permission-mobile-light.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/profile/permission-dark.svg">
+  <img src="assets/profile/permission-light.svg" width="800" alt="The permission moment: propose, authorize, act. A request pauses at the authorization boundary.">
+</picture>
 
-I build AI products around useful workflows, explicit boundaries, and behavior we can evaluate.
+Illustrative [Raqmi](https://github.com/Abdulel3h/llm-application-engineering-Raqmi) flow. Ownership + explicit consent come before a return.
 
-[Portfolio](https://abdulelah.de) · [Projects](#featured-work) · [LinkedIn](https://linkedin.com/in/abdulelah-alkhathami-853845311) · [Contact](mailto:me@abdulelah.de)
+<details>
+<summary>Inspect the denied path: someone else’s order</summary>
 
-<p dir="rtl">أبني منتجات ذكاء اصطناعي تبدأ من احتياج المستخدم، بصلاحيات واضحة ونتائج قابلة للتقييم.</p>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/profile/denied-dark.svg">
+  <img src="assets/profile/denied-light.svg" width="400" alt="Different owner: denied. No return is created.">
+</picture>
 
-## AI Mission Control
+The model’s request grants no authority. The application blocks access; no return is created.
 
-![Interactive decision challenge: a customer requests order 5521, which the session does not own. The model proposes lookup_order. Choose your response below.](assets/profile/mission-control.svg)
+[Inspect the boundary in code](https://github.com/Abdulel3h/llm-application-engineering-Raqmi/blob/615302c3388ece90c7a94c90c802082dac47f920/raqmi_tool_calling.py) · [Read the tests](https://github.com/Abdulel3h/llm-application-engineering-Raqmi/blob/615302c3388ece90c7a94c90c802082dac47f920/tests/test_tool_calling.py)
 
-**An illustrative challenge:** the guard passes the message. The model requests another customer's order. What should the system do?
+</details>
 
-**[Allow the call →](missions/allow.md)** · **[Verify authorization →](missions/verify.md)** · **[Escalate →](missions/escalate.md)**
+### Selected work
 
-The model can request an action. **The system decides whether it is allowed.**<br>
-[How this works](missions/README.md) · [Inspect the real Raqmi implementation](https://github.com/Abdulel3h/llm-application-engineering-Raqmi/blob/main/TOOL_CALLING.md)
+<a href="https://github.com/Abdulel3h/llm-application-engineering-Raqmi">
+<picture>
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/projects/raqmi-mobile-dark.svg">
+  <source media="(max-width: 600px)" srcset="assets/projects/raqmi-mobile-light.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/projects/raqmi-dark.svg">
+  <img src="assets/projects/raqmi-light.svg" width="800" alt="Raqmi — Agentic AI. Arabic retail support with bounded tool actions.">
+</picture>
+</a>
 
-## What I build
+<a href="https://github.com/Abdulel3h/Abdulelah">
+<picture>
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/projects/portfolio-mobile-dark.svg">
+  <source media="(max-width: 600px)" srcset="assets/projects/portfolio-mobile-light.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/projects/portfolio-dark.svg">
+  <img src="assets/projects/portfolio-light.svg" width="800" alt="Abdulelah.de — AI product. A bilingual portfolio with an embedded assistant.">
+</picture>
+</a>
 
-- **AI products** — domain-aware LLM applications with clear user workflows.
-- **Agentic systems** — tool calling, bounded orchestration, authorization and escalation paths.
-- **Trustworthy behavior** — structured outputs, guardrails and inspectable evaluations.
-- **Product experience** — Arabic/English interfaces that make complex tasks approachable.
+<a href="https://github.com/Abdulel3h/ChatUB">
+<picture>
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/projects/chatub-mobile-dark.svg">
+  <source media="(max-width: 600px)" srcset="assets/projects/chatub-mobile-light.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/projects/chatub-dark.svg">
+  <img src="assets/projects/chatub-light.svg" width="800" alt="ChatUB — Local AI prototype. Arabic academic assistance with FAQ retrieval and Ollama.">
+</picture>
+</a>
 
-## Featured work
+### What I build
 
-[![Raqmi — Bilingual AI Retail Support. AI agents and LLM engineering.](assets/projects/raqmi.svg)](https://github.com/Abdulel3h/llm-application-engineering-Raqmi)
+- **AI products** — Useful workflows around a model.
+- **Agentic systems** — Tools with explicit boundaries.
+- **Trustworthy AI** — Authorization, guardrails, and evaluation.
+- **Product experience** — Clear interfaces in Arabic and English.
 
-**[Raqmi](https://github.com/Abdulel3h/llm-application-engineering-Raqmi)** — a fictional-store notebook case study connecting bilingual support to application-authorized tools. Inspect native tool transcripts, independent ownership checks, and captured DeepSeek/ALLaM evaluations.
+**AI** · Python · Pydantic · Ollama · Sentence Transformers<br>
+**Backend** · FastAPI · Flask<br>
+**Product** · TypeScript · Next.js · React · Tailwind CSS
 
-[![Abdulelah.de — A portfolio with an AI assistant. Product and bilingual experience.](assets/projects/portfolio.svg)](https://github.com/Abdulel3h/Abdulelah)
-
-**[Abdulelah AI Portfolio](https://github.com/Abdulel3h/Abdulelah)** — a Next.js portfolio that connects typed project facts, bilingual content and a server-side assistant. The engineering challenge: keeping the interface and assistant grounded in the same identity and work.
-
-[![Architect — Structured AI workflow prototype. AI workflows and product systems.](assets/projects/architect.svg)](https://github.com/Abdulel3h/architect-of-intelligence)
-
-**[Architect of Intelligence](https://github.com/Abdulel3h/architect-of-intelligence)** — a bilingual workflow prototype for opportunity scans and architecture generation. Zod contracts and deterministic fallbacks keep outputs usable when optional AI integrations are unavailable.
-
-**Also explore:** [ChatUB](https://github.com/Abdulel3h/ChatUB), local Arabic FAQ retrieval and generation · [Absher Insight](https://github.com/Abdulel3h/absher-insight), synthetic behavioral-risk analytics · [Stadium](https://github.com/Abdulel3h/Stadium), vision-based gate monitoring.
-
-## How I build AI
-
-![Understand the user; design the workflow; bound the model; authorize in code; evaluate behavior; ship a usable product.](assets/profile/how-i-build.svg)
-
-Evaluation means reading the failures, too. Prototype results stay separate from production claims.
-
-## Selected stack
-
-| Layer | Demonstrated in my repositories |
-|---|---|
-| AI engineering | Python · Pydantic · LLM tool calling · SentenceTransformers · Ollama |
-| Backend | FastAPI · Flask · server-side API routes · Zod |
-| Product / frontend | TypeScript · React · Next.js · TanStack Start |
-| Infrastructure | Local vLLM inference · Vercel deployment configuration |
-
-[Review the evidence](docs/recruiter-review-path.md) · [Repository map](docs/repository-strategy.md) · **[Let's talk](mailto:me@abdulelah.de)**
+[Explore my portfolio](https://abdulelah.de) · [LinkedIn](https://linkedin.com/in/abdulelah-alkhathami-853845311) · [Email](mailto:me@abdulelah.de)

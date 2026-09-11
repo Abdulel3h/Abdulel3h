@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="152" viewBox="0 0 800 152" role="img" aria-labelledby="title desc">
+<title id="title">ChatUB — LOCAL AI / PROTOTYPE. Arabic FAQs. Local AI assistance.</title><desc id="desc">Open the public ChatUB repository. Arabic FAQs. Local AI assistance.</desc>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#f2f1e8}</style>
+<rect width="800" height="152" rx="10" fill="#211b16"/>
+<text x="30" y="47" font-size="39" font-weight="700">ChatUB</text><text x="30" y="79" font-size="22" font-weight="400" style="fill:#b3bbaa">LOCAL AI / PROTOTYPE</text><text x="30" y="126" font-size="28" font-weight="400">Arabic FAQs. Local AI assistance.</text><g transform="translate(659 19) scale(1)" stroke="#e4b899" stroke-width="2.4" fill="none"><circle cx="8" cy="20" r="5"/><circle cx="8" cy="51" r="5"/><circle cx="8" cy="82" r="5"/><path d="M13 20H35L58 51H106 M13 51H106 M13 82H35L58 51"/><rect x="81" y="34" width="30" height="34" fill="none"/></g>
+</svg>
