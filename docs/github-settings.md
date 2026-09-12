@@ -1,63 +1,73 @@
-# GitHub settings · apply after design approval
+# GitHub settings to apply
 
-This branch changes presentation files only. Global profile/repository settings remain a manual review step. The connected tools available in this session do not expose setters for bio, pins, About/topics or social-preview images. Do not merge or apply these settings merely to inspect the branch.
+The current tool surface supports Git contents and refs, but does not expose repository description/topic updates, pin editing, profile bio editing or social-preview upload. **No settings changes are claimed.** The following values are ready to paste into GitHub's UI.
 
 ## Profile
 
-- Name: `Abdulelah Alkhathami`
-- Bio: `AI Product Builder · Arabic-first systems · Bounded tools, evaluation & thoughtful UX.`
-- Website: `https://abdulelah.de`
-- Public contact: `me@abdulelah.de`
-- LinkedIn: `https://linkedin.com/in/abdulelah-alkhathami-853845311`
-- Location: keep the existing public location; no location change is necessary.
+Bio: `AI Product Builder | Arabic-first AI Systems | LLM applications, agentic workflows and trustworthy AI | abdulelah.de`
 
-Use profile → **Edit profile** for name, bio, website and public links. Keep email visibility intentional; the README uses the already-public contact address.
+Website: https://abdulelah.de
 
-## Exact pin order
+Pins: Raqmi → Abdulelah → architect-of-intelligence → ChatUB → absher-insight → Stadium. The exact Raqmi repository name is `llm-application-engineering-Raqmi`.
 
-Profile → **Customize your pins** → select the public repositories below → **Save pins**; drag the handles to this order.
+## Repository About fields
 
-| Slot | Repository | Reason |
-|---|---|---|
-| 1 | `llm-application-engineering-Raqmi` | Strongest inspectable AI-system evidence |
-| 2 | `Abdulelah` | Product interface and bilingual assistant |
-| 3 | `ChatUB` | Arabic local-LLM prototype |
-| 4 | `absher-insight` | Backend and synthetic analytics breadth |
-| 5 | `Stadium` | Computer-vision system concept |
-| 6 | `Abdulel3h` | Optional: original GitHub-native design artifact after this branch is approved |
+Use the gear beside **About** on each repository homepage. Descriptions below deliberately avoid unverified deployment or performance claims. Topics are based on inspected files.
 
-There are five public project repositories, so slot six is explicitly the profile artifact, not an invented sixth AI product. Leave it empty if you want projects only. The custom README features only the first three.
+### Abdulel3h
 
-## About, topics and repository first screens
+**Description:** AI Product Builder exploring Arabic-first AI systems, bounded agent workflows and evidence-driven product engineering.
 
-For each repository: open its **Code** page → gear next to **About** → enter the values below → **Save changes**. Keep the repository names/URLs stable. Display names can be human-readable without renaming repos.
+**Topics:** `ai`, `arabic-ai`, `llm`, `ai-agents`, `portfolio`, `profile-readme`
 
-| Repository | Final About description | Topics | Homepage |
-|---|---|---|---|
-| `llm-application-engineering-Raqmi` | Arabic-first retail AI study with native tool calling, application-owned authorization, explicit consent, and evaluation. | `arabic-nlp`, `llm-applications`, `tool-calling`, `authorization`, `guardrails`, `evaluation`, `pydantic` | Leave blank until a dedicated public project page is verified. |
-| `Abdulelah` | Bilingual AI-builder portfolio with case studies and an embedded assistant, built with Next.js and TypeScript. | `portfolio`, `arabic`, `ai-assistant`, `nextjs`, `react`, `typescript` | `https://www.abdulelah.de` |
-| `ChatUB` | Arabic academic-assistance prototype using FAQ retrieval, multilingual embeddings, Flask, and local Ollama generation. | `arabic-nlp`, `semantic-search`, `ollama`, `flask`, `ai-assistant`, `prototype` | Keep existing public portfolio case-study URL; validate it before changing. |
-| `absher-insight` | Independent security-analytics prototype with FastAPI, synthetic events, and behavioral rules. | `fastapi`, `synthetic-data`, `security-analytics`, `dashboard`, `prototype` | Keep existing public portfolio case-study URL; validate it before changing. |
-| `Stadium` | Computer-vision gate-monitoring prototype using YOLO, OpenCV, Flask, and frame-level crowd counts. | `computer-vision`, `yolo`, `opencv`, `flask`, `prototype` | Leave blank; no verified standalone deployment. |
-| `Abdulel3h` | Abdulelah Alkhathami — AI Product Builder. Arabic-first systems, bounded actions, and thoughtful product UX. | `github-profile`, `ai-products`, `arabic`, `svg`, `portfolio` | `https://abdulelah.de` |
+### llm-application-engineering-Raqmi
 
-Current-state findings: Raqmi's About/topics/homepage are empty. The other four project descriptions and topics already carry useful positioning, but prototype scope can be clearer; the portfolio's current AI-engineer label can align with the new product-builder identity. Current project README heroes still belong to the previous visual system. Their code/results/README files are untouched by this profile-only branch. After approval, lead each project README with its display name, one value sentence, explicit scope, and a compact source/demo entry; use the matching artwork rather than stacking a giant hero over a repeated paragraph.
+**Description:** Arabic-first retail AI case study with native tool calling, application authorization, guardrails and captured DeepSeek/ALLaM evaluations.
 
-## Social-preview uploads
+**Topics:** `ai`, `llm`, `ai-agents`, `arabic-ai`, `tool-calling`, `authorization`, `guardrails`, `structured-outputs`, `llm-evaluation`, `python`, `pydantic`, `vllm`
 
-Each PNG is 1280 × 640. Repository → **Settings** → **General** → **Social preview** → **Edit** → **Upload an image** → choose the matching PNG from this branch. This is a repository social preview; it does not replace the GitHub account avatar or create a profile-level social-card setting.
+### Abdulelah
 
-| Repository | File |
+**Description:** Bilingual Next.js portfolio with typed project content, case studies and a server-side AI assistant.
+
+**Topics:** `portfolio`, `nextjs`, `typescript`, `react`, `ai-assistant`, `arabic-ai`
+
+### architect-of-intelligence
+
+**Description:** Bilingual AI workflow prototype with opportunity scans, architecture generation, Zod validation and deterministic fallbacks.
+
+**Topics:** `ai`, `llm`, `ai-agents`, `typescript`, `react`, `tanstack-start`, `zod`, `structured-outputs`
+
+### ChatUB
+
+**Description:** Local Arabic academic assistant using university FAQ retrieval, multilingual embeddings, Flask and Ollama.
+
+**Topics:** `arabic-ai`, `semantic-search`, `rag`, `local-ai`, `ollama`, `python`, `flask`, `sentence-transformers`
+
+### absher-insight
+
+**Description:** Synthetic behavioral-risk analytics prototype with FastAPI, explainable rules and operational dashboards.
+
+**Topics:** `synthetic-data`, `security-analytics`, `dashboard`, `fastapi`, `python`, `rule-based-system`
+
+### Stadium
+
+**Description:** Computer-vision gate-monitoring prototype connecting YOLO person detection to crowding rules and a Flask dashboard.
+
+**Topics:** `computer-vision`, `crowd-monitoring`, `flask`, `opencv`, `python`, `yolo`
+
+## Social previews
+
+Open each repository's **Settings → General → Social preview → Edit → Upload an image**. These PNGs are 1280 × 640 and below 1 MB; SVGs remain the editable sources.
+
+| Repository | Upload file |
 |---|---|
-| `Abdulel3h` | [profile.png](../assets/social/profile.png) |
-| `llm-application-engineering-Raqmi` | [raqmi.png](../assets/social/raqmi.png) |
-| `Abdulelah` | [portfolio.png](../assets/social/portfolio.png) |
-| `ChatUB` | [chatub.png](../assets/social/chatub.png) |
-| `absher-insight` | [absher-insight.png](../assets/social/absher-insight.png) |
-| `Stadium` | [stadium.png](../assets/social/stadium.png) |
+| Profile | [assets/profile/social-preview.png](../assets/profile/social-preview.png) |
+| [llm-application-engineering-Raqmi](https://github.com/Abdulel3h/llm-application-engineering-Raqmi) | [assets/branding/social-preview.png](https://github.com/Abdulel3h/llm-application-engineering-Raqmi/blob/main/assets/branding/social-preview.png) |
+| [Abdulelah](https://github.com/Abdulel3h/Abdulelah) | [assets/branding/social-preview.png](https://github.com/Abdulel3h/Abdulelah/blob/main/assets/branding/social-preview.png) |
+| [architect-of-intelligence](https://github.com/Abdulel3h/architect-of-intelligence) | [assets/branding/social-preview.png](https://github.com/Abdulel3h/architect-of-intelligence/blob/main/assets/branding/social-preview.png) |
+| [ChatUB](https://github.com/Abdulel3h/ChatUB) | [assets/branding/social-preview.png](https://github.com/Abdulel3h/ChatUB/blob/main/assets/branding/social-preview.png) |
+| [absher-insight](https://github.com/Abdulel3h/absher-insight) | [assets/branding/social-preview.png](https://github.com/Abdulel3h/absher-insight/blob/main/assets/branding/social-preview.png) |
+| [Stadium](https://github.com/Abdulel3h/Stadium) | [assets/branding/social-preview.png](https://github.com/Abdulel3h/Stadium/blob/main/assets/branding/social-preview.png) |
 
-## Review and eventual activation
-
-Review [the branch README](https://github.com/Abdulel3h/Abdulel3h/blob/design/profile-v2/README.md) and [design report](redesign-report.md). A non-default branch README cannot replace the account homepage. Only after separate approval: merge the reviewed branch into `main`, then apply the UI settings above. No PR merge, force push or default-branch change is part of this delivery.
-
-Primary UI references: [pinning items](https://docs.github.com/en/account-and-profile/how-tos/profile-customization/pinning-items-to-your-profile), [repository social previews](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/customizing-your-repositorys-social-media-preview).
+No Actions are necessary: the decision challenge uses ordinary Markdown navigation. Existing repository workflows remain untouched.

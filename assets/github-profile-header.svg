@@ -1,0 +1,38 @@
+<svg width="1200" height="360" viewBox="0 0 1200 360" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Abdulelah Alkhathami AI Engineer profile header</title>
+  <desc id="desc">A premium technical header describing Abdulelah Alkhathami as an AI Engineer focused on LLM applications, Cloud AI, and applied machine learning.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="360" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1220"/>
+      <stop offset="0.52" stop-color="#102033"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="84" y1="76" x2="1064" y2="252" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#38BDF8"/>
+      <stop offset="0.48" stop-color="#22C55E"/>
+      <stop offset="1" stop-color="#F59E0B"/>
+    </linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" stroke="#E5E7EB" stroke-opacity="0.055" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="360" rx="28" fill="url(#bg)"/>
+  <rect width="1200" height="360" rx="28" fill="url(#grid)"/>
+  <path d="M84 250 C210 100 328 126 464 184 C602 243 708 106 838 132 C958 156 1012 238 1116 106" stroke="url(#accent)" stroke-width="5" stroke-linecap="round" opacity="0.88"/>
+  <path d="M96 262 C214 148 334 164 472 222 C602 276 720 178 844 198 C954 216 1012 264 1098 184" stroke="#93C5FD" stroke-opacity="0.22" stroke-width="2" stroke-linecap="round"/>
+  <g opacity="0.95">
+    <rect x="72" y="70" width="1056" height="220" rx="22" fill="#020617" fill-opacity="0.34" stroke="#E5E7EB" stroke-opacity="0.12"/>
+    <text x="104" y="132" fill="#E5E7EB" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="24" font-weight="600" letter-spacing="2">ABDULELAH ALKHATHAMI</text>
+    <text x="104" y="188" fill="#FFFFFF" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="54" font-weight="750">AI Engineer</text>
+    <text x="104" y="235" fill="#CBD5E1" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="27" font-weight="500">LLM Applications | Cloud AI | Applied Machine Learning</text>
+    <text x="104" y="270" fill="#94A3B8" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="18">Context-aware assistants, AI security analytics, computer vision, and recruiter-ready system documentation.</text>
+  </g>
+  <g transform="translate(874 96)">
+    <rect x="0" y="0" width="210" height="148" rx="18" fill="#0F172A" fill-opacity="0.76" stroke="#38BDF8" stroke-opacity="0.28"/>
+    <circle cx="46" cy="48" r="9" fill="#38BDF8"/>
+    <circle cx="46" cy="100" r="9" fill="#22C55E"/>
+    <circle cx="162" cy="74" r="9" fill="#F59E0B"/>
+    <path d="M55 50 L153 74 L55 98" stroke="#E5E7EB" stroke-opacity="0.58" stroke-width="2"/>
+    <text x="24" y="132" fill="#CBD5E1" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="16">systems over demos</text>
+  </g>
+</svg>
