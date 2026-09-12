@@ -91,10 +91,10 @@ The four-persona review below is a design simulation, not real visitor testing o
 
 ## 19–20. Commit and branch
 
-Base main commit: `e4933457a9510c4d2bbdecc518cae789be6d0bfc`, retrieved from GitHub and verified against the local checkout before branch creation. The complete prepared local commit is identified in the delivery message. GitHub rejected the remote write during this session after its usage limit was reached, so that commit is not currently reachable from the remote branch. The remote `design/profile-v2` ref still points to the base commit.
+Base main commit: `e4933457a9510c4d2bbdecc518cae789be6d0bfc`, retrieved from GitHub and verified against the local checkout before branch creation. Profile v2 was published to `design/profile-v2` in commit `6829d088f6a7f0efde5bea00407252855e2e1210`.
 
-Branch target: [design/profile-v2](https://github.com/Abdulel3h/Abdulel3h/tree/design/profile-v2). The repository URL is included for the eventual preview; the [local patch](../profile-v2.patch) and [bundle](../profile-v2.bundle) are the reviewable copies until the remote write is available. Important SVG links are listed above because a non-default branch cannot replace GitHub's account homepage.
+During publication, `main` briefly advanced to that design commit. It was immediately restored with the forward revert commit `b356acfaab4c84994f47cde4490a6ce6bb83045a`; its tree is byte-for-byte the same as the original base tree. History was preserved and no force update was used. The redesign remains isolated on [design/profile-v2](https://github.com/Abdulel3h/Abdulel3h/tree/design/profile-v2), where GitHub's rendered README was inspected successfully. Because it is not the default branch, it does not replace the account homepage.
 
 ## 21. Manual changes remaining
 
-Review the branch first. After separate approval, merge it to `main`, edit the public bio/website, set the pin order, apply About/topics recommendations and upload each matching social PNG through repository settings. [Exact UI steps and values](github-settings.md). No merge or direct push to main was performed.
+Review the branch first. After separate approval, merge it to `main`, edit the public bio/website, set the pin order, apply About/topics recommendations and upload each matching social PNG through repository settings. [Exact UI steps and values](github-settings.md). The unintended `main` update has already been neutralized by the history-preserving revert above; the current `main` content is the prior profile.

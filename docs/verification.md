@@ -1,6 +1,6 @@
 # Verification record
 
-Reviewed 10 September 2026. Presentation-only checks; application test suites were not rerun because their code and results are unchanged.
+Reviewed 12 September 2026. Presentation-only checks; application test suites were not rerun because their code and results are unchanged.
 
 | Check | Result / scope |
 |---|---|
@@ -17,11 +17,11 @@ Reviewed 10 September 2026. Presentation-only checks; application test suites we
 | Structure | Three linked project cards; one native disclosure; four capabilities; ten technologies. Relative file references resolve within this branch. |
 | Mobile / themes | [Final mobile artwork](design/final-mobile.png) rendered and visually inspected in light and dark palettes; text remains in bounds. Opaque SVG backgrounds preserve contrast even if GitHub's selected theme differs from browser preference. |
 | Local HTML fixture | Cloud browser policy blocked local-file navigation. No alternate local-browser route was attempted. Static SVG rendering and published-branch inspection are separate checks. |
-| Remote rendering | Not available in this session because the GitHub write was rejected by the account usage limit; the remote redesign ref remains at the base commit. |
-| History / scope | No application source, historical evaluation result, repository visibility or archive setting changed. No GitHub Actions added. No force push, merge or direct push to main. |
+| Remote rendering | The published branch README was inspected in GitHub. The hero, bilingual identity, permission illustration, three cards and supporting sections render; the native disclosure opens and exposes the denied state plus both evidence links. |
+| History / scope | No application source, historical evaluation result, repository visibility or archive setting changed. No GitHub Actions added. An unintended `main` advance was corrected with forward revert `b356acfaab4c84994f47cde4490a6ce6bb83045a`; no force update or history rewrite was used. |
 
 The branch cannot render as the account's live homepage until it becomes the default-branch README. Review it as a repository README and inspect the linked light/dark/mobile assets. Browser preview is an approximation of the eventual placement because GitHub adds its own profile chrome and pinned repositories.
 
 ## Publication state
 
-The local commit identified in the delivery message contains the verified files. Remote publication is pending until the GitHub connector usage limit clears; `main` remains unchanged.
+The redesign is published on `design/profile-v2` from commit `6829d088f6a7f0efde5bea00407252855e2e1210`. The current `main` ref is corrective commit `b356acfaab4c84994f47cde4490a6ce6bb83045a`; its tree matches the pre-redesign base tree `9eb71253016409df34196540865a77b0541f988f`. The review branch remains separate and the account homepage therefore retains the prior design.
