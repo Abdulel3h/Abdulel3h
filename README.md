@@ -1,63 +1,66 @@
-![Abdulelah Alkhathami — AI Product Builder. Arabic-first AI Systems. Useful to people. Accountable by design.](assets/profile/hero.svg)
+![Abdulelah Alkhathami — I engineer AI systems that think, act, and earn trust.](assets/profile/hero.svg)
 
-# Abdulelah Alkhathami
+<div align="center">
+
+### Abdulelah Alkhathami · عبدالإله الخثعمي
 
 **AI Product Builder · Arabic-first AI Systems**<br>
-LLM Applications · Agentic Workflows · Trustworthy AI
+I turn complex workflows into useful, accountable AI products.
 
-I build AI products around useful workflows, explicit boundaries, and behavior we can evaluate.
+[**Portfolio**](https://abdulelah.de) &nbsp;·&nbsp; [**LinkedIn**](https://linkedin.com/in/abdulelah-alkhathami-853845311) &nbsp;·&nbsp; [**Email**](mailto:me@abdulelah.de)
 
-[Portfolio](https://abdulelah.de) · [Projects](#featured-work) · [LinkedIn](https://linkedin.com/in/abdulelah-alkhathami-853845311) · [Contact](mailto:me@abdulelah.de)
+<p dir="rtl">أبني أنظمة ذكاء اصطناعي تحوّل التعقيد إلى تجربة واضحة، مفيدة، وجديرة بالثقة.</p>
 
-<p dir="rtl">أبني منتجات ذكاء اصطناعي تبدأ من احتياج المستخدم، بصلاحيات واضحة ونتائج قابلة للتقييم.</p>
+</div>
 
-## AI Mission Control
+## Systems, not demos
 
-![Interactive decision challenge: a customer requests order 5521, which the session does not own. The model proposes lookup_order. Choose your response below.](assets/profile/mission-control.svg)
+![A signal moves from user intent through reasoning, independent authorization, action, and verification.](assets/profile/system-flow.svg)
 
-**An illustrative challenge:** the guard passes the message. The model requests another customer's order. What should the system do?
+I build around the whole decision path: understand the user, ground the model, authorize every sensitive action in application code, then evaluate the outcome. The LLM may propose an action; **the product remains responsible for whether it happens.**
 
-**[Allow the call →](missions/allow.md)** · **[Verify authorization →](missions/verify.md)** · **[Escalate →](missions/escalate.md)**
+## Selected systems
 
-The model can request an action. **The system decides whether it is allowed.**<br>
-[How this works](missions/README.md) · [Inspect the real Raqmi implementation](https://github.com/Abdulel3h/llm-application-engineering-Raqmi/blob/main/TOOL_CALLING.md)
+<a href="https://github.com/Abdulel3h/llm-application-engineering-Raqmi">
+  <img src="assets/projects/raqmi.svg" width="100%" alt="Raqmi — agentic AI with authorization outside the LLM">
+</a>
 
-## What I build
+**[Raqmi](https://github.com/Abdulel3h/llm-application-engineering-Raqmi)** — a bilingual retail-support case study with native tool calls, structured outputs, application-owned authorization, guardrails, and captured evaluation evidence.
 
-- **AI products** — domain-aware LLM applications with clear user workflows.
-- **Agentic systems** — tool calling, bounded orchestration, authorization and escalation paths.
-- **Trustworthy behavior** — structured outputs, guardrails and inspectable evaluations.
-- **Product experience** — Arabic/English interfaces that make complex tasks approachable.
+<a href="https://github.com/Abdulel3h/Abdulelah">
+  <img src="assets/projects/portfolio.svg" width="100%" alt="Abdulelah.de — a bilingual AI portfolio">
+</a>
 
-## Featured work
+**[Abdulelah.de](https://github.com/Abdulel3h/Abdulelah)** — a bilingual Next.js portfolio where typed project facts and a server-side AI assistant share one source of truth.
 
-[![Raqmi — Bilingual AI Retail Support. AI agents and LLM engineering.](assets/projects/raqmi.svg)](https://github.com/Abdulel3h/llm-application-engineering-Raqmi)
+<a href="https://github.com/Abdulel3h/ChatUB">
+  <img src="assets/projects/chatub.svg" width="100%" alt="ChatUB — local Arabic retrieval and generation">
+</a>
 
-**[Raqmi](https://github.com/Abdulel3h/llm-application-engineering-Raqmi)** — a fictional-store notebook case study connecting bilingual support to application-authorized tools. Inspect native tool transcripts, independent ownership checks, and captured DeepSeek/ALLaM evaluations.
+**[ChatUB](https://github.com/Abdulel3h/ChatUB)** — a local Arabic academic-assistance prototype combining FAQ retrieval, semantic similarity, and Ollama-based generation.
 
-[![Abdulelah.de — A portfolio with an AI assistant. Product and bilingual experience.](assets/projects/portfolio.svg)](https://github.com/Abdulel3h/Abdulelah)
+## How I engineer the product
 
-**[Abdulelah AI Portfolio](https://github.com/Abdulel3h/Abdulelah)** — a Next.js portfolio that connects typed project facts, bilingual content and a server-side assistant. The engineering challenge: keeping the interface and assistant grounded in the same identity and work.
+![A continuous sculptural system connects experience, application, intelligence, and infrastructure.](assets/profile/system-layers.svg)
 
-[![Architect — Structured AI workflow prototype. AI workflows and product systems.](assets/projects/architect.svg)](https://github.com/Abdulel3h/architect-of-intelligence)
-
-**[Architect of Intelligence](https://github.com/Abdulel3h/architect-of-intelligence)** — a bilingual workflow prototype for opportunity scans and architecture generation. Zod contracts and deterministic fallbacks keep outputs usable when optional AI integrations are unavailable.
-
-**Also explore:** [ChatUB](https://github.com/Abdulel3h/ChatUB), local Arabic FAQ retrieval and generation · [Absher Insight](https://github.com/Abdulel3h/absher-insight), synthetic behavioral-risk analytics · [Stadium](https://github.com/Abdulel3h/Stadium), vision-based gate monitoring.
-
-## How I build AI
-
-![Understand the user; design the workflow; bound the model; authorize in code; evaluate behavior; ship a usable product.](assets/profile/how-i-build.svg)
-
-Evaluation means reading the failures, too. Prototype results stay separate from production claims.
-
-## Selected stack
-
-| Layer | Demonstrated in my repositories |
+| Layer | What I work with |
 |---|---|
-| AI engineering | Python · Pydantic · LLM tool calling · SentenceTransformers · Ollama |
-| Backend | FastAPI · Flask · server-side API routes · Zod |
-| Product / frontend | TypeScript · React · Next.js · TanStack Start |
-| Infrastructure | Local vLLM inference · Vercel deployment configuration |
+| **Experience** | Arabic / English UX · workflow design · clear failure states |
+| **Application** | Python · FastAPI · TypeScript · Next.js · React · Pydantic · Zod |
+| **Intelligence** | LLM tool calling · RAG · embeddings · structured outputs · evaluation |
+| **Infrastructure** | PostgreSQL · pgvector · Redis · Docker · local inference |
 
-[Review the evidence](docs/recruiter-review-path.md) · [Repository map](docs/repository-strategy.md) · **[Let's talk](mailto:me@abdulelah.de)**
+## Engineering principles
+
+- **Useful before impressive.** Start with the real workflow and the person using it.
+- **Trust is engineered.** Authorization, evidence, observability, and human control live outside the prompt.
+- **Complexity stays behind the interface.** The system can be sophisticated; the experience should feel simple.
+- **Evaluation includes failure.** A prototype result is not a production claim.
+
+<div align="center">
+
+### Building the next generation of trusted AI products—from Saudi Arabia to the world.
+
+[**Explore my work**](https://abdulelah.de) &nbsp;·&nbsp; [**Start a conversation**](mailto:me@abdulelah.de)
+
+</div>

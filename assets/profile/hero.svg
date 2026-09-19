@@ -1,5 +1,58 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
-<title id="title">Abdulelah Alkhathami — AI Product Builder</title><desc id="desc">Arabic-first AI systems. Useful to people. Accountable by design. The model proposes; application policy decides whether a tool may act.</desc>
-<defs><radialGradient id="glow" cx="90%" cy="0%" r="90%"><stop stop-color="#14364D"/><stop offset="1" stop-color="#080F1D"/></radialGradient><pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#A5D9FF" stroke-opacity=".045"/></pattern></defs>
-<style>.signal{stroke-dasharray:10 14;animation:flow 5s linear infinite}@keyframes flow{to{stroke-dashoffset:-96}}@media(prefers-reduced-motion:reduce){.signal{animation:none}}</style><rect width="800" height="500" rx="28" fill="url(#glow)"/><rect width="800" height="500" rx="28" fill="url(#grid)"/><rect x="1" y="1" width="798" height="498" rx="27" fill="none" stroke="#263A50"/>
-<g font-family="Arial, Helvetica, sans-serif"><text x="48" y="66" fill="#B3C4D7" font-size="32" font-weight="600" >ABDULELAH ALKHATHAMI</text><text x="48" y="145" fill="#F4F8FF" font-size="60" font-weight="700" >AI Product Builder</text><text x="48" y="204" fill="#69DFFF" font-size="40" font-weight="500" >Arabic-first AI Systems</text><text x="48" y="266" fill="#F4F8FF" font-size="36" font-weight="400" >Useful to people.</text><text x="48" y="312" fill="#F4F8FF" font-size="36" font-weight="400" >Accountable by design.</text><path d="M80 389H718" stroke="#69DFFF" stroke-width="2" class="signal"/><rect x="48" y="361" width="224" height="58" rx="18" fill="#101E31" stroke="#263A50"/><text x="160" y="399" fill="#F4F8FF" font-size="26" font-weight="500" text-anchor="middle">Model proposes</text><rect x="288" y="361" width="224" height="58" rx="18" fill="#101E31" stroke="#263A50"/><text x="400" y="399" fill="#F4F8FF" font-size="26" font-weight="500" text-anchor="middle">Policy decides</text><rect x="528" y="361" width="224" height="58" rx="18" fill="#101E31" stroke="#263A50"/><text x="640" y="399" fill="#F4F8FF" font-size="26" font-weight="500" text-anchor="middle">Tool acts</text><text x="48" y="466" fill="#B3C4D7" font-size="24" font-weight="600" >LLM APPLICATIONS / AGENTIC WORKFLOWS</text></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">Abdulelah Alkhathami — AI systems in motion</title><desc id="desc">A luminous retro-futuristic neural orbit accompanies the statement: I engineer AI systems that think, act, and earn trust.</desc>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#030706"/><stop offset=".52" stop-color="#06100e"/><stop offset="1" stop-color="#020504"/></linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#46f6ff" stop-opacity=".95"/><stop offset=".28" stop-color="#22e3c5" stop-opacity=".62"/><stop offset=".64" stop-color="#c8ff54" stop-opacity=".84"/><stop offset="1" stop-color="#3b65ff" stop-opacity=".76"/></linearGradient>
+    <linearGradient id="glassReverse" x1="1" y1="0" x2="0" y2="1"><stop stop-color="#c8ff54" stop-opacity=".94"/><stop offset=".45" stop-color="#22e3c5" stop-opacity=".62"/><stop offset="1" stop-color="#3b65ff" stop-opacity=".82"/></linearGradient>
+    <radialGradient id="orb" cx="34%" cy="25%" r="74%"><stop stop-color="#efffff"/><stop offset=".16" stop-color="#46f6ff"/><stop offset=".52" stop-color="#22e3c5" stop-opacity=".75"/><stop offset=".78" stop-color="#3b65ff" stop-opacity=".5"/><stop offset="1" stop-color="#031713" stop-opacity=".25"/></radialGradient>
+    <radialGradient id="halo"><stop stop-color="#22e3c5" stop-opacity=".35"/><stop offset="1" stop-color="#22e3c5" stop-opacity="0"/></radialGradient>
+    <filter id="softGlow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="13" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="smallGlow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".88" numOctaves="3" seed="31" result="noise"/><feColorMatrix in="noise" type="saturate" values="0" result="mono"/><feComponentTransfer in="mono"><feFuncA type="table" tableValues="0 .12"/></feComponentTransfer></filter>
+    <pattern id="microGrid" width="42" height="42" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#9fffea" opacity=".1"/></pattern>
+
+  </defs>
+  <style>
+    text { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; }
+    .drift { transform-box: fill-box; transform-origin: center; animation: drift 7s ease-in-out infinite; }
+    .drift-alt { transform-box: fill-box; transform-origin: center; animation: driftAlt 9s ease-in-out infinite; }
+    .spin { transform-box: fill-box; transform-origin: center; animation: spin 18s linear infinite; }
+    .pulse { animation: pulse 2.8s ease-in-out infinite; }
+    .scan { stroke-dasharray: 6 18; animation: scan 3.2s linear infinite; }
+    .blink { animation: blink 2.4s ease-in-out infinite; }
+    @keyframes drift { 0%,100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-10px) rotate(1.5deg); } }
+    @keyframes driftAlt { 0%,100% { transform: translate(0,0) rotate(1deg); } 50% { transform: translate(8px,-7px) rotate(-1.3deg); } }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes pulse { 0%,100% { opacity:.42; } 50% { opacity:1; } }
+    @keyframes scan { to { stroke-dashoffset:-96; } }
+    @keyframes blink { 0%,100% { opacity:.32; } 50% { opacity:1; } }
+    @media (prefers-reduced-motion: reduce) { .drift,.drift-alt,.spin,.pulse,.scan,.blink { animation:none !important; } }
+  </style>
+  <rect width="1200" height="520" rx="26" fill="url(#bg)"/>
+  <rect width="1200" height="520" rx="26" fill="url(#microGrid)"/>
+  <rect x="1" y="1" width="1198" height="518" rx="25" fill="none" stroke="#17352f"/>
+  <text x="54" y="47" fill="#91aaa3" font-size="13" font-weight="700" letter-spacing="3.2">ABDULELAH / AI SYSTEMS</text>
+  <circle cx="1144" cy="43" r="4" fill="#c8ff54" class="blink"/>
+  <text x="1128" y="48" text-anchor="end" fill="#91aaa3" font-size="11" letter-spacing="2">LIVE</text>
+  <text x="54" y="132" fill="#f4fff9" font-size="55" font-weight="750" letter-spacing="-1.5">I ENGINEER</text>
+  <text x="54" y="202" fill="url(#glass)" font-size="73" font-weight="850" letter-spacing="-2.5">AI SYSTEMS</text>
+  <text x="58" y="253" fill="#91aaa3" font-size="19" letter-spacing="2.4">THAT THINK  ·  ACT  ·  EARN TRUST</text>
+  <text x="58" y="319" fill="#f4fff9" font-size="19">AI Agents  /  Voice AI  /  RAG  /  Product Engineering</text>
+  <path d="M58 353H524" stroke="#1a4c43"/>
+  <text x="58" y="391" fill="#91aaa3" font-size="15">Arabic-first products. Accountable by design.</text>
+  <g transform="translate(58 429)"><rect width="164" height="38" rx="19" fill="#0b1b18" stroke="#24564c"/><circle cx="20" cy="19" r="5" fill="#c8ff54" class="pulse"/><text x="35" y="24" fill="#f4fff9" font-size="13" font-weight="700" letter-spacing="1.2">BUILDING NOW</text></g>
+  <ellipse cx="914" cy="264" rx="256" ry="232" fill="url(#halo)" opacity=".7"/>
+  <g class="spin" opacity=".54"><ellipse cx="914" cy="264" rx="208" ry="155" fill="none" stroke="#2a6256" stroke-width="1.2" stroke-dasharray="3 13"/><circle cx="1122" cy="264" r="5" fill="#c8ff54" filter="url(#smallGlow)"/></g>
+  <g class="drift">
+    <path d="M777 364 C716 281 737 158 827 126 C916 94 1034 143 1055 233 C1072 309 1015 397 921 398 C855 399 805 366 799 310 C791 244 846 201 901 217 C947 231 966 283 939 321 C912 359 849 350 825 310" fill="none" stroke="#011b17" stroke-width="94" stroke-linecap="round" stroke-linejoin="round" opacity=".78" filter="url(#softGlow)"/>
+    <path d="M777 364 C716 281 737 158 827 126 C916 94 1034 143 1055 233 C1072 309 1015 397 921 398 C855 399 805 366 799 310 C791 244 846 201 901 217 C947 231 966 283 939 321 C912 359 849 350 825 310" fill="none" stroke="url(#glass)" stroke-width="72" stroke-linecap="round" stroke-linejoin="round" opacity=".86"/>
+    <path d="M777 364 C716 281 737 158 827 126 C916 94 1034 143 1055 233 C1072 309 1015 397 921 398 C855 399 805 366 799 310 C791 244 846 201 901 217 C947 231 966 283 939 321 C912 359 849 350 825 310" fill="none" stroke="#e9ffff" stroke-width="9" stroke-linecap="round" opacity=".38" transform="translate(-7 -8)"/>
+    <path d="M777 364 C716 281 737 158 827 126 C916 94 1034 143 1055 233 C1072 309 1015 397 921 398 C855 399 805 366 799 310 C791 244 846 201 901 217 C947 231 966 283 939 321 C912 359 849 350 825 310" fill="none" stroke="#2cfff0" stroke-width="3" stroke-linecap="round" opacity=".78" class="scan"/>
+    <circle cx="921" cy="398" r="46" fill="url(#orb)" opacity=".92"/><circle cx="904" cy="380" r="10" fill="#fff" opacity=".58"/>
+    <circle r="9" fill="#c8ff54" filter="url(#smallGlow)"><animateMotion dur="5.2s" repeatCount="indefinite" path="M777 364 C716 281 737 158 827 126 C916 94 1034 143 1055 233 C1072 309 1015 397 921 398 C855 399 805 366 799 310 C791 244 846 201 901 217 C947 231 966 283 939 321 C912 359 849 350 825 310"/></circle>
+  </g>
+  <g class="drift-alt"><path d="M774 189 C825 124 912 95 1000 121" fill="none" stroke="url(#glassReverse)" stroke-width="28" stroke-linecap="round" opacity=".7"/><path d="M777 182 C825 125 906 101 991 125" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".32"/><circle cx="1000" cy="121" r="22" fill="url(#orb)"/></g>
+  <text x="914" y="484" text-anchor="middle" fill="#91aaa3" font-size="11" letter-spacing="3.4">NEURAL ORBIT / 01</text>
+<rect width="1200" height="520" rx="26" filter="url(#grain)" opacity=".48" pointer-events="none"/>
+</svg>

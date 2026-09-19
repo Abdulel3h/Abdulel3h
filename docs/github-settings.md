@@ -4,11 +4,11 @@ The current tool surface supports Git contents and refs, but does not expose rep
 
 ## Profile
 
-Bio: `AI Product Builder | Arabic-first AI Systems | LLM applications, agentic workflows and trustworthy AI | abdulelah.de`
+Bio: `I engineer AI systems that think, act, and earn trust | AI Agents · Voice AI · RAG · Product Engineering`
 
 Website: https://abdulelah.de
 
-Pins: Raqmi → Abdulelah → architect-of-intelligence → ChatUB → absher-insight → Stadium. The exact Raqmi repository name is `llm-application-engineering-Raqmi`.
+Pins: Raqmi → Abdulelah → ChatUB → absher-insight → Stadium. The exact Raqmi repository name is `llm-application-engineering-Raqmi`.
 
 ## Repository About fields
 
@@ -16,7 +16,7 @@ Use the gear beside **About** on each repository homepage. Descriptions below de
 
 ### Abdulel3h
 
-**Description:** AI Product Builder exploring Arabic-first AI systems, bounded agent workflows and evidence-driven product engineering.
+**Description:** AI systems that think, act, and earn trust—agents, Voice AI, RAG, and product engineering.
 
 **Topics:** `ai`, `arabic-ai`, `llm`, `ai-agents`, `portfolio`, `profile-readme`
 
@@ -70,4 +70,4 @@ Open each repository's **Settings → General → Social preview → Edit → Up
 | [absher-insight](https://github.com/Abdulel3h/absher-insight) | [assets/branding/social-preview.png](https://github.com/Abdulel3h/absher-insight/blob/main/assets/branding/social-preview.png) |
 | [Stadium](https://github.com/Abdulel3h/Stadium) | [assets/branding/social-preview.png](https://github.com/Abdulel3h/Stadium/blob/main/assets/branding/social-preview.png) |
 
-No Actions are necessary: the decision challenge uses ordinary Markdown navigation. Existing repository workflows remain untouched.
+No Actions are necessary: the artwork and motion are self-contained SVG assets. Existing repository workflows remain untouched.

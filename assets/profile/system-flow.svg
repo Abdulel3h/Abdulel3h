@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">Accountable AI agent flow</title><desc id="desc">A glowing signal travels from intent through reasoning, independent authorization, action, and verification.</desc>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#030706"/><stop offset=".52" stop-color="#06100e"/><stop offset="1" stop-color="#020504"/></linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#46f6ff" stop-opacity=".95"/><stop offset=".28" stop-color="#22e3c5" stop-opacity=".62"/><stop offset=".64" stop-color="#c8ff54" stop-opacity=".84"/><stop offset="1" stop-color="#3b65ff" stop-opacity=".76"/></linearGradient>
+    <linearGradient id="glassReverse" x1="1" y1="0" x2="0" y2="1"><stop stop-color="#c8ff54" stop-opacity=".94"/><stop offset=".45" stop-color="#22e3c5" stop-opacity=".62"/><stop offset="1" stop-color="#3b65ff" stop-opacity=".82"/></linearGradient>
+    <radialGradient id="orb" cx="34%" cy="25%" r="74%"><stop stop-color="#efffff"/><stop offset=".16" stop-color="#46f6ff"/><stop offset=".52" stop-color="#22e3c5" stop-opacity=".75"/><stop offset=".78" stop-color="#3b65ff" stop-opacity=".5"/><stop offset="1" stop-color="#031713" stop-opacity=".25"/></radialGradient>
+    <radialGradient id="halo"><stop stop-color="#22e3c5" stop-opacity=".35"/><stop offset="1" stop-color="#22e3c5" stop-opacity="0"/></radialGradient>
+    <filter id="softGlow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="13" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="smallGlow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".88" numOctaves="3" seed="31" result="noise"/><feColorMatrix in="noise" type="saturate" values="0" result="mono"/><feComponentTransfer in="mono"><feFuncA type="table" tableValues="0 .12"/></feComponentTransfer></filter>
+    <pattern id="microGrid" width="42" height="42" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#9fffea" opacity=".1"/></pattern>
+
+  </defs>
+  <style>
+    text { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; }
+    .drift { transform-box: fill-box; transform-origin: center; animation: drift 7s ease-in-out infinite; }
+    .drift-alt { transform-box: fill-box; transform-origin: center; animation: driftAlt 9s ease-in-out infinite; }
+    .spin { transform-box: fill-box; transform-origin: center; animation: spin 18s linear infinite; }
+    .pulse { animation: pulse 2.8s ease-in-out infinite; }
+    .scan { stroke-dasharray: 6 18; animation: scan 3.2s linear infinite; }
+    .blink { animation: blink 2.4s ease-in-out infinite; }
+    @keyframes drift { 0%,100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-10px) rotate(1.5deg); } }
+    @keyframes driftAlt { 0%,100% { transform: translate(0,0) rotate(1deg); } 50% { transform: translate(8px,-7px) rotate(-1.3deg); } }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes pulse { 0%,100% { opacity:.42; } 50% { opacity:1; } }
+    @keyframes scan { to { stroke-dashoffset:-96; } }
+    @keyframes blink { 0%,100% { opacity:.32; } 50% { opacity:1; } }
+    @media (prefers-reduced-motion: reduce) { .drift,.drift-alt,.spin,.pulse,.scan,.blink { animation:none !important; } }
+  </style>
+  <rect width="1200" height="360" rx="26" fill="url(#bg)"/>
+  <rect width="1200" height="360" rx="26" fill="url(#microGrid)"/>
+  <rect x="1" y="1" width="1198" height="358" rx="25" fill="none" stroke="#17352f"/>
+  <text x="54" y="47" fill="#91aaa3" font-size="13" font-weight="700" letter-spacing="3.2">ACCOUNTABLE AGENT FLOW</text>
+  <circle cx="1144" cy="43" r="4" fill="#c8ff54" class="blink"/>
+  <text x="1128" y="48" text-anchor="end" fill="#91aaa3" font-size="11" letter-spacing="2">LIVE</text>
+  <text x="54" y="93" fill="#f4fff9" font-size="28" font-weight="760">From intent to verified outcome.</text>
+  <text x="1146" y="92" text-anchor="end" fill="#91aaa3" font-size="14">The model proposes. The application decides.</text>
+  <path id="flowPath" d="M125 203 C225 143 266 263 355 203 S510 143 600 203 S755 263 845 203 S980 143 1075 203" fill="none" stroke="#103a32" stroke-width="38" stroke-linecap="round"/>
+  <path d="M125 203 C225 143 266 263 355 203 S510 143 600 203 S755 263 845 203 S980 143 1075 203" fill="none" stroke="url(#glass)" stroke-opacity=".62" stroke-width="22" stroke-linecap="round"/>
+  <path d="M125 197 C225 137 266 257 355 197 S510 137 600 197 S755 257 845 197 S980 137 1075 197" fill="none" stroke="#eaffff" stroke-opacity=".27" stroke-width="4" stroke-linecap="round"/>
+  <circle r="10" fill="#c8ff54" filter="url(#smallGlow)"><animateMotion dur="5.8s" repeatCount="indefinite"><mpath href="#flowPath"/></animateMotion></circle>
+  <g transform="translate(600 203)"><circle r="67" fill="#031a15" stroke="#78ffdc" stroke-opacity=".34"/><circle r="48" fill="url(#orb)" opacity=".82" filter="url(#smallGlow)"/><path d="M-14-2v-12a14 14 0 0 1 28 0v12M-22-2h44v35h-44z" fill="none" stroke="#f1fff9" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></g><g class="pulse"><circle cx="125" cy="203" r="35" fill="#071a16" stroke="#75ffe1" stroke-opacity=".5"/><circle cx="125" cy="203" r="19" fill="url(#orb)" opacity=".9"/></g><text x="125" y="293" text-anchor="middle" fill="#91aaa3" font-size="11" letter-spacing="2.6">01</text><text x="125" y="321" text-anchor="middle" fill="#f4fff9" font-size="14" font-weight="750" letter-spacing="1.8">INTENT</text><g><circle cx="355" cy="203" r="35" fill="#071a16" stroke="#75ffe1" stroke-opacity=".5"/><circle cx="355" cy="203" r="19" fill="url(#orb)" opacity=".9"/></g><text x="355" y="293" text-anchor="middle" fill="#91aaa3" font-size="11" letter-spacing="2.6">02</text><text x="355" y="321" text-anchor="middle" fill="#f4fff9" font-size="14" font-weight="750" letter-spacing="1.8">REASON</text><text x="600" y="293" text-anchor="middle" fill="#91aaa3" font-size="11" letter-spacing="2.6">03</text><text x="600" y="321" text-anchor="middle" fill="#f4fff9" font-size="14" font-weight="750" letter-spacing="1.8">AUTHORIZE</text><g><circle cx="845" cy="203" r="35" fill="#071a16" stroke="#75ffe1" stroke-opacity=".5"/><circle cx="845" cy="203" r="19" fill="url(#orb)" opacity=".9"/></g><text x="845" y="293" text-anchor="middle" fill="#91aaa3" font-size="11" letter-spacing="2.6">04</text><text x="845" y="321" text-anchor="middle" fill="#f4fff9" font-size="14" font-weight="750" letter-spacing="1.8">ACT</text><g class="pulse"><circle cx="1075" cy="203" r="35" fill="#071a16" stroke="#75ffe1" stroke-opacity=".5"/><circle cx="1075" cy="203" r="19" fill="url(#orb)" opacity=".9"/></g><text x="1075" y="293" text-anchor="middle" fill="#91aaa3" font-size="11" letter-spacing="2.6">05</text><text x="1075" y="321" text-anchor="middle" fill="#f4fff9" font-size="14" font-weight="750" letter-spacing="1.8">VERIFY</text><rect width="1200" height="360" rx="26" filter="url(#grain)" opacity=".48" pointer-events="none"/>
+</svg>

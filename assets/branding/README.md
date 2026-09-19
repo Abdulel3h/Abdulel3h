@@ -1,26 +1,34 @@
-# Brand system
+# Retro-futuristic profile system
 
-A calm product-engineering identity: deep navy surfaces, readable white type, cyan for emphasis, and green only for an explicitly allowed state. Visuals explain a request, a boundary and an outcome. They are original SVG documentation, not screenshots or evidence of deployment.
+The profile uses an original family of abstract 3D-like SVG sculptures: inflated tubular geometry, frosted translucent surfaces, cyan–teal–lime gradients, internal glow, deep black fields, and a fine analog grain layer.
 
-## Assets
+## Source and generated assets
 
-| File | Purpose |
+Run `python3 tools/build_retro_future_profile.py` from the repository root to regenerate:
+
+- `assets/profile/hero.svg`
+- `assets/profile/system-flow.svg`
+- `assets/profile/system-layers.svg`
+- `assets/profile/social-preview.svg`
+- `assets/projects/raqmi.svg`
+- `assets/projects/portfolio.svg`
+- `assets/projects/chatub.svg`
+
+The generator has no third-party dependencies. Artwork uses no scripts, remote fonts, external images, or `foreignObject` elements. Important claims remain available as Markdown text outside the images.
+
+## Motion and accessibility
+
+Motion communicates system behavior: signals travel through a decision path, not as decoration. CSS and SVG motion stop when `prefers-reduced-motion` is enabled, while the static composition retains its meaning. Every SVG includes a title and description, and every README image has alternative text.
+
+## Palette
+
+| Role | Hex |
 |---|---|
-| [tokens.json](tokens.json) | Shared colors, type family and cover dimensions |
-| [Profile hero](../profile/hero.svg) | Identity and optional animated request flow |
-| [Mission Control](../profile/mission-control.svg) | Illustrative scenario; Markdown contains the working links |
-| [How I build](../profile/how-i-build.svg) | Six-step product philosophy |
-| [Profile social preview](../profile/social-preview.png) | Ready-to-upload 1280 × 640 PNG |
-| [Project covers](../projects/) | Six 1280 × 640 SVG covers; copies live in each project's branding folder |
+| Deep black | `#030706` |
+| Frosted white | `#F4FFF9` |
+| Cyan | `#46F6FF` |
+| Aqua | `#22E3C5` |
+| Lime | `#C8FF54` |
+| Deep blue | `#3B65FF` |
 
-## Use and maintenance
-
-Edit the SVG source directly. Keep each project's cover and its copy in this repository synchronized, then regenerate the project's PNG at 1280 × 640 with an SVG renderer such as Inkscape. Do not rasterize the README asset; the PNG is for GitHub Social Preview.
-
-Use a single full-width image per row in Markdown. Cards stack on mobile. Main names and promises remain text, and important content is repeated in Markdown for assistive technology and image failures. Covers retain the same dark surface in both GitHub themes.
-
-SVGs use system fonts, local shapes, title/description metadata and no remote resources, scripts, embedded images, links or `foreignObject`. Text meaning does not depend on color. The profile hero's optional dashed-line motion shows request direction; CSS `prefers-reduced-motion` stops it where supported, and its static fallback keeps the same information.
-
-The legacy header is retained in history and as an unused file; it is no longer referenced by the profile README. Existing project screenshots are preserved.
-
-[Settings and social-preview mapping](../../docs/github-settings.md) · [Interaction documentation](../../missions/README.md)
+Keep new visuals within this material, lighting, color, and motion language. Avoid generic technology icons, rainbow gradients, crowded backgrounds, and motion without narrative purpose.

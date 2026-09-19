@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="310" viewBox="0 0 1200 310" role="img" aria-labelledby="title desc">
-  <title id="title">Abdulelah.de — A portfolio you can ask.</title><desc id="desc">Next.js · typed project facts · server-side AI assistant</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="330" viewBox="0 0 1200 330" role="img" aria-labelledby="title desc">
+  <title id="title">AI product system layers</title><desc id="desc">A continuous translucent tube connects experience, application, intelligence, and infrastructure.</desc>
 
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#030706"/><stop offset=".52" stop-color="#06100e"/><stop offset="1" stop-color="#020504"/></linearGradient>
@@ -29,15 +29,14 @@
     @keyframes blink { 0%,100% { opacity:.32; } 50% { opacity:1; } }
     @media (prefers-reduced-motion: reduce) { .drift,.drift-alt,.spin,.pulse,.scan,.blink { animation:none !important; } }
   </style>
-  <rect width="1200" height="310" rx="26" fill="url(#bg)"/>
-  <rect width="1200" height="310" rx="26" fill="url(#microGrid)"/>
-  <rect x="1" y="1" width="1198" height="308" rx="25" fill="none" stroke="#17352f"/>
-  <text x="54" y="47" fill="#91aaa3" font-size="13" font-weight="700" letter-spacing="3.2">SELECTED SYSTEM / 02</text>
+  <rect width="1200" height="330" rx="26" fill="url(#bg)"/>
+  <rect width="1200" height="330" rx="26" fill="url(#microGrid)"/>
+  <rect x="1" y="1" width="1198" height="328" rx="25" fill="none" stroke="#17352f"/>
+  <text x="54" y="47" fill="#91aaa3" font-size="13" font-weight="700" letter-spacing="3.2">SYSTEM LAYERS</text>
   <circle cx="1144" cy="43" r="4" fill="#c8ff54" class="blink"/>
   <text x="1128" y="48" text-anchor="end" fill="#91aaa3" font-size="11" letter-spacing="2">LIVE</text>
-  <text x="54" y="92" fill="#22e3c5" font-size="12" font-weight="750" letter-spacing="2.4">AI PRODUCT / BILINGUAL WEB</text>
-  <text x="54" y="160" fill="#f4fff9" font-size="56" font-weight="830" letter-spacing="-1.5">Abdulelah.de</text>
-  <text x="56" y="205" fill="#f4fff9" font-size="24">A portfolio you can ask.</text>
-  <text x="56" y="254" fill="#91aaa3" font-size="14">Next.js · typed project facts · server-side AI assistant</text>
-  <path d="M580 58V252" stroke="#173b33"/><g class="drift-alt"><ellipse cx="914" cy="156" rx="235" ry="130" fill="url(#halo)" opacity=".5"/><path d="M745 99 C745 60 782 44 820 44 H972 C1014 44 1035 68 1035 103 V147 C1035 181 1012 202 974 202 H890 L833 246 L844 202 H808 C768 202 745 180 745 145Z" fill="#06231e" stroke="url(#glass)" stroke-width="30" stroke-linejoin="round" opacity=".86" filter="url(#smallGlow)"/><path d="M786 88H970 M786 122H931 M786 156H900" stroke="#eaffff" stroke-opacity=".5" stroke-width="10" stroke-linecap="round"/><circle cx="1007" cy="73" r="25" fill="url(#orb)"/><circle cx="1000" cy="65" r="5" fill="#fff" opacity=".7"/></g><rect width="1200" height="310" rx="26" filter="url(#grain)" opacity=".48" pointer-events="none"/>
+  <text x="54" y="103" fill="#f4fff9" font-size="31" font-weight="770">One product. Four engineered layers.</text>
+  <text x="54" y="139" fill="#91aaa3" font-size="15">The model is only one component of the system.</text>
+  <g transform="translate(585 205)"><ellipse rx="470" ry="70" fill="url(#halo)" opacity=".45"/><path d="M-438 0 C-320-58 -208 58 -92 0 S133-58 246 0 S359 58 438 0" fill="none" stroke="#06231e" stroke-width="62" stroke-linecap="round" filter="url(#softGlow)"/><path d="M-438 0 C-320-58 -208 58 -92 0 S133-58 246 0 S359 58 438 0" fill="none" stroke="url(#glass)" stroke-width="43" stroke-linecap="round" opacity=".82"/><path d="M-429-7 C-320-51-207 51-93-7 S132-51 245-7 S358 50 428-7" fill="none" stroke="#f0ffff" stroke-width="5" stroke-linecap="round" opacity=".34"/><circle cx="-438" r="25" fill="url(#orb)"/><circle cx="-92" r="25" fill="url(#orb)"/><circle cx="246" r="25" fill="url(#orb)"/><circle cx="438" r="25" fill="url(#orb)"/><circle r="8" fill="#c8ff54" filter="url(#smallGlow)"><animateMotion dur="6.5s" repeatCount="indefinite" path="M-438 0 C-320-58 -208 58 -92 0 S133-58 246 0 S359 58 438 0"/></circle></g>
+  <g fill="#f4fff9" font-size="13" font-weight="730" text-anchor="middle" letter-spacing="1.4"><text x="147" y="307">EXPERIENCE</text><text x="493" y="307">APPLICATION</text><text x="831" y="307">INTELLIGENCE</text><text x="1023" y="307">INFRASTRUCTURE</text></g><rect width="1200" height="330" rx="26" filter="url(#grain)" opacity=".48" pointer-events="none"/>
 </svg>
