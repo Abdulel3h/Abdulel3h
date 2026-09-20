@@ -1,4 +1,7 @@
-![Abdulelah Alkhathami — I engineer AI systems that think, act, and earn trust.](assets/profile/hero.svg)
+<picture>
+  <source media="(max-width: 600px)" srcset="assets/profile/hero-mobile.svg">
+  <img src="assets/profile/hero.svg" width="100%" alt="Abdulelah Alkhathami — I engineer AI systems that think, act, and earn trust. AI Agents, Voice AI, RAG and product engineering, Arabic-first, with authorization kept outside the model.">
+</picture>
 
 <div align="center">
 
@@ -15,33 +18,50 @@ I turn complex workflows into useful, accountable AI products.
 
 ## Systems, not demos
 
-![A signal moves from user intent through reasoning, independent authorization, action, and verification.](assets/profile/system-flow.svg)
+<picture>
+  <source media="(max-width: 600px)" srcset="assets/profile/system-flow-mobile.svg">
+  <img src="assets/profile/system-flow.svg" width="100%" alt="Accountable agent flow: a signal travels from intent through reasoning, halts at an authorization boundary owned by the application, then continues to act and verify.">
+</picture>
 
-I build around the whole decision path: understand the user, ground the model, authorize every sensitive action in application code, then evaluate the outcome. The LLM may propose an action; **the product remains responsible for whether it happens.**
+I build around the whole decision path: **intent → reason → authorize → act → verify.** Understand the user, ground the model, authorize every sensitive action in application code, then evaluate the outcome.
+
+The LLM may propose an action; **the product remains responsible for whether it happens.**
 
 ## Selected systems
 
 <a href="https://github.com/Abdulel3h/llm-application-engineering-Raqmi">
-  <img src="assets/projects/raqmi.svg" width="100%" alt="Raqmi — agentic AI with authorization outside the LLM">
+<picture>
+  <source media="(max-width: 600px)" srcset="assets/projects/raqmi-mobile.svg">
+  <img src="assets/projects/raqmi.svg" width="100%" alt="Raqmi — tool use with a boundary. Native tool calling, authorization outside the model, captured evaluation.">
+</picture>
 </a>
 
 **[Raqmi](https://github.com/Abdulel3h/llm-application-engineering-Raqmi)** — a bilingual retail-support case study with native tool calls, structured outputs, application-owned authorization, guardrails, and captured evaluation evidence.
 
 <a href="https://github.com/Abdulel3h/Abdulelah">
-  <img src="assets/projects/portfolio.svg" width="100%" alt="Abdulelah.de — a bilingual AI portfolio">
+<picture>
+  <source media="(max-width: 600px)" srcset="assets/projects/portfolio-mobile.svg">
+  <img src="assets/projects/portfolio.svg" width="100%" alt="Abdulelah.de — a portfolio you can ask. Next.js, typed project facts, server-side AI assistant.">
+</picture>
 </a>
 
 **[Abdulelah.de](https://github.com/Abdulel3h/Abdulelah)** — a bilingual Next.js portfolio where typed project facts and a server-side AI assistant share one source of truth.
 
 <a href="https://github.com/Abdulel3h/ChatUB">
-  <img src="assets/projects/chatub.svg" width="100%" alt="ChatUB — local Arabic retrieval and generation">
+<picture>
+  <source media="(max-width: 600px)" srcset="assets/projects/chatub-mobile.svg">
+  <img src="assets/projects/chatub.svg" width="100%" alt="ChatUB — knowledge, kept close. Arabic FAQ retrieval, semantic similarity, local generation with Ollama.">
+</picture>
 </a>
 
 **[ChatUB](https://github.com/Abdulel3h/ChatUB)** — a local Arabic academic-assistance prototype combining FAQ retrieval, semantic similarity, and Ollama-based generation.
 
 ## How I engineer the product
 
-![A continuous sculptural system connects experience, application, intelligence, and infrastructure.](assets/profile/system-layers.svg)
+<picture>
+  <source media="(max-width: 600px)" srcset="assets/profile/system-layers-mobile.svg">
+  <img src="assets/profile/system-layers.svg" width="100%" alt="Four engineered layers stacked in depth: experience, application, intelligence and infrastructure, threaded by one glass spine.">
+</picture>
 
 | Layer | What I work with |
 |---|---|

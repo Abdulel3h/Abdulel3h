@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="470" viewBox="0 0 1200 470" role="img" aria-labelledby="t d">
-  <title id="t">Four engineered layers: experience, application, intelligence, infrastructure</title>
-  <desc id="d">Four chunky translucent slabs stacked in depth - experience, application, intelligence and infrastructure - threaded by a glass spine that carries light down through every layer.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="640" viewBox="0 0 760 640" role="img" aria-labelledby="t d">
+  <title id="t">ChatUB — Knowledge, kept close.</title>
+  <desc id="d">ChatUB — a lattice of glass nodes lighting up in sequence beneath a frosted shell that keeps the knowledge local.</desc>
   <defs>
     <linearGradient id="glass" x1="0" y1="0" x2=".85" y2="1">
       <stop stop-color="#46F6FF"/><stop offset=".40" stop-color="#22E3C5"/>
@@ -131,32 +131,39 @@
     .track { letter-spacing: .12em; }
     .still { display: none; }
     .mv { transform-box: fill-box; transform-origin: 50% 50%; }
-    .cascade { offset-path: path("M300 152V440"); offset-rotate: 0deg; offset-distance: 0%; opacity: 0; animation: cascade 5.4s 1 both; }
-    .slab { animation: slabIn 5.4s 1 both; }
-    .slab-0 { animation-delay: 0.000s; }
-    .slab-1 { animation-delay: 0.270s; }
-    .slab-2 { animation-delay: 0.405s; }
-    .slab-3 { animation-delay: 0.675s; }
-    @keyframes cascade { 0% { offset-distance: 0%; opacity: 0; animation-timing-function: steps(12); } 30% { offset-distance: 4%; opacity: 0; animation-timing-function: steps(2); } 35% { offset-distance: 12%; opacity: 1; animation-timing-function: steps(11); } 62.5% { offset-distance: 52%; opacity: 1; animation-timing-function: steps(11); } 90% { offset-distance: 100%; opacity: 1; animation-timing-function: steps(4); } 100% { offset-distance: 100%; opacity: 0; } }
-    @keyframes slabIn { 0% { opacity: .62; transform: translateY(-9px); animation-timing-function: steps(14); } 35% { opacity: 1; transform: translateY(0); animation-timing-function: steps(1); } 100% { opacity: 1; transform: translateY(0); } }
+    .mesh { animation: meshWake 5.4s 1 both; }
+    .node { animation: nodeWake 5.4s 1 both; }
+    .node-0 { animation-delay: 0.135s; }
+    .node-1 { animation-delay: 0.540s; }
+    .node-2 { animation-delay: 0.945s; }
+    .node-3 { animation-delay: 1.215s; }
+    .node-4 { animation-delay: 1.620s; }
+    .node-5 { animation-delay: 1.890s; }
+    @keyframes meshWake { 0% { opacity: .5; animation-timing-function: steps(24); } 60% { opacity: 1; animation-timing-function: steps(1); } 100% { opacity: 1; } }
+    @keyframes nodeWake { 0% { opacity: .45; transform: scale(.88); animation-timing-function: steps(4); } 10% { opacity: 1; transform: scale(1.12); animation-timing-function: steps(3); } 17.5% { opacity: 1; transform: scale(1); animation-timing-function: steps(1); } 100% { opacity: 1; transform: scale(1); } }
     @media (prefers-reduced-motion: reduce) {
       * { animation: none !important; }
       .motion { display: none !important; }
       .still { display: inline !important; }
     }
   </style>
-  <rect width="1200" height="470" rx="30" fill="url(#vignette)"/>
-  <rect x=".75" y=".75" width="1198.5" height="468.5" rx="29.25" fill="none" stroke="#123029" stroke-width="1.5"/>
-  <text class="m eyebrow" x="60" y="50" font-size="15" fill="#5E7A74" font-weight="500">Product layers</text>
-  <text class="m eyebrow" x="1140" y="50" font-size="15" fill="#5E7A74" font-weight="500" text-anchor="end">System / 03</text>
-  <text class="s" x="60" y="112" font-size="30" fill="#F4FFF9" font-weight="600">One product. Four engineered layers.</text>
-  <ellipse cx="300" cy="284" rx="290" ry="220" fill="url(#haze)" opacity=".5"/>
-  <ellipse cx="300" cy="466" rx="232.5" ry="25.2" fill="url(#pool)" opacity=".5"/><ellipse cx="300" cy="466" rx="150" ry="12" fill="#010403" opacity="0.8" filter="url(#shade)"/>
-  <path d="M300 152V440" stroke="#0C3A33" stroke-width="15" stroke-linecap="round"/>
-  <path d="M300 152V440" stroke="url(#glass)" stroke-width="6" stroke-linecap="round" opacity=".45"/>
-  <g class="mv slab slab-0"><g filter="url(#glossL)" opacity="0.82"><path d="M300 146L430 200L430 220L300 274L170 220L170 200Z" fill="url(#glassCold)"/><path d="M300 146L430 200L300 254L170 200Z" fill="#EAFFFB" opacity=".22"/><path d="M430 200L430 220L300 274L300 254Z" fill="#02110E" opacity=".35"/></g></g><g class="mv slab slab-1"><g filter="url(#glossL)" opacity="0.77"><path d="M300 204L430 258L430 278L300 332L170 278L170 258Z" fill="url(#glass)"/><path d="M300 204L430 258L300 312L170 258Z" fill="#EAFFFB" opacity=".22"/><path d="M430 258L430 278L300 332L300 312Z" fill="#02110E" opacity=".35"/></g></g><g class="mv slab slab-2"><g filter="url(#glossL)" opacity="0.72"><path d="M300 262L430 316L430 336L300 390L170 336L170 316Z" fill="url(#glassLime)"/><path d="M300 262L430 316L300 370L170 316Z" fill="#EAFFFB" opacity=".22"/><path d="M430 316L430 336L300 390L300 370Z" fill="#02110E" opacity=".35"/></g></g><g class="mv slab slab-3"><g filter="url(#glossL)" opacity="0.67"><path d="M300 320L430 374L430 394L300 448L170 394L170 374Z" fill="url(#glassBack)"/><path d="M300 320L430 374L300 428L170 374Z" fill="#EAFFFB" opacity=".22"/><path d="M430 374L430 394L300 448L300 428Z" fill="#02110E" opacity=".35"/></g></g>
-  <g class="motion"><circle class="cascade" r="9" fill="#C8FF54" filter="url(#bloomS)"/></g>
-  <path d="M424 216C520 216 540 144 616 144" fill="none" stroke="#22E3C5" stroke-opacity=".22" stroke-width="1.5"/><circle cx="616" cy="144" r="3.5" fill="#22E3C5" opacity=".65"/><path d="M424 274C520 274 540 220 616 220" fill="none" stroke="#22E3C5" stroke-opacity=".22" stroke-width="1.5"/><circle cx="616" cy="220" r="3.5" fill="#22E3C5" opacity=".65"/><path d="M424 332C520 332 540 296 616 296" fill="none" stroke="#22E3C5" stroke-opacity=".22" stroke-width="1.5"/><circle cx="616" cy="296" r="3.5" fill="#22E3C5" opacity=".65"/><path d="M424 390C520 390 540 372 616 372" fill="none" stroke="#22E3C5" stroke-opacity=".22" stroke-width="1.5"/><circle cx="616" cy="372" r="3.5" fill="#22E3C5" opacity=".65"/>
-  <text class="s" x="640" y="152" font-size="25" fill="#F4FFF9" font-weight="600">Experience</text><text class="s" x="640" y="178" font-size="16" fill="#8FA8A1">Arabic / English UX · workflow design · clear failure states</text><text class="s" x="640" y="228" font-size="25" fill="#F4FFF9" font-weight="600">Application</text><text class="s" x="640" y="254" font-size="16" fill="#8FA8A1">Python · FastAPI · TypeScript · Next.js · Pydantic · Zod</text><text class="s" x="640" y="304" font-size="25" fill="#F4FFF9" font-weight="600">Intelligence</text><text class="s" x="640" y="330" font-size="16" fill="#8FA8A1">Tool calling · RAG · embeddings · structured outputs</text><text class="s" x="640" y="380" font-size="25" fill="#F4FFF9" font-weight="600">Infrastructure</text><text class="s" x="640" y="406" font-size="16" fill="#8FA8A1">PostgreSQL · pgvector · Redis · Docker · local inference</text>
-  <rect width="1200" height="470" rx="30" filter="url(#grain)" opacity="0.55" pointer-events="none"/>
+  <rect width="760" height="640" rx="26" fill="url(#vignette)"/>
+  <rect x=".75" y=".75" width="758.5" height="638.5" rx="25.25" fill="none" stroke="#123029" stroke-width="1.5"/>
+  <text class="m eyebrow" x="60" y="50" font-size="15" fill="#5E7A74" font-weight="500">Local AI · Arabic retrieval</text>
+  <text class="m eyebrow" x="700" y="50" font-size="15" fill="#5E7A74" font-weight="500" text-anchor="end">03</text>
+  <g transform="translate(380 246) scale(0.8)">
+    <ellipse rx="250" ry="180" fill="url(#haze)" opacity=".7"/>
+    <ellipse cx="0" cy="148" rx="217" ry="23.1" fill="url(#pool)" opacity=".5"/><ellipse cx="0" cy="148" rx="140" ry="11" fill="#010403" opacity="0.85" filter="url(#shade)"/>
+    <g>
+      <g transform="scale(1.14)"><g class="mesh"><g filter="url(#glossS)" opacity="0.74"><path d="M-84-18C-58-44-44-60-20-74" fill="none" stroke="url(#glass)" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/></g><g filter="url(#glossS)" opacity="0.74"><path d="M-20-74C6-60 26-44 44-26" fill="none" stroke="url(#glass)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></g><g filter="url(#glossS)" opacity="0.74"><path d="M-84-18C-66 12-58 34-40 52" fill="none" stroke="url(#glass)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></g><g filter="url(#glossS)" opacity="0.74"><path d="M-40 52C-4 60 26 60 58 56" fill="none" stroke="url(#glass)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/></g><g filter="url(#glossS)" opacity="0.74"><path d="M44-26C52 6 56 32 58 56" fill="none" stroke="url(#glass)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/></g><g filter="url(#glossS)" opacity="0.74"><path d="M44-26C70-16 90-6 104 6" fill="none" stroke="url(#glass)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></g></g><g class="mv node node-0"><g filter="url(#glossS)" opacity="0.95"><circle cx="-84" cy="-18" r="19" fill="url(#core)"/></g></g><g class="mv node node-1"><g filter="url(#glossS)" opacity="0.95"><circle cx="-20" cy="-74" r="15" fill="url(#core)"/></g></g><g class="mv node node-2"><g filter="url(#glossS)" opacity="0.95"><circle cx="44" cy="-26" r="21" fill="url(#core)"/></g></g><g class="mv node node-3"><g filter="url(#glossS)" opacity="0.95"><circle cx="-40" cy="52" r="16" fill="url(#core)"/></g></g><g class="mv node node-4"><g filter="url(#glossS)" opacity="0.95"><circle cx="58" cy="56" r="13" fill="url(#core)"/></g></g><g class="mv node node-5"><g filter="url(#glossS)" opacity="0.95"><circle cx="104" cy="6" r="11" fill="url(#core)"/></g></g></g>
+      <ellipse cy="34" rx="156" ry="100" fill="url(#haze)" opacity=".95"/>
+      <path d="M-178 104A178 150 0 0 1 178 104Z" fill="url(#glassCold)" opacity=".16"/>
+      <g filter="url(#glossM)" opacity="0.6"><path d="M-178 104A178 150 0 0 1 178 104" fill="none" stroke="url(#glass)" stroke-width="36" stroke-linecap="round" stroke-linejoin="round"/><path d="M-178 104A178 150 0 0 1 178 104" fill="none" stroke="#F2FFFC" stroke-width="9.4" stroke-linecap="round" opacity=".14" transform="translate(-3.2 -4.0)"/></g>
+      <g filter="url(#glossL)" opacity="0.62"><path d="M0 96L172 116L172 126L0 146L-172 126L-172 116Z" fill="url(#glassBack)"/><path d="M0 96L172 116L0 136L-172 116Z" fill="#EAFFFB" opacity=".22"/><path d="M172 116L172 126L0 146L0 136Z" fill="#02110E" opacity=".35"/></g>
+    </g>
+  </g>
+  <text class="s" x="56" y="456" font-size="58" fill="#F4FFF9" font-weight="700" letter-spacing="-1.4">ChatUB</text>
+  <text class="s" x="56" y="512" font-size="32" fill="url(#inkFade)" font-weight="600">Knowledge, kept close.</text>
+  <text class="s" x="56" y="566" font-size="22" fill="#8FA8A1">Arabic retrieval · local generation</text>
+  <rect width="760" height="640" rx="26" filter="url(#grain)" opacity="0.55" pointer-events="none"/>
 </svg>

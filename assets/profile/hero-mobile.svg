@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="470" viewBox="0 0 1200 470" role="img" aria-labelledby="t d">
-  <title id="t">Four engineered layers: experience, application, intelligence, infrastructure</title>
-  <desc id="d">Four chunky translucent slabs stacked in depth - experience, application, intelligence and infrastructure - threaded by a glass spine that carries light down through every layer.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="860" viewBox="0 0 760 860" role="img" aria-labelledby="t d">
+  <title id="t">Abdulelah Alkhathami — I engineer AI systems that think, act, and earn trust.</title>
+  <desc id="d">Portrait version of the hero: a sculptural translucent letter A holding a luminous core inside a tilted glass orbit ring, above the statement and the practice areas.</desc>
   <defs>
     <linearGradient id="glass" x1="0" y1="0" x2=".85" y2="1">
       <stop stop-color="#46F6FF"/><stop offset=".40" stop-color="#22E3C5"/>
@@ -131,32 +131,50 @@
     .track { letter-spacing: .12em; }
     .still { display: none; }
     .mv { transform-box: fill-box; transform-origin: 50% 50%; }
-    .cascade { offset-path: path("M300 152V440"); offset-rotate: 0deg; offset-distance: 0%; opacity: 0; animation: cascade 5.4s 1 both; }
-    .slab { animation: slabIn 5.4s 1 both; }
-    .slab-0 { animation-delay: 0.000s; }
-    .slab-1 { animation-delay: 0.270s; }
-    .slab-2 { animation-delay: 0.405s; }
-    .slab-3 { animation-delay: 0.675s; }
-    @keyframes cascade { 0% { offset-distance: 0%; opacity: 0; animation-timing-function: steps(12); } 30% { offset-distance: 4%; opacity: 0; animation-timing-function: steps(2); } 35% { offset-distance: 12%; opacity: 1; animation-timing-function: steps(11); } 62.5% { offset-distance: 52%; opacity: 1; animation-timing-function: steps(11); } 90% { offset-distance: 100%; opacity: 1; animation-timing-function: steps(4); } 100% { offset-distance: 100%; opacity: 0; } }
-    @keyframes slabIn { 0% { opacity: .62; transform: translateY(-9px); animation-timing-function: steps(14); } 35% { opacity: 1; transform: translateY(0); animation-timing-function: steps(1); } 100% { opacity: 1; transform: translateY(0); } }
+    .hero-form { animation: heroFloat 12s infinite; }
+    .hero-sat { animation: heroSat 12s infinite; }
+    .hero-haze { animation: heroHaze 12s infinite; }
+    .orbit-back { offset-path: path("M-248 0A248 98 0 0 1 248 0"); offset-rotate: 0deg; offset-distance: 0%; opacity: 0; animation: orbitBack 12s infinite; }
+    .orbit-front { offset-path: path("M248 0A248 98 0 0 1 -248 0"); offset-rotate: 0deg; offset-distance: 0%; opacity: 0; animation: orbitFront 12s infinite; }
+    @keyframes heroFloat { 0% { transform: translate(0, 0) rotate(0deg); animation-timing-function: steps(30); } 50% { transform: translate(0, -9px) rotate(.5deg); animation-timing-function: steps(30); } 100% { transform: translate(0, 0) rotate(0deg); } }
+    @keyframes heroSat { 0% { transform: translate(0, 0); animation-timing-function: steps(30); } 50% { transform: translate(-4px, 7px); animation-timing-function: steps(30); } 100% { transform: translate(0, 0); } }
+    @keyframes heroHaze { 0% { opacity: .55; animation-timing-function: steps(30); } 50% { opacity: 1; animation-timing-function: steps(30); } 100% { opacity: .55; } }
+    @keyframes orbitBack { 0% { offset-distance: 0%; opacity: 0; animation-timing-function: steps(2); } 3.333% { offset-distance: 4%; opacity: 1; animation-timing-function: steps(27); } 48.33% { offset-distance: 100%; opacity: 1; animation-timing-function: steps(1); } 50% { offset-distance: 100%; opacity: 0; animation-timing-function: steps(1); } 100% { offset-distance: 100%; opacity: 0; } }
+    @keyframes orbitFront { 0% { offset-distance: 0%; opacity: 0; animation-timing-function: steps(1); } 50% { offset-distance: 0%; opacity: 0; animation-timing-function: steps(2); } 53.33% { offset-distance: 4%; opacity: 1; animation-timing-function: steps(26); } 96.67% { offset-distance: 100%; opacity: 1; animation-timing-function: steps(2); } 100% { offset-distance: 100%; opacity: 0; } }
     @media (prefers-reduced-motion: reduce) {
       * { animation: none !important; }
       .motion { display: none !important; }
       .still { display: inline !important; }
     }
   </style>
-  <rect width="1200" height="470" rx="30" fill="url(#vignette)"/>
-  <rect x=".75" y=".75" width="1198.5" height="468.5" rx="29.25" fill="none" stroke="#123029" stroke-width="1.5"/>
-  <text class="m eyebrow" x="60" y="50" font-size="15" fill="#5E7A74" font-weight="500">Product layers</text>
-  <text class="m eyebrow" x="1140" y="50" font-size="15" fill="#5E7A74" font-weight="500" text-anchor="end">System / 03</text>
-  <text class="s" x="60" y="112" font-size="30" fill="#F4FFF9" font-weight="600">One product. Four engineered layers.</text>
-  <ellipse cx="300" cy="284" rx="290" ry="220" fill="url(#haze)" opacity=".5"/>
-  <ellipse cx="300" cy="466" rx="232.5" ry="25.2" fill="url(#pool)" opacity=".5"/><ellipse cx="300" cy="466" rx="150" ry="12" fill="#010403" opacity="0.8" filter="url(#shade)"/>
-  <path d="M300 152V440" stroke="#0C3A33" stroke-width="15" stroke-linecap="round"/>
-  <path d="M300 152V440" stroke="url(#glass)" stroke-width="6" stroke-linecap="round" opacity=".45"/>
-  <g class="mv slab slab-0"><g filter="url(#glossL)" opacity="0.82"><path d="M300 146L430 200L430 220L300 274L170 220L170 200Z" fill="url(#glassCold)"/><path d="M300 146L430 200L300 254L170 200Z" fill="#EAFFFB" opacity=".22"/><path d="M430 200L430 220L300 274L300 254Z" fill="#02110E" opacity=".35"/></g></g><g class="mv slab slab-1"><g filter="url(#glossL)" opacity="0.77"><path d="M300 204L430 258L430 278L300 332L170 278L170 258Z" fill="url(#glass)"/><path d="M300 204L430 258L300 312L170 258Z" fill="#EAFFFB" opacity=".22"/><path d="M430 258L430 278L300 332L300 312Z" fill="#02110E" opacity=".35"/></g></g><g class="mv slab slab-2"><g filter="url(#glossL)" opacity="0.72"><path d="M300 262L430 316L430 336L300 390L170 336L170 316Z" fill="url(#glassLime)"/><path d="M300 262L430 316L300 370L170 316Z" fill="#EAFFFB" opacity=".22"/><path d="M430 316L430 336L300 390L300 370Z" fill="#02110E" opacity=".35"/></g></g><g class="mv slab slab-3"><g filter="url(#glossL)" opacity="0.67"><path d="M300 320L430 374L430 394L300 448L170 394L170 374Z" fill="url(#glassBack)"/><path d="M300 320L430 374L300 428L170 374Z" fill="#EAFFFB" opacity=".22"/><path d="M430 374L430 394L300 448L300 428Z" fill="#02110E" opacity=".35"/></g></g>
-  <g class="motion"><circle class="cascade" r="9" fill="#C8FF54" filter="url(#bloomS)"/></g>
-  <path d="M424 216C520 216 540 144 616 144" fill="none" stroke="#22E3C5" stroke-opacity=".22" stroke-width="1.5"/><circle cx="616" cy="144" r="3.5" fill="#22E3C5" opacity=".65"/><path d="M424 274C520 274 540 220 616 220" fill="none" stroke="#22E3C5" stroke-opacity=".22" stroke-width="1.5"/><circle cx="616" cy="220" r="3.5" fill="#22E3C5" opacity=".65"/><path d="M424 332C520 332 540 296 616 296" fill="none" stroke="#22E3C5" stroke-opacity=".22" stroke-width="1.5"/><circle cx="616" cy="296" r="3.5" fill="#22E3C5" opacity=".65"/><path d="M424 390C520 390 540 372 616 372" fill="none" stroke="#22E3C5" stroke-opacity=".22" stroke-width="1.5"/><circle cx="616" cy="372" r="3.5" fill="#22E3C5" opacity=".65"/>
-  <text class="s" x="640" y="152" font-size="25" fill="#F4FFF9" font-weight="600">Experience</text><text class="s" x="640" y="178" font-size="16" fill="#8FA8A1">Arabic / English UX · workflow design · clear failure states</text><text class="s" x="640" y="228" font-size="25" fill="#F4FFF9" font-weight="600">Application</text><text class="s" x="640" y="254" font-size="16" fill="#8FA8A1">Python · FastAPI · TypeScript · Next.js · Pydantic · Zod</text><text class="s" x="640" y="304" font-size="25" fill="#F4FFF9" font-weight="600">Intelligence</text><text class="s" x="640" y="330" font-size="16" fill="#8FA8A1">Tool calling · RAG · embeddings · structured outputs</text><text class="s" x="640" y="380" font-size="25" fill="#F4FFF9" font-weight="600">Infrastructure</text><text class="s" x="640" y="406" font-size="16" fill="#8FA8A1">PostgreSQL · pgvector · Redis · Docker · local inference</text>
-  <rect width="1200" height="470" rx="30" filter="url(#grain)" opacity="0.55" pointer-events="none"/>
+  <rect width="760" height="860" rx="26" fill="url(#vignette)"/>
+  <rect x=".75" y=".75" width="758.5" height="858.5" rx="25.25" fill="none" stroke="#123029" stroke-width="1.5"/>
+  <text class="m eyebrow" x="60" y="50" font-size="15" fill="#5E7A74" font-weight="500">Abdulelah Alkhathami</text>
+  <text class="m eyebrow" x="700" y="50" font-size="15" fill="#5E7A74" font-weight="500" text-anchor="end">01</text>
+  <g transform="translate(380 286) scale(0.72)">
+    <ellipse cy="10" rx="300" ry="250" fill="url(#haze)" class="hero-haze" opacity=".55"/>
+    <ellipse cx="-98" cy="214" rx="96.1" ry="18.9" fill="url(#pool)" opacity=".5"/><ellipse cx="-98" cy="214" rx="62" ry="9" fill="#010403" opacity="0.9" filter="url(#shade)"/>
+    <ellipse cx="96" cy="214" rx="96.1" ry="18.9" fill="url(#pool)" opacity=".5"/><ellipse cx="96" cy="214" rx="62" ry="9" fill="#010403" opacity="0.9" filter="url(#shade)"/>
+    <g transform="translate(0 30) rotate(-15)"><g filter="url(#glossM)" opacity="0.74"><path d="M-248 0A248 98 0 0 1 248 0" fill="none" stroke="url(#glassBack)" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/><path d="M-248 0A248 98 0 0 1 248 0" fill="none" stroke="#F2FFFC" stroke-width="7.8" stroke-linecap="round" opacity=".14" transform="translate(-2.7 -3.3)"/></g><g class="motion"><circle class="orbit-back" r="7" fill="#C8FF54" filter="url(#bloomS)"/><circle class="orbit-back" r="3" fill="#FFFFFF"/></g></g>
+  </g>
+  <g transform="translate(380 286) scale(0.72)">
+    <g class="mv hero-form">
+      <g filter="url(#glossL)" opacity="0.9"><path d="M-116 196C-104 76-66-66-8-186C48-66 96 76 110 196" fill="none" stroke="url(#glass)" stroke-width="62" stroke-linecap="round" stroke-linejoin="round"/><path d="M-116 196C-104 76-66-66-8-186C48-66 96 76 110 196" fill="none" stroke="#F2FFFC" stroke-width="16.1" stroke-linecap="round" opacity=".14" transform="translate(-5.6 -6.8)"/></g>
+      <g filter="url(#glossM)" opacity="1"><circle cx="4" cy="-18" r="36" fill="url(#core)"/></g>
+      <g filter="url(#glossM)" opacity="0.72"><path d="M-80 44C-30 26 42 26 92 42" fill="none" stroke="url(#glassLime)" stroke-width="38" stroke-linecap="round" stroke-linejoin="round"/><path d="M-80 44C-30 26 42 26 92 42" fill="none" stroke="#F2FFFC" stroke-width="9.9" stroke-linecap="round" opacity=".14" transform="translate(-3.4 -4.2)"/></g>
+    </g>
+    <g transform="translate(0 30) rotate(-15)"><g filter="url(#glossM)" opacity="0.82"><path d="M248 0A248 98 0 0 1 -248 0" fill="none" stroke="url(#glass)" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/><path d="M248 0A248 98 0 0 1 -248 0" fill="none" stroke="#F2FFFC" stroke-width="8.8" stroke-linecap="round" opacity=".14" transform="translate(-3.1 -3.7)"/></g><g class="motion"><circle class="orbit-front" r="7" fill="#C8FF54" filter="url(#bloomS)"/><circle class="orbit-front" r="3" fill="#FFFFFF"/></g></g>
+    <g class="mv hero-sat">
+      <g filter="url(#glossS)" opacity="0.95"><circle cx="202" cy="-70" r="19" fill="url(#coreLime)"/></g>
+      <g filter="url(#glossS)" opacity="0.9"><circle cx="-214" cy="104" r="13" fill="url(#core)"/></g>
+    </g>
+    <g class="still"><circle cx="-150" cy="86" r="7" fill="#C8FF54" filter="url(#bloomS)"/></g>
+  </g>
+  <text class="m eyebrow" x="56" y="566" font-size="24" fill="#22E3C5" font-weight="600">AI systems engineering</text>
+  <text class="s" x="56" y="646" font-size="62" fill="#F4FFF9" font-weight="700" letter-spacing="-1.6">I engineer AI</text>
+  <text class="s" x="56" y="706" font-size="46" fill="#F4FFF9" font-weight="600" letter-spacing="-1">systems that think,</text>
+  <text class="s" x="56" y="764" font-size="46" fill="url(#inkFade)" font-weight="700" letter-spacing="-1">act, and earn trust.</text>
+  <path d="M58 800H520" stroke="url(#hair)" stroke-width="1.5"/>
+  <text class="s" x="56" y="834" font-size="22" fill="#C3D8D2">AI Agents · Voice AI · RAG · Product Engineering</text>
+  <rect width="760" height="860" rx="26" filter="url(#grain)" opacity="0.55" pointer-events="none"/>
 </svg>

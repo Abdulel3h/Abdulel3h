@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="470" viewBox="0 0 1200 470" role="img" aria-labelledby="t d">
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="900" viewBox="0 0 760 900" role="img" aria-labelledby="t d">
   <title id="t">Four engineered layers: experience, application, intelligence, infrastructure</title>
-  <desc id="d">Four chunky translucent slabs stacked in depth - experience, application, intelligence and infrastructure - threaded by a glass spine that carries light down through every layer.</desc>
+  <desc id="d">Portrait version: four chunky translucent slabs stacked in depth and threaded by a glass spine that carries light down through every layer.</desc>
   <defs>
     <linearGradient id="glass" x1="0" y1="0" x2=".85" y2="1">
       <stop stop-color="#46F6FF"/><stop offset=".40" stop-color="#22E3C5"/>
@@ -131,7 +131,7 @@
     .track { letter-spacing: .12em; }
     .still { display: none; }
     .mv { transform-box: fill-box; transform-origin: 50% 50%; }
-    .cascade { offset-path: path("M300 152V440"); offset-rotate: 0deg; offset-distance: 0%; opacity: 0; animation: cascade 5.4s 1 both; }
+    .cascade { offset-path: path("M330 190V870"); offset-rotate: 0deg; offset-distance: 0%; opacity: 0; animation: cascade 5.4s 1 both; }
     .slab { animation: slabIn 5.4s 1 both; }
     .slab-0 { animation-delay: 0.000s; }
     .slab-1 { animation-delay: 0.270s; }
@@ -145,18 +145,17 @@
       .still { display: inline !important; }
     }
   </style>
-  <rect width="1200" height="470" rx="30" fill="url(#vignette)"/>
-  <rect x=".75" y=".75" width="1198.5" height="468.5" rx="29.25" fill="none" stroke="#123029" stroke-width="1.5"/>
+  <rect width="760" height="900" rx="26" fill="url(#vignette)"/>
+  <rect x=".75" y=".75" width="758.5" height="898.5" rx="25.25" fill="none" stroke="#123029" stroke-width="1.5"/>
   <text class="m eyebrow" x="60" y="50" font-size="15" fill="#5E7A74" font-weight="500">Product layers</text>
-  <text class="m eyebrow" x="1140" y="50" font-size="15" fill="#5E7A74" font-weight="500" text-anchor="end">System / 03</text>
-  <text class="s" x="60" y="112" font-size="30" fill="#F4FFF9" font-weight="600">One product. Four engineered layers.</text>
-  <ellipse cx="300" cy="284" rx="290" ry="220" fill="url(#haze)" opacity=".5"/>
-  <ellipse cx="300" cy="466" rx="232.5" ry="25.2" fill="url(#pool)" opacity=".5"/><ellipse cx="300" cy="466" rx="150" ry="12" fill="#010403" opacity="0.8" filter="url(#shade)"/>
-  <path d="M300 152V440" stroke="#0C3A33" stroke-width="15" stroke-linecap="round"/>
-  <path d="M300 152V440" stroke="url(#glass)" stroke-width="6" stroke-linecap="round" opacity=".45"/>
-  <g class="mv slab slab-0"><g filter="url(#glossL)" opacity="0.82"><path d="M300 146L430 200L430 220L300 274L170 220L170 200Z" fill="url(#glassCold)"/><path d="M300 146L430 200L300 254L170 200Z" fill="#EAFFFB" opacity=".22"/><path d="M430 200L430 220L300 274L300 254Z" fill="#02110E" opacity=".35"/></g></g><g class="mv slab slab-1"><g filter="url(#glossL)" opacity="0.77"><path d="M300 204L430 258L430 278L300 332L170 278L170 258Z" fill="url(#glass)"/><path d="M300 204L430 258L300 312L170 258Z" fill="#EAFFFB" opacity=".22"/><path d="M430 258L430 278L300 332L300 312Z" fill="#02110E" opacity=".35"/></g></g><g class="mv slab slab-2"><g filter="url(#glossL)" opacity="0.72"><path d="M300 262L430 316L430 336L300 390L170 336L170 316Z" fill="url(#glassLime)"/><path d="M300 262L430 316L300 370L170 316Z" fill="#EAFFFB" opacity=".22"/><path d="M430 316L430 336L300 390L300 370Z" fill="#02110E" opacity=".35"/></g></g><g class="mv slab slab-3"><g filter="url(#glossL)" opacity="0.67"><path d="M300 320L430 374L430 394L300 448L170 394L170 374Z" fill="url(#glassBack)"/><path d="M300 320L430 374L300 428L170 374Z" fill="#EAFFFB" opacity=".22"/><path d="M430 374L430 394L300 448L300 428Z" fill="#02110E" opacity=".35"/></g></g>
+  <text class="m eyebrow" x="700" y="50" font-size="15" fill="#5E7A74" font-weight="500" text-anchor="end">03</text>
+  <text class="s" x="56" y="126" font-size="40" fill="#F4FFF9" font-weight="700">One product.</text>
+  <text class="s" x="56" y="178" font-size="40" fill="url(#inkFade)" font-weight="700">Four engineered layers.</text>
+  <ellipse cx="330" cy="490" rx="330" ry="340" fill="url(#haze)" opacity=".45"/>
+  <ellipse cx="330" cy="858" rx="260.4" ry="27.3" fill="url(#pool)" opacity=".5"/><ellipse cx="330" cy="858" rx="168" ry="13" fill="#010403" opacity="0.8" filter="url(#shade)"/>
+  <path d="M330 190V870" stroke="#0C3A33" stroke-width="18" stroke-linecap="round"/>
+  <path d="M330 190V870" stroke="url(#glass)" stroke-width="7" stroke-linecap="round" opacity=".45"/>
+  <g class="mv slab slab-0"><g filter="url(#glossL)" opacity="0.82"><path d="M330 222L480 300L480 330L330 408L180 330L180 300Z" fill="url(#glassCold)"/><path d="M330 222L480 300L330 378L180 300Z" fill="#EAFFFB" opacity=".22"/><path d="M480 300L480 330L330 408L330 378Z" fill="#02110E" opacity=".35"/></g></g><text class="s" x="524" y="310" font-size="26" fill="#F4FFF9" font-weight="600">Experience</text><g class="mv slab slab-1"><g filter="url(#glossL)" opacity="0.77"><path d="M330 362L480 440L480 470L330 548L180 470L180 440Z" fill="url(#glass)"/><path d="M330 362L480 440L330 518L180 440Z" fill="#EAFFFB" opacity=".22"/><path d="M480 440L480 470L330 548L330 518Z" fill="#02110E" opacity=".35"/></g></g><text class="s" x="524" y="450" font-size="26" fill="#F4FFF9" font-weight="600">Application</text><g class="mv slab slab-2"><g filter="url(#glossL)" opacity="0.72"><path d="M330 502L480 580L480 610L330 688L180 610L180 580Z" fill="url(#glassLime)"/><path d="M330 502L480 580L330 658L180 580Z" fill="#EAFFFB" opacity=".22"/><path d="M480 580L480 610L330 688L330 658Z" fill="#02110E" opacity=".35"/></g></g><text class="s" x="524" y="590" font-size="26" fill="#F4FFF9" font-weight="600">Intelligence</text><g class="mv slab slab-3"><g filter="url(#glossL)" opacity="0.67"><path d="M330 642L480 720L480 750L330 828L180 750L180 720Z" fill="url(#glassBack)"/><path d="M330 642L480 720L330 798L180 720Z" fill="#EAFFFB" opacity=".22"/><path d="M480 720L480 750L330 828L330 798Z" fill="#02110E" opacity=".35"/></g></g><text class="s" x="524" y="730" font-size="26" fill="#F4FFF9" font-weight="600">Infrastructure</text>
   <g class="motion"><circle class="cascade" r="9" fill="#C8FF54" filter="url(#bloomS)"/></g>
-  <path d="M424 216C520 216 540 144 616 144" fill="none" stroke="#22E3C5" stroke-opacity=".22" stroke-width="1.5"/><circle cx="616" cy="144" r="3.5" fill="#22E3C5" opacity=".65"/><path d="M424 274C520 274 540 220 616 220" fill="none" stroke="#22E3C5" stroke-opacity=".22" stroke-width="1.5"/><circle cx="616" cy="220" r="3.5" fill="#22E3C5" opacity=".65"/><path d="M424 332C520 332 540 296 616 296" fill="none" stroke="#22E3C5" stroke-opacity=".22" stroke-width="1.5"/><circle cx="616" cy="296" r="3.5" fill="#22E3C5" opacity=".65"/><path d="M424 390C520 390 540 372 616 372" fill="none" stroke="#22E3C5" stroke-opacity=".22" stroke-width="1.5"/><circle cx="616" cy="372" r="3.5" fill="#22E3C5" opacity=".65"/>
-  <text class="s" x="640" y="152" font-size="25" fill="#F4FFF9" font-weight="600">Experience</text><text class="s" x="640" y="178" font-size="16" fill="#8FA8A1">Arabic / English UX · workflow design · clear failure states</text><text class="s" x="640" y="228" font-size="25" fill="#F4FFF9" font-weight="600">Application</text><text class="s" x="640" y="254" font-size="16" fill="#8FA8A1">Python · FastAPI · TypeScript · Next.js · Pydantic · Zod</text><text class="s" x="640" y="304" font-size="25" fill="#F4FFF9" font-weight="600">Intelligence</text><text class="s" x="640" y="330" font-size="16" fill="#8FA8A1">Tool calling · RAG · embeddings · structured outputs</text><text class="s" x="640" y="380" font-size="25" fill="#F4FFF9" font-weight="600">Infrastructure</text><text class="s" x="640" y="406" font-size="16" fill="#8FA8A1">PostgreSQL · pgvector · Redis · Docker · local inference</text>
-  <rect width="1200" height="470" rx="30" filter="url(#grain)" opacity="0.55" pointer-events="none"/>
+  <rect width="760" height="900" rx="26" filter="url(#grain)" opacity="0.55" pointer-events="none"/>
 </svg>
