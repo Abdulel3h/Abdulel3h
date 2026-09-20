@@ -56,6 +56,8 @@ The LLM may propose an action; **the product remains responsible for whether it 
 
 **[ChatUB](https://github.com/Abdulel3h/ChatUB)** — a local Arabic academic-assistance prototype combining FAQ retrieval, semantic similarity, and Ollama-based generation.
 
+**Also public:** [Absher Insight](https://github.com/Abdulel3h/absher-insight) — behavioural risk analytics over synthetic events, with explainable rules · [Stadium Gate Monitor](https://github.com/Abdulel3h/Stadium) — computer-vision gate monitoring with crowding decision rules.
+
 ## How I engineer the product
 
 <picture>

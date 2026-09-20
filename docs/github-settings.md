@@ -1,73 +1,83 @@
-# GitHub settings to apply
+# GitHub settings
 
-The current tool surface supports Git contents and refs, but does not expose repository description/topic updates, pin editing, profile bio editing or social-preview upload. **No settings changes are claimed.** The following values are ready to paste into GitHub's UI.
+What was applied automatically, and exactly what still needs a person.
 
-## Profile
+## Applied and verified
 
-Bio: `I engineer AI systems that think, act, and earn trust | AI Agents · Voice AI · RAG · Product Engineering`
+Repository **About descriptions** and **topics** for all six public
+repositories were applied through the GitHub API and verified by reading them
+back. See [github-presence-map.md](github-presence-map.md) for the per-repository
+state.
 
-Website: https://abdulelah.de
+## Still manual
 
-Pins: Raqmi → Abdulelah → ChatUB → absher-insight → Stadium. The exact Raqmi repository name is `llm-application-engineering-Raqmi`.
+GitHub exposes no API for the four settings below — a token cannot apply them,
+whatever its scopes. Each asset is committed and ready to upload.
 
-## Repository About fields
+### 1. Profile avatar
 
-Use the gear beside **About** on each repository homepage. Descriptions below deliberately avoid unverified deployment or performance claims. Topics are based on inspected files.
+**File:** [`assets/profile/avatar.png`](../assets/profile/avatar.png) — 1024 × 1024,
+under 1 MB, composed for a circular crop and legible at 32px.
+Preview at four sizes: [`assets/profile/avatar-preview.png`](../assets/profile/avatar-preview.png).
+Editable master: [`assets/profile/avatar.svg`](../assets/profile/avatar.svg).
 
-### Abdulel3h
+**Where:** [github.com/settings/profile](https://github.com/settings/profile) →
+profile picture → **Edit** → **Upload a photo…** → choose `avatar.png` → keep the
+default circular crop → **Set new profile picture**.
 
-**Description:** AI systems that think, act, and earn trust—agents, Voice AI, RAG, and product engineering.
+### 2. Profile bio
 
-**Topics:** `ai`, `arabic-ai`, `llm`, `ai-agents`, `portfolio`, `profile-readme`
+**Where:** [github.com/settings/profile](https://github.com/settings/profile) → **Bio**.
 
-### llm-application-engineering-Raqmi
+**Value** (96 characters, inside GitHub's 160 limit):
 
-**Description:** Arabic-first retail AI case study with native tool calling, application authorization, guardrails and captured DeepSeek/ALLaM evaluations.
+```
+AI Systems & Product Engineer | AI Agents · Voice AI · RAG | Arabic-first, accountable by design
+```
 
-**Topics:** `ai`, `llm`, `ai-agents`, `arabic-ai`, `tool-calling`, `authorization`, `guardrails`, `structured-outputs`, `llm-evaluation`, `python`, `pydantic`, `vllm`
+Leave **Name** (`Abdulelah Alkhathami`), **Website** (`https://abdulelah.de`) and
+**Location** (`Riyadh, Saudi Arabia`) as they are.
 
-### Abdulelah
+### 3. Pinned repositories
 
-**Description:** Bilingual Next.js portfolio with typed project content, case studies and a server-side AI assistant.
+**Where:** [github.com/Abdulel3h](https://github.com/Abdulel3h) →
+**Customize your pins**.
 
-**Topics:** `portfolio`, `nextjs`, `typescript`, `react`, `ai-assistant`, `arabic-ai`
+Select exactly these five, in this order:
 
-### architect-of-intelligence
+1. `llm-application-engineering-Raqmi`
+2. `Abdulelah`
+3. `ChatUB`
+4. `absher-insight`
+5. `Stadium`
 
-**Description:** Bilingual AI workflow prototype with opportunity scans, architecture generation, Zod validation and deterministic fallbacks.
+Leave the sixth slot empty. Do **not** pin `Abdulel3h` — the profile README is
+already the page the visitor is looking at, so pinning it wastes the strongest
+slot.
 
-**Topics:** `ai`, `llm`, `ai-agents`, `typescript`, `react`, `tanstack-start`, `zod`, `structured-outputs`
+GitHub's pin dialog does not preserve click order in every case; after saving,
+open the profile logged out and confirm Raqmi appears first.
 
-### ChatUB
+### 4. Social previews
 
-**Description:** Local Arabic academic assistant using university FAQ retrieval, multilingual embeddings, Flask and Ollama.
+For each repository: **Settings → General → Social preview → Edit → Upload an
+image**. All are 1280 × 640 and under 1 MB.
 
-**Topics:** `arabic-ai`, `semantic-search`, `rag`, `local-ai`, `ollama`, `python`, `flask`, `sentence-transformers`
-
-### absher-insight
-
-**Description:** Synthetic behavioral-risk analytics prototype with FastAPI, explainable rules and operational dashboards.
-
-**Topics:** `synthetic-data`, `security-analytics`, `dashboard`, `fastapi`, `python`, `rule-based-system`
-
-### Stadium
-
-**Description:** Computer-vision gate-monitoring prototype connecting YOLO person detection to crowding rules and a Flask dashboard.
-
-**Topics:** `computer-vision`, `crowd-monitoring`, `flask`, `opencv`, `python`, `yolo`
-
-## Social previews
-
-Open each repository's **Settings → General → Social preview → Edit → Upload an image**. These PNGs are 1280 × 640 and below 1 MB; SVGs remain the editable sources.
-
-| Repository | Upload file |
+| Repository | File |
 |---|---|
-| Profile | [assets/profile/social-preview.png](../assets/profile/social-preview.png) |
-| [llm-application-engineering-Raqmi](https://github.com/Abdulel3h/llm-application-engineering-Raqmi) | [assets/branding/social-preview.png](https://github.com/Abdulel3h/llm-application-engineering-Raqmi/blob/main/assets/branding/social-preview.png) |
-| [Abdulelah](https://github.com/Abdulel3h/Abdulelah) | [assets/branding/social-preview.png](https://github.com/Abdulel3h/Abdulelah/blob/main/assets/branding/social-preview.png) |
-| [architect-of-intelligence](https://github.com/Abdulel3h/architect-of-intelligence) | [assets/branding/social-preview.png](https://github.com/Abdulel3h/architect-of-intelligence/blob/main/assets/branding/social-preview.png) |
-| [ChatUB](https://github.com/Abdulel3h/ChatUB) | [assets/branding/social-preview.png](https://github.com/Abdulel3h/ChatUB/blob/main/assets/branding/social-preview.png) |
-| [absher-insight](https://github.com/Abdulel3h/absher-insight) | [assets/branding/social-preview.png](https://github.com/Abdulel3h/absher-insight/blob/main/assets/branding/social-preview.png) |
-| [Stadium](https://github.com/Abdulel3h/Stadium) | [assets/branding/social-preview.png](https://github.com/Abdulel3h/Stadium/blob/main/assets/branding/social-preview.png) |
+| [Abdulel3h](https://github.com/Abdulel3h/Abdulel3h/settings) | [`assets/profile/social-preview.png`](../assets/profile/social-preview.png) |
+| [llm-application-engineering-Raqmi](https://github.com/Abdulel3h/llm-application-engineering-Raqmi/settings) | `assets/branding/social-preview.png` |
+| [Abdulelah](https://github.com/Abdulel3h/Abdulelah/settings) | `assets/branding/social-preview.png` |
+| [ChatUB](https://github.com/Abdulel3h/ChatUB/settings) | `assets/branding/social-preview.png` |
+| [absher-insight](https://github.com/Abdulel3h/absher-insight/settings) | `assets/branding/social-preview.png` |
+| [Stadium](https://github.com/Abdulel3h/Stadium/settings) | `assets/branding/social-preview.png` |
 
-No Actions are necessary: the artwork and motion are self-contained SVG assets. Existing repository workflows remain untouched.
+## Why these are manual
+
+The REST API has no endpoint for the avatar, the pinned-repository list or the
+social preview image. Changing the bio needs a token with the `user` scope; the
+credential available here carries `gist, repo, workflow`, which is why
+descriptions and topics could be applied and the bio could not.
+
+No Actions or workflows are required: the artwork is self-contained SVG with no
+scripts, remote fonts or external services.

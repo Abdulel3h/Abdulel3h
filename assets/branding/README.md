@@ -26,6 +26,7 @@ produce byte-identical files.
 | Abdulelah.de | `assets/projects/portfolio.svg` | `assets/projects/portfolio-mobile.svg` |
 | ChatUB | `assets/projects/chatub.svg` | `assets/projects/chatub-mobile.svg` |
 | Social preview | `assets/profile/social-preview.svg` | — |
+| Avatar | `assets/profile/avatar.svg` | — |
 
 The README selects the portrait variants with `<picture>` and a
 `(max-width: 600px)` media query, so phone-width readers get type sized for a

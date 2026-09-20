@@ -914,6 +914,38 @@ def build_social_preview() -> None:
               body, css=HERO_CSS)
 
 
+def build_avatar() -> None:
+    """The account avatar: the same sculpture, built to survive a 32px circle.
+
+    GitHub crops avatars to a circle, so everything that carries meaning stays
+    inside the inscribed circle, the strokes are heavy enough to hold at 32px,
+    and there is no text at all.
+    """
+    size = 1024
+    centre = size / 2
+    legs = "M-176 232C-158 96-100-78-12-224C76-78 146 96 166 232"
+    body = f"""
+  <rect width="{size}" height="{size}" fill="{BLACK}"/>
+  <circle cx="{centre}" cy="{centre}" r="{centre}" fill="url(#vignette)"/>
+  <g transform="translate({centre} {centre + 16}) scale(1.2)">
+    <ellipse rx="380" ry="352" fill="url(#haze)" opacity=".85"/>
+    <g transform="translate(0 34) rotate(-15)">
+      {tube("M-320 0A320 128 0 0 1 320 0", 30, "glassBack", "glossM", .7)}
+    </g>
+    {tube(legs, 96, "glass", "glossL", .95)}
+    {sphere(6, -22, 56, "core", "glossM")}
+    {tube("M-112 60C-40 38 58 38 128 58", 50, "glassLime", "glossM", .75)}
+    <g transform="translate(0 34) rotate(-15)">
+      {tube("M320 0A320 128 0 0 1 -320 0", 34, "glass", "glossM", .82)}
+    </g>
+  </g>"""
+    write_svg("assets/profile/avatar.svg", size, size,
+              "Abdulelah Alkhathami — sculptural A mark",
+              "A luminous translucent letter A holding a bright core, encircled by a tilted glass orbit "
+              "ring on a deep black field.",
+              body)
+
+
 def main() -> None:
     builders = (
         build_hero, build_hero_mobile,
@@ -921,6 +953,7 @@ def main() -> None:
         build_layers, build_layers_mobile,
         build_projects,
         build_social_preview,
+        build_avatar,
     )
     for builder in builders:
         builder()
