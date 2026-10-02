@@ -38,15 +38,6 @@ The LLM may propose an action; **the product remains responsible for whether it 
 
 **[Raqmi](https://github.com/Abdulel3h/llm-application-engineering-Raqmi)** — a bilingual retail-support case study with native tool calls, structured outputs, application-owned authorization, guardrails, and captured evaluation evidence.
 
-<a href="https://github.com/Abdulel3h/Abdulelah">
-<picture>
-  <source media="(max-width: 600px)" srcset="assets/projects/portfolio-mobile.svg">
-  <img src="assets/projects/portfolio.svg" width="100%" alt="Abdulelah.de — a portfolio you can ask. Next.js, typed project facts, server-side AI assistant.">
-</picture>
-</a>
-
-**[Abdulelah.de](https://github.com/Abdulel3h/Abdulelah)** — a bilingual Next.js portfolio where typed project facts and a server-side AI assistant share one source of truth.
-
 <a href="https://github.com/Abdulel3h/ChatUB">
 <picture>
   <source media="(max-width: 600px)" srcset="assets/projects/chatub-mobile.svg">
@@ -56,7 +47,25 @@ The LLM may propose an action; **the product remains responsible for whether it 
 
 **[ChatUB](https://github.com/Abdulel3h/ChatUB)** — a local Arabic academic-assistance prototype combining FAQ retrieval, semantic similarity, and Ollama-based generation.
 
-**Also public:** [Absher Insight](https://github.com/Abdulel3h/absher-insight) — behavioural risk analytics over synthetic events, with explainable rules · [Stadium Gate Monitor](https://github.com/Abdulel3h/Stadium) — computer-vision gate monitoring with crowding decision rules.
+<a href="https://github.com/Abdulel3h/Althil">
+<picture>
+  <source media="(max-width: 600px)" srcset="assets/projects/althil-mobile.svg">
+  <img src="assets/projects/althil.svg" width="100%" alt="Althil — read the sun, plan the shade. FastAPI, sun-position analysis, OpenCV site analysis, Cloud Run-ready.">
+</picture>
+</a>
+
+**[Althil](https://github.com/Abdulel3h/Althil)** — an urban thermal-comfort decision-support prototype from a team hackathon: FastAPI, sun-position calculations, OpenCV site-image analysis and rule-based scoring, packaged as a Cloud Run-ready container. My part was the backend, the service integration and the cloud packaging.
+
+<a href="https://github.com/Abdulel3h/Abdulelah">
+<picture>
+  <source media="(max-width: 600px)" srcset="assets/projects/portfolio-mobile.svg">
+  <img src="assets/projects/portfolio.svg" width="100%" alt="Abdulelah.de — a portfolio you can ask. Next.js, typed project facts, server-side AI assistant.">
+</picture>
+</a>
+
+**[Abdulelah.de](https://github.com/Abdulel3h/Abdulelah)** — a bilingual Next.js portfolio where typed project facts and a server-side AI assistant share one source of truth.
+
+**Also public:** [Stadium Gate Monitor](https://github.com/Abdulel3h/Stadium) — computer-vision gate monitoring with crowding decision rules · [Absher Insight](https://github.com/Abdulel3h/absher-insight) — behavioural risk analytics over synthetic events, with explainable rules.
 
 ## How I engineer the product
 
@@ -70,7 +79,7 @@ The LLM may propose an action; **the product remains responsible for whether it 
 | **Experience** | Arabic / English UX · workflow design · clear failure states |
 | **Application** | Python · FastAPI · TypeScript · Next.js · React · Pydantic · Zod |
 | **Intelligence** | LLM tool calling · RAG · embeddings · structured outputs · evaluation |
-| **Infrastructure** | PostgreSQL · pgvector · Redis · Docker · local inference |
+| **Infrastructure** | PostgreSQL · pgvector · Redis · Docker · Cloud Run · local inference |
 
 ## Engineering principles
 

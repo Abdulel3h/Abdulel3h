@@ -829,6 +829,133 @@ LATTICE_CSS = (
 )
 
 
+# Althil's canopy, ported from Abdulel3h/Althil tools/build_brand_assets.py.
+# Axonometric ground slab: centre, half-width, half-depth, thickness.
+GROUND = (0, 64, 236, 72, 16)
+CANOPY_LIFT = 96
+SUN_ARC = "M-262-14C-196-190 196-190 262-14"
+SUN_AT = .3   # fraction of the arc length where the sun rests
+SHADOW_SHIFT = (34, 14)   # the shade falls away from the upper-left sun
+
+
+def ground_point(s: float, t: float) -> tuple[float, float]:
+    """A point on the ground slab's top face; (s, t) run 0..1 along its two edges."""
+    cx, cy, hw, hd, _ = GROUND
+    return (cx + (s - t) * hw, cy - hd + (s + t) * hd)
+
+
+def _bezier(path: str, u: float) -> tuple[float, float]:
+    nums = [float(n) for n in path.replace("M", " ").replace("C", " ").replace("-", " -").split()]
+    (x0, y0, x1, y1, x2, y2, x3, y3) = nums
+    a, b, c, d = (1 - u) ** 3, 3 * u * (1 - u) ** 2, 3 * u * u * (1 - u), u ** 3
+    return (a * x0 + b * x1 + c * x2 + d * x3, a * y0 + b * y1 + c * y2 + d * y3)
+
+
+def point_along(path: str, fraction: float, samples: int = 400) -> tuple[float, float]:
+    """Point at a fraction of the arc length, matching CSS offset-distance."""
+    pts = [_bezier(path, i / samples) for i in range(samples + 1)]
+    lengths = [0.0]
+    for (ax, ay), (bx, by) in zip(pts, pts[1:]):
+        lengths.append(lengths[-1] + ((bx - ax) ** 2 + (by - ay) ** 2) ** .5)
+    target = fraction * lengths[-1]
+    for i, length in enumerate(lengths):
+        if length >= target:
+            return pts[i]
+    return pts[-1]
+
+
+def _poly(points: list[tuple[float, float]]) -> str:
+    return "M" + "L".join(f"{x:.1f} {y:.1f}" for x, y in points) + "Z"
+
+
+def _diamond(cx: float, cy: float, hw: float, hd: float) -> list[tuple[float, float]]:
+    return [(cx, cy - hd), (cx + hw, cy), (cx, cy + hd), (cx - hw, cy)]
+
+
+def post(x: float, top: float, bottom: float, width: float = 8) -> str:
+    """A canopy support. Drawn as a filled bar: a zero-width stroke has an empty
+    bounding box, which collapses the gloss filter region and hides it."""
+    half = width / 2
+    return solid(f"M{x - half:g} {top:g}H{x + half:g}V{bottom:g}H{x - half:g}Z", "glass", "glossS", .72)
+
+
+def sculpture_canopy(cx: float, cy: float, scale: float = 1.0) -> str:
+    """Althil: a canopy under the sun's arc; its shade marks one site on a heat grid."""
+    gx, gy, ghw, ghd, gth = GROUND
+    grid = "".join(
+        f'<path d="M{ground_point(k / 4, 0)[0]:.1f} {ground_point(k / 4, 0)[1]:.1f}'
+        f'L{ground_point(k / 4, 1)[0]:.1f} {ground_point(k / 4, 1)[1]:.1f}'
+        f'M{ground_point(0, k / 4)[0]:.1f} {ground_point(0, k / 4)[1]:.1f}'
+        f'L{ground_point(1, k / 4)[0]:.1f} {ground_point(1, k / 4)[1]:.1f}"/>'
+        for k in (1, 2, 3))
+
+    # Exposed cells read as heat: brighter the further they sit from the shade.
+    hot = [((0, 0), .34), ((3, 0), .28), ((0, 3), .3), ((1, 0), .2), ((0, 1), .18), ((3, 3), .16)]
+    cells = "".join(
+        f'<path d="{_poly([ground_point((i + a) / 4, (j + b) / 4) for a, b in ((.12, .12), (.88, .12), (.88, .88), (.12, .88))])}" '
+        f'fill="{AQUA}" opacity="{o:g}"/>'
+        for (i, j), o in hot)
+
+    canopy_cy = gy - CANOPY_LIFT
+    chw, chd, cth = 104, 32, 9
+    footprint = _diamond(gx, gy, chw, chd)
+    shadow = [(x + SHADOW_SHIFT[0], y + SHADOW_SHIFT[1]) for x, y in footprint]
+    site_x, site_y = gx + SHADOW_SHIFT[0], gy + SHADOW_SHIFT[1]
+    sun_x, sun_y = point_along(SUN_ARC, SUN_AT)
+    hours = "".join(
+        f'<circle cx="{x:.1f}" cy="{y:.1f}" r="3" fill="{CYAN}" opacity=".35"/>'
+        for x, y in (point_along(SUN_ARC, f) for f in (.1, .5, .7, .9)))
+
+    return f"""<g transform="translate({cx:g} {cy:g}) scale({scale:g})">
+    <ellipse cy="10" rx="290" ry="190" fill="url(#haze)" opacity=".62"/>
+    {contact_shadow(0, gy + ghd + gth + 10, 196, 11, .8)}
+    {tube(SUN_ARC, 9, "glassBack", "glossS", .5, sheen=False)}
+    {hours}
+    {slab(gx, gy, ghw, ghd, gth, "glassBack", .6)}
+    <g stroke="{AQUA}" stroke-width="1.2" opacity=".2" fill="none">{grid}</g>
+    <g class="heat" filter="url(#bloomS)">{cells}</g>
+    <g class="shade">
+      <path d="{_poly(shadow)}" fill="#010403" opacity=".62" filter="url(#frost)"/>
+      <path d="{_poly(shadow)}" fill="{BLUE}" opacity=".12"/>
+    </g>
+    <g class="site">
+      <ellipse cx="{site_x:g}" cy="{site_y:g}" rx="22" ry="7" fill="none" stroke="{LIME}" stroke-width="5" filter="url(#bloomS)"/>
+      <ellipse cx="{site_x:g}" cy="{site_y:g}" rx="22" ry="7" fill="none" stroke="{LIME}" stroke-width="2.4"/>
+      {sphere(site_x, site_y - 3, 6, "coreLime", "glossS")}
+    </g>
+    {sphere(site_x - 58, site_y + 12, 5, "core", "glossS", .8)}
+    {sphere(site_x + 54, site_y + 18, 5, "core", "glossS", .8)}
+    {post(gx - chw + 10, canopy_cy + cth, gy)}
+    {post(gx + chw - 10, canopy_cy + cth, gy)}
+    {slab(gx, canopy_cy, chw, chd, cth, "glass", .9)}
+    <g class="sun">
+      <circle cx="{sun_x:.1f}" cy="{sun_y:.1f}" r="44" fill="{CYAN}" opacity=".22" filter="url(#bloom)"/>
+      {sphere(round(sun_x, 1), round(sun_y, 1), 22, "core", "glossM")}
+    </g>
+    <g class="motion"><circle class="ray" r="6" fill="{CYAN}" filter="url(#bloomS)"/></g>
+  </g>"""
+
+
+CANOPY_CSS = (
+    travelling("ray", SUN_ARC, "rayTravel", CARD_DUR, repeat="1 both")
+    + rule(".sun", f"animation: sunWake {CARD_DUR:g}s 1 both")
+    + rule(".shade", f"animation: shadeWake {CARD_DUR:g}s 1 both")
+    + rule(".site", f"animation: siteWake {CARD_DUR:g}s 1 both")
+    + keyframes("rayTravel", CARD_GRID, [
+        (0, "offset-distance: 0%; opacity: 0"),
+        (.05, "offset-distance: 2%; opacity: 1"),
+        (.4, f"offset-distance: {SUN_AT * 100:g}%; opacity: 1"),
+        (.46, f"offset-distance: {SUN_AT * 100:g}%; opacity: 0"),
+        (1, f"offset-distance: {SUN_AT * 100:g}%; opacity: 0")])
+    + keyframes("sunWake", CARD_GRID, [
+        (0, "opacity: .5"), (.4, "opacity: .5"), (.46, "opacity: 1"), (1, "opacity: 1")])
+    + keyframes("shadeWake", CARD_GRID, [
+        (0, "opacity: .4"), (.46, "opacity: .4"), (.58, "opacity: 1"), (1, "opacity: 1")])
+    + keyframes("siteWake", CARD_GRID, [
+        (0, "opacity: .35"), (.58, "opacity: .35"), (.68, "opacity: 1"), (1, "opacity: 1")])
+)
+
+
 # slug, eyebrow, title, line, detail, short detail for the portrait card, sculpture, description
 PROJECTS = [
     ("raqmi", "Agentic AI · bilingual support", "Raqmi", "Tool use with a boundary.",
@@ -837,18 +964,24 @@ PROJECTS = [
      sculpture_threshold, THRESHOLD_CSS,
      "Raqmi — a bounded passage sculpture: a luminous payload waits outside an arched glass threshold "
      "until the application authorizes it to cross."),
-    ("portfolio", "AI product · bilingual web", "Abdulelah.de", "A portfolio you can ask.",
-     "Next.js · typed project facts · server-side AI assistant",
-     "Next.js · typed facts · AI assistant",
-     sculpture_dialogue, DIALOGUE_CSS,
-     "Abdulelah.de — two interlocking translucent forms turning around one shared luminous core, "
-     "exchanging light in both directions."),
     ("chatub", "Local AI · Arabic retrieval", "ChatUB", "Knowledge, kept close.",
      "Arabic FAQ retrieval · semantic similarity · local generation with Ollama",
      "Arabic retrieval · local generation",
      sculpture_lattice, LATTICE_CSS,
      "ChatUB — a lattice of glass nodes lighting up in sequence beneath a frosted shell that keeps the "
      "knowledge local."),
+    ("althil", "Urban heat · decision support", "Althil", "Read the sun. Plan the shade.",
+     "FastAPI · sun position · OpenCV site analysis · Cloud Run-ready",
+     "Sun position · rule-based scoring · Cloud Run",
+     sculpture_canopy, CANOPY_CSS,
+     "Althil — the sun travels its arc above a glass canopy; beneath it, on a gridded ground slab, "
+     "the canopy's shade falls and one site is marked."),
+    ("portfolio", "AI product · bilingual web", "Abdulelah.de", "A portfolio you can ask.",
+     "Next.js · typed project facts · server-side AI assistant",
+     "Next.js · typed facts · AI assistant",
+     sculpture_dialogue, DIALOGUE_CSS,
+     "Abdulelah.de — two interlocking translucent forms turning around one shared luminous core, "
+     "exchanging light in both directions."),
 ]
 
 

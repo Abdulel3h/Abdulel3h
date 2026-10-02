@@ -145,7 +145,7 @@
   <rect width="1200" height="360" rx="30" fill="url(#vignette)"/>
   <rect x=".75" y=".75" width="1198.5" height="358.5" rx="29.25" fill="none" stroke="#123029" stroke-width="1.5"/>
   <text class="m eyebrow" x="60" y="50" font-size="15" fill="#5E7A74" font-weight="500">AI product · bilingual web</text>
-  <text class="m eyebrow" x="1140" y="50" font-size="15" fill="#5E7A74" font-weight="500" text-anchor="end">Selected work / 02</text>
+  <text class="m eyebrow" x="1140" y="50" font-size="15" fill="#5E7A74" font-weight="500" text-anchor="end">Selected work / 04</text>
   <g transform="translate(908 192) scale(0.8)">
     <ellipse rx="250" ry="180" fill="url(#haze)" opacity=".7"/>
     <ellipse cx="0" cy="158" rx="217" ry="23.1" fill="url(#pool)" opacity=".5"/><ellipse cx="0" cy="158" rx="140" ry="11" fill="#010403" opacity="0.85" filter="url(#shade)"/>

@@ -23,8 +23,9 @@ produce byte-identical files.
 | Accountable agent flow | `assets/profile/system-flow.svg` | `assets/profile/system-flow-mobile.svg` |
 | Product layers | `assets/profile/system-layers.svg` | `assets/profile/system-layers-mobile.svg` |
 | Raqmi | `assets/projects/raqmi.svg` | `assets/projects/raqmi-mobile.svg` |
-| Abdulelah.de | `assets/projects/portfolio.svg` | `assets/projects/portfolio-mobile.svg` |
 | ChatUB | `assets/projects/chatub.svg` | `assets/projects/chatub-mobile.svg` |
+| Althil | `assets/projects/althil.svg` | `assets/projects/althil-mobile.svg` |
+| Abdulelah.de | `assets/projects/portfolio.svg` | `assets/projects/portfolio-mobile.svg` |
 | Social preview | `assets/profile/social-preview.svg` | — |
 | Avatar | `assets/profile/avatar.svg` | — |
 
@@ -87,7 +88,7 @@ re-size type for ~360px phones.
 Motion describes system behaviour rather than decorating it: the signal halts at
 the authorization boundary, the Raqmi payload waits outside the threshold until
 it ignites, light cascades down through the four layers, ChatUB's nodes wake in
-sequence.
+sequence, and Althil's sun travels its arc until the shaded site lights.
 
 **Every animation is CSS.** SMIL was removed deliberately: no media query can
 stop it, so a SMIL timeline keeps running — and keeps the browser repainting —
@@ -95,7 +96,7 @@ even for a reader who asked for reduced motion.
 
 **Two motion roles.** The hero and the flow diagram loop on a 12 s cycle,
 because the identity and the authorization boundary are what the motion is
-*for*. The three project cards and the layer stack instead play a single
+*for*. The four project cards and the layer stack instead play a single
 activation when they are first painted — which, in a README, is the moment the
 reader scrolls to them — and then rest.
 
@@ -108,7 +109,9 @@ animations that land on the same frames. Intervals where nothing changes
 collapse to a single step, so a held pose is free.
 
 Measured in headless Chrome at GitHub's content width, all six cards on screen
-at once: **0.56 of one core with motion, 0.01 with reduced motion.** Before the
+at once: **0.56 of one core with motion, 0.01 with reduced motion.** That
+measurement predates the Althil card, which uses the same one-shot activation
+on the same grid and so adds nothing once it rests. Before the
 stepped grid the same page cost about 1.4 cores, and reduced motion saved
 nothing at all.
 

@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="760" height="640" viewBox="0 0 760 640" role="img" aria-labelledby="t d">
-  <title id="t">ChatUB — Knowledge, kept close.</title>
-  <desc id="d">ChatUB — a lattice of glass nodes lighting up in sequence beneath a frosted shell that keeps the knowledge local.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="t d">
+  <title id="t">Althil — Read the sun. Plan the shade.</title>
+  <desc id="d">Althil — the sun travels its arc above a glass canopy; beneath it, on a gridded ground slab, the canopy's shade falls and one site is marked.</desc>
   <defs>
     <linearGradient id="glass" x1="0" y1="0" x2=".85" y2="1">
       <stop stop-color="#46F6FF"/><stop offset=".40" stop-color="#22E3C5"/>
@@ -131,39 +131,56 @@
     .track { letter-spacing: .12em; }
     .still { display: none; }
     .mv { transform-box: fill-box; transform-origin: 50% 50%; }
-    .mesh { animation: meshWake 5.4s 1 both; }
-    .node { animation: nodeWake 5.4s 1 both; }
-    .node-0 { animation-delay: 0.135s; }
-    .node-1 { animation-delay: 0.540s; }
-    .node-2 { animation-delay: 0.945s; }
-    .node-3 { animation-delay: 1.215s; }
-    .node-4 { animation-delay: 1.620s; }
-    .node-5 { animation-delay: 1.890s; }
-    @keyframes meshWake { 0% { opacity: .5; animation-timing-function: steps(24); } 60% { opacity: 1; animation-timing-function: steps(1); } 100% { opacity: 1; } }
-    @keyframes nodeWake { 0% { opacity: .45; transform: scale(.88); animation-timing-function: steps(4); } 10% { opacity: 1; transform: scale(1.12); animation-timing-function: steps(3); } 17.5% { opacity: 1; transform: scale(1); animation-timing-function: steps(1); } 100% { opacity: 1; transform: scale(1); } }
+    .ray { offset-path: path("M-262-14C-196-190 196-190 262-14"); offset-rotate: 0deg; offset-distance: 0%; opacity: 0; animation: rayTravel 5.4s 1 both; }
+    .sun { animation: sunWake 5.4s 1 both; }
+    .shade { animation: shadeWake 5.4s 1 both; }
+    .site { animation: siteWake 5.4s 1 both; }
+    @keyframes rayTravel { 0% { offset-distance: 0%; opacity: 0; animation-timing-function: steps(2); } 5% { offset-distance: 2%; opacity: 1; animation-timing-function: steps(14); } 40% { offset-distance: 30%; opacity: 1; animation-timing-function: steps(2); } 45% { offset-distance: 30%; opacity: 0; animation-timing-function: steps(1); } 100% { offset-distance: 30%; opacity: 0; } }
+    @keyframes sunWake { 0% { opacity: .5; animation-timing-function: steps(1); } 40% { opacity: .5; animation-timing-function: steps(2); } 45% { opacity: 1; animation-timing-function: steps(1); } 100% { opacity: 1; } }
+    @keyframes shadeWake { 0% { opacity: .4; animation-timing-function: steps(1); } 45% { opacity: .4; animation-timing-function: steps(5); } 57.5% { opacity: 1; animation-timing-function: steps(1); } 100% { opacity: 1; } }
+    @keyframes siteWake { 0% { opacity: .35; animation-timing-function: steps(1); } 57.5% { opacity: .35; animation-timing-function: steps(4); } 67.5% { opacity: 1; animation-timing-function: steps(1); } 100% { opacity: 1; } }
     @media (prefers-reduced-motion: reduce) {
       * { animation: none !important; }
       .motion { display: none !important; }
       .still { display: inline !important; }
     }
   </style>
-  <rect width="760" height="640" rx="26" fill="url(#vignette)"/>
-  <rect x=".75" y=".75" width="758.5" height="638.5" rx="25.25" fill="none" stroke="#123029" stroke-width="1.5"/>
-  <text class="m eyebrow" x="60" y="50" font-size="15" fill="#5E7A74" font-weight="500">Local AI · Arabic retrieval</text>
-  <text class="m eyebrow" x="700" y="50" font-size="15" fill="#5E7A74" font-weight="500" text-anchor="end">02</text>
-  <g transform="translate(380 246) scale(0.8)">
-    <ellipse rx="250" ry="180" fill="url(#haze)" opacity=".7"/>
-    <ellipse cx="0" cy="148" rx="217" ry="23.1" fill="url(#pool)" opacity=".5"/><ellipse cx="0" cy="148" rx="140" ry="11" fill="#010403" opacity="0.85" filter="url(#shade)"/>
-    <g>
-      <g transform="scale(1.14)"><g class="mesh"><g filter="url(#glossS)" opacity="0.74"><path d="M-84-18C-58-44-44-60-20-74" fill="none" stroke="url(#glass)" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/></g><g filter="url(#glossS)" opacity="0.74"><path d="M-20-74C6-60 26-44 44-26" fill="none" stroke="url(#glass)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></g><g filter="url(#glossS)" opacity="0.74"><path d="M-84-18C-66 12-58 34-40 52" fill="none" stroke="url(#glass)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></g><g filter="url(#glossS)" opacity="0.74"><path d="M-40 52C-4 60 26 60 58 56" fill="none" stroke="url(#glass)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/></g><g filter="url(#glossS)" opacity="0.74"><path d="M44-26C52 6 56 32 58 56" fill="none" stroke="url(#glass)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/></g><g filter="url(#glossS)" opacity="0.74"><path d="M44-26C70-16 90-6 104 6" fill="none" stroke="url(#glass)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></g></g><g class="mv node node-0"><g filter="url(#glossS)" opacity="0.95"><circle cx="-84" cy="-18" r="19" fill="url(#core)"/></g></g><g class="mv node node-1"><g filter="url(#glossS)" opacity="0.95"><circle cx="-20" cy="-74" r="15" fill="url(#core)"/></g></g><g class="mv node node-2"><g filter="url(#glossS)" opacity="0.95"><circle cx="44" cy="-26" r="21" fill="url(#core)"/></g></g><g class="mv node node-3"><g filter="url(#glossS)" opacity="0.95"><circle cx="-40" cy="52" r="16" fill="url(#core)"/></g></g><g class="mv node node-4"><g filter="url(#glossS)" opacity="0.95"><circle cx="58" cy="56" r="13" fill="url(#core)"/></g></g><g class="mv node node-5"><g filter="url(#glossS)" opacity="0.95"><circle cx="104" cy="6" r="11" fill="url(#core)"/></g></g></g>
-      <ellipse cy="34" rx="156" ry="100" fill="url(#haze)" opacity=".95"/>
-      <path d="M-178 104A178 150 0 0 1 178 104Z" fill="url(#glassCold)" opacity=".16"/>
-      <g filter="url(#glossM)" opacity="0.6"><path d="M-178 104A178 150 0 0 1 178 104" fill="none" stroke="url(#glass)" stroke-width="36" stroke-linecap="round" stroke-linejoin="round"/><path d="M-178 104A178 150 0 0 1 178 104" fill="none" stroke="#F2FFFC" stroke-width="9.4" stroke-linecap="round" opacity=".14" transform="translate(-3.2 -4.0)"/></g>
-      <g filter="url(#glossL)" opacity="0.62"><path d="M0 96L172 116L172 126L0 146L-172 126L-172 116Z" fill="url(#glassBack)"/><path d="M0 96L172 116L0 136L-172 116Z" fill="#EAFFFB" opacity=".22"/><path d="M172 116L172 126L0 146L0 136Z" fill="#02110E" opacity=".35"/></g>
+  <rect width="1200" height="360" rx="30" fill="url(#vignette)"/>
+  <rect x=".75" y=".75" width="1198.5" height="358.5" rx="29.25" fill="none" stroke="#123029" stroke-width="1.5"/>
+  <text class="m eyebrow" x="60" y="50" font-size="15" fill="#5E7A74" font-weight="500">Urban heat · decision support</text>
+  <text class="m eyebrow" x="1140" y="50" font-size="15" fill="#5E7A74" font-weight="500" text-anchor="end">Selected work / 03</text>
+  <g transform="translate(908 192) scale(0.8)">
+    <ellipse cy="10" rx="290" ry="190" fill="url(#haze)" opacity=".62"/>
+    <ellipse cx="0" cy="162" rx="303.8" ry="23.1" fill="url(#pool)" opacity=".5"/><ellipse cx="0" cy="162" rx="196" ry="11" fill="#010403" opacity="0.8" filter="url(#shade)"/>
+    <g filter="url(#glossS)" opacity="0.5"><path d="M-262-14C-196-190 196-190 262-14" fill="none" stroke="url(#glassBack)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <circle cx="-228.3" cy="-66.7" r="3" fill="#46F6FF" opacity=".35"/><circle cx="0.0" cy="-146.0" r="3" fill="#46F6FF" opacity=".35"/><circle cx="123.0" cy="-127.9" r="3" fill="#46F6FF" opacity=".35"/><circle cx="229.3" cy="-65.7" r="3" fill="#46F6FF" opacity=".35"/>
+    <g filter="url(#glossL)" opacity="0.6"><path d="M0 -8L236 64L236 80L0 152L-236 80L-236 64Z" fill="url(#glassBack)"/><path d="M0 -8L236 64L0 136L-236 64Z" fill="#EAFFFB" opacity=".22"/><path d="M236 64L236 80L0 152L0 136Z" fill="#02110E" opacity=".35"/></g>
+    <g stroke="#22E3C5" stroke-width="1.2" opacity=".2" fill="none"><path d="M59.0 10.0L-177.0 82.0M-59.0 10.0L177.0 82.0"/><path d="M118.0 28.0L-118.0 100.0M-118.0 28.0L118.0 100.0"/><path d="M177.0 46.0L-59.0 118.0M-177.0 46.0L59.0 118.0"/></g>
+    <g class="heat" filter="url(#bloomS)"><path d="M0.0 -3.7L44.8 10.0L0.0 23.7L-44.8 10.0Z" fill="#22E3C5" opacity="0.34"/><path d="M177.0 50.3L221.8 64.0L177.0 77.7L132.2 64.0Z" fill="#22E3C5" opacity="0.28"/><path d="M-177.0 50.3L-132.2 64.0L-177.0 77.7L-221.8 64.0Z" fill="#22E3C5" opacity="0.3"/><path d="M59.0 14.3L103.8 28.0L59.0 41.7L14.2 28.0Z" fill="#22E3C5" opacity="0.2"/><path d="M-59.0 14.3L-14.2 28.0L-59.0 41.7L-103.8 28.0Z" fill="#22E3C5" opacity="0.18"/><path d="M0.0 104.3L44.8 118.0L0.0 131.7L-44.8 118.0Z" fill="#22E3C5" opacity="0.16"/></g>
+    <g class="shade">
+      <path d="M34.0 46.0L138.0 78.0L34.0 110.0L-70.0 78.0Z" fill="#010403" opacity=".62" filter="url(#frost)"/>
+      <path d="M34.0 46.0L138.0 78.0L34.0 110.0L-70.0 78.0Z" fill="#3B65FF" opacity=".12"/>
     </g>
+    <g class="site">
+      <ellipse cx="34" cy="78" rx="22" ry="7" fill="none" stroke="#C8FF54" stroke-width="5" filter="url(#bloomS)"/>
+      <ellipse cx="34" cy="78" rx="22" ry="7" fill="none" stroke="#C8FF54" stroke-width="2.4"/>
+      <g filter="url(#glossS)" opacity="1"><circle cx="34" cy="75" r="6" fill="url(#coreLime)"/></g>
+    </g>
+    <g filter="url(#glossS)" opacity="0.8"><circle cx="-24" cy="90" r="5" fill="url(#core)"/></g>
+    <g filter="url(#glossS)" opacity="0.8"><circle cx="88" cy="96" r="5" fill="url(#core)"/></g>
+    <g filter="url(#glossS)" opacity="0.72"><path d="M-98 -23H-90V64H-98Z" fill="url(#glass)"/></g>
+    <g filter="url(#glossS)" opacity="0.72"><path d="M90 -23H98V64H90Z" fill="url(#glass)"/></g>
+    <g filter="url(#glossL)" opacity="0.9"><path d="M0 -64L104 -32L104 -23L0 9L-104 -23L-104 -32Z" fill="url(#glass)"/><path d="M0 -64L104 -32L0 0L-104 -32Z" fill="#EAFFFB" opacity=".22"/><path d="M104 -32L104 -23L0 9L0 0Z" fill="#02110E" opacity=".35"/></g>
+    <g class="sun">
+      <circle cx="-121.4" cy="-128.4" r="44" fill="#46F6FF" opacity=".22" filter="url(#bloom)"/>
+      <g filter="url(#glossM)" opacity="1"><circle cx="-121.4" cy="-128.4" r="22" fill="url(#core)"/></g>
+    </g>
+    <g class="motion"><circle class="ray" r="6" fill="#46F6FF" filter="url(#bloomS)"/></g>
   </g>
-  <text class="s" x="56" y="456" font-size="58" fill="#F4FFF9" font-weight="700" letter-spacing="-1.4">ChatUB</text>
-  <text class="s" x="56" y="512" font-size="32" fill="url(#inkFade)" font-weight="600">Knowledge, kept close.</text>
-  <text class="s" x="56" y="566" font-size="22" fill="#8FA8A1">Arabic retrieval · local generation</text>
-  <rect width="760" height="640" rx="26" filter="url(#grain)" opacity="0.55" pointer-events="none"/>
+  <text class="s" x="60" y="146" font-size="54" fill="#F4FFF9" font-weight="700" letter-spacing="-1.4">Althil</text>
+  <text class="s" x="60" y="200" font-size="27" fill="url(#inkFade)" font-weight="600">Read the sun. Plan the shade.</text>
+  <text class="s" x="60" y="254" font-size="17" fill="#8FA8A1">FastAPI · sun position · OpenCV site analysis · Cloud Run-ready</text>
+  <path d="M62 292H430" stroke="url(#hair)" stroke-width="1.5"/>
+  <text class="m track" x="60" y="322" font-size="15" fill="#22E3C5" font-weight="600">Open the repository</text>
+  <rect width="1200" height="360" rx="30" filter="url(#grain)" opacity="0.55" pointer-events="none"/>
 </svg>
