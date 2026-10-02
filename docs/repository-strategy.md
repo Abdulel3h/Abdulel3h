@@ -41,6 +41,8 @@ The previous profile linked `alpha-ai-innovations` and `midad-landing`, which we
 
 The available GitHub tools do not expose pin mutation. Apply this order through **Customize your pins** on the profile.
 
+> **Superseded on 2 October 2026.** `architect-of-intelligence` is now private and `Althil` is public. The current pin order is in [github-settings.md](github-settings.md#3-pinned-repositories).
+
 ## Positioning
 
 Suggested bio: `AI Product Builder | Arabic-first AI Systems | LLM applications, agentic workflows and trustworthy AI | abdulelah.de`

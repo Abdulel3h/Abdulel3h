@@ -2,7 +2,7 @@
 
 The canonical rules for Abdulelah Alkhathami's public GitHub presence. Every
 public repository generates its artwork from these rules, so the account reads
-as one system rather than six unrelated projects.
+as one system rather than seven unrelated projects.
 
 ## Purpose
 

@@ -3,7 +3,7 @@
 Every **public, owner-owned, non-fork** repository and the state of its
 presentation. Private repositories are deliberately absent from this file.
 
-Last unified: 20 September 2026.
+Last unified: 20 September 2026. Althil added: 2 October 2026.
 
 ## Repository matrix
 
@@ -11,10 +11,11 @@ Last unified: 20 September 2026.
 |---|---|---|---|---|---|---|---|---|---|
 | [Abdulel3h](https://github.com/Abdulel3h/Abdulel3h) | Profile — AI systems that think, act, and earn trust | Public | Letter **A** in a neural orbit | Rebuilt | PNG ready, upload manual | Applied | Applied | Not pinned by design | see profile commit below |
 | [llm-application-engineering-Raqmi](https://github.com/Abdulel3h/llm-application-engineering-Raqmi) | Flagship — bounded tool execution behind an authorization boundary | Public | Arched threshold, payload waiting to cross | Hero + status label, evidence preserved | PNG ready, upload manual | Applied | Applied | **Pin 1** | [`1d6cc1a`](https://github.com/Abdulel3h/llm-application-engineering-Raqmi/commit/1d6cc1a6c01202a0e9c09cd1cd233545a2cc7921) |
-| [Abdulelah](https://github.com/Abdulel3h/Abdulelah) | Deployed bilingual AI portfolio | Public | Two forms turning around a shared core | Rebuilt | PNG ready, upload manual | Applied | Applied | **Pin 2** | [`0c58e48`](https://github.com/Abdulel3h/Abdulelah/commit/0c58e48124f26de7d9873af4ad6e5d5c20b39a95) |
-| [ChatUB](https://github.com/Abdulel3h/ChatUB) | Local Arabic academic assistant | Public | Node lattice under a frosted shell | Rebuilt | PNG ready, upload manual | Applied | Applied | **Pin 3** | [`858798e`](https://github.com/Abdulel3h/ChatUB/commit/858798ee19bc32c8f70a69acda2f98181085d094) |
-| [absher-insight](https://github.com/Abdulel3h/absher-insight) | Behavioural risk analytics over synthetic events | Public | Ordered signal field with one break in it | Rebuilt | PNG ready, upload manual | Applied | Applied | **Pin 4** | [`8d9a741`](https://github.com/Abdulel3h/absher-insight/commit/8d9a74163c6f6b83b85c922bfccb2fbb75ddb41b) |
-| [Stadium](https://github.com/Abdulel3h/Stadium) | Computer-vision gate monitoring | Public | Four streams converging through one slot | Rebuilt | PNG ready, upload manual | Applied | Applied | **Pin 5** | [`8671474`](https://github.com/Abdulel3h/Stadium/commit/86714749393228633d4f5fdf8e73ebabf35a278f) |
+| [ChatUB](https://github.com/Abdulel3h/ChatUB) | Local Arabic academic assistant | Public | Node lattice under a frosted shell | Rebuilt | PNG ready, upload manual | Applied | Applied | **Pin 2** | [`858798e`](https://github.com/Abdulel3h/ChatUB/commit/858798ee19bc32c8f70a69acda2f98181085d094) |
+| [Althil](https://github.com/Abdulel3h/Althil) | Urban thermal-comfort decision support — FastAPI, sun position, OpenCV site analysis, rule-based scoring, Cloud Run-ready | Public | Canopy under the sun's arc, its shade marking one site | Built for publication | PNG ready, upload manual | Applied | Applied | **Pin 3** | [`c41381c`](https://github.com/Abdulel3h/Althil/commit/c41381ca983a4a1efdb0d1002362ecf2980157c6) |
+| [Stadium](https://github.com/Abdulel3h/Stadium) | Computer-vision gate monitoring | Public | Four streams converging through one slot | Rebuilt | PNG ready, upload manual | Applied | Applied | **Pin 4** | [`8671474`](https://github.com/Abdulel3h/Stadium/commit/86714749393228633d4f5fdf8e73ebabf35a278f) |
+| [absher-insight](https://github.com/Abdulel3h/absher-insight) | Behavioural risk analytics over synthetic events | Public | Ordered signal field with one break in it | Rebuilt | PNG ready, upload manual | Applied | Applied | **Pin 5** | [`8d9a741`](https://github.com/Abdulel3h/absher-insight/commit/8d9a74163c6f6b83b85c922bfccb2fbb75ddb41b) |
+| [Abdulelah](https://github.com/Abdulel3h/Abdulelah) | Deployed bilingual AI portfolio | Public | Two forms turning around a shared core | Rebuilt | PNG ready, upload manual | Applied | Applied | **Pin 6** | [`0c58e48`](https://github.com/Abdulel3h/Abdulelah/commit/0c58e48124f26de7d9873af4ad6e5d5c20b39a95) |
 
 "Applied" means verified against the GitHub API after the change. "Upload
 manual" means GitHub exposes no API for that setting, so the asset is committed
@@ -29,6 +30,7 @@ Each README states one of these, and the artwork carries the same label:
 | Deployed product | Running in public at a real URL | Abdulelah.de |
 | Case study / captured evaluation | Executed work with recorded evidence; not a deployed service | Raqmi |
 | Prototype | Runs locally, no measured production claim | ChatUB, Stadium |
+| Hackathon prototype | Team prototype from a hackathon; simulated inputs are listed in its README | Althil |
 | Prototype / synthetic data | Prototype whose inputs are synthetic by design | Absher Insight |
 
 ## What is deliberately not claimed
@@ -47,4 +49,4 @@ GitHub exposes no API for these. Exact values and steps:
 - Profile avatar upload
 - Profile bio
 - Pinned repository order
-- Social preview upload for all six repositories
+- Social preview upload for all seven repositories

@@ -4,7 +4,7 @@ What was applied automatically, and exactly what still needs a person.
 
 ## Applied and verified
 
-Repository **About descriptions** and **topics** for all six public
+Repository **About descriptions** and **topics** for all seven public
 repositories were applied through the GitHub API and verified by reading them
 back. See [github-presence-map.md](github-presence-map.md) for the per-repository
 state.
@@ -43,17 +43,20 @@ Leave **Name** (`Abdulelah Alkhathami`), **Website** (`https://abdulelah.de`) an
 **Where:** [github.com/Abdulel3h](https://github.com/Abdulel3h) →
 **Customize your pins**.
 
-Select exactly these five, in this order:
+Select exactly these six, in this order:
 
 1. `llm-application-engineering-Raqmi`
-2. `Abdulelah`
-3. `ChatUB`
-4. `absher-insight`
-5. `Stadium`
+2. `ChatUB`
+3. `Althil`
+4. `Stadium`
+5. `absher-insight`
+6. `Abdulelah`
 
-Leave the sixth slot empty. Do **not** pin `Abdulel3h` — the profile README is
-already the page the visitor is looking at, so pinning it wastes the strongest
-slot.
+The first five follow the project hierarchy; `Abdulelah` (the deployed
+portfolio) takes the sixth slot. Do **not** pin `Abdulel3h` — the profile
+README is already the page the visitor is looking at, so pinning it wastes a
+slot. Until pins are saved, GitHub shows its automatic "Popular repositories"
+list instead, which currently includes `Abdulel3h` and omits `Althil`.
 
 GitHub's pin dialog does not preserve click order in every case; after saving,
 open the profile logged out and confirm Raqmi appears first.
@@ -71,6 +74,7 @@ image**. All are 1280 × 640 and under 1 MB.
 | [ChatUB](https://github.com/Abdulel3h/ChatUB/settings) | `assets/branding/social-preview.png` |
 | [absher-insight](https://github.com/Abdulel3h/absher-insight/settings) | `assets/branding/social-preview.png` |
 | [Stadium](https://github.com/Abdulel3h/Stadium/settings) | `assets/branding/social-preview.png` |
+| [Althil](https://github.com/Abdulel3h/Althil/settings) | `assets/branding/social-preview.png` |
 
 ## Why these are manual
 
