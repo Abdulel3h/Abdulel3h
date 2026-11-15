@@ -145,7 +145,8 @@ def chatub(L: Layout) -> Frame:
         dict(ql=222, q=222, cl=256, c=256, m=290, rest=336)
     t0 = enter + .15
     f.text(f.col(0), ys["ql"], "question", "m dim", f.appear(t0))
-    # The Arabic question types itself right to left.
+    # The Arabic question types itself right to left. The cover and caret are passing
+    # states, so their resting style is the finished frame (WebKit ignores held end keyframes).
     left, stops = f.arabic(CHATUB_Q, ar, L.right, ys["q"], "ink", "")
     width = L.right - left
     times = [t0 + .2 + .055 * i for i in range(len(stops))]
@@ -159,9 +160,9 @@ def chatub(L: Layout) -> Frame:
     top = ys["q"] - ar * 1.05
     f.add(f'<rect x="{num(left - 3)}" y="{num(top)}" width="{num(width + 6)}" height="{num(ar * 1.5)}" fill="{BG}" '
           f'style="transform:scaleX(0);transform-box:fill-box;transform-origin:left;'
-          f'{f.anim("rtl", total - t0, t0, "steps(1,end)")}"/>')
+          f'{f.anim("rtl", total - t0, t0, "steps(1,end)", fill="backwards")}"/>')
     f.add(f'<rect x="{num(L.right + 2)}" y="{num(ys["q"] - L.size * .9)}" width="2" height="{num(L.size * 1.2)}" rx="1" '
-          f'fill="{ACCENT}" style="opacity:0;{f.anim("caret", total - t0, t0, "steps(1,end)")}"/>')
+          f'fill="{ACCENT}" style="opacity:0;{f.anim("caret", total - t0, t0, "steps(1,end)", fill="none")}"/>')
     t1 = total + .25
     if p:
         f.text(f.col(0), ys["cl"], "context · data/faq2.json", "m dim", f.appear(t1))
