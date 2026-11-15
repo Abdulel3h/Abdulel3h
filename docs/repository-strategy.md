@@ -49,4 +49,4 @@ Suggested bio: `AI Product Builder | Arabic-first AI Systems | LLM applications,
 
 The profile emphasizes useful workflows, authorization outside the model, evidence and product experience. It intentionally omits unverified scale, employers, customer outcomes and broad skill claims.
 
-Descriptions, topics and social-preview uploads are prepared in [GitHub settings](github-settings.md). These are proposed values, not a claim that settings have been changed.
+Descriptions and topics are applied; what still needs a person is in [GitHub settings](github-settings.md).

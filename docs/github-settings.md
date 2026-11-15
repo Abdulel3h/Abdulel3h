@@ -1,87 +1,60 @@
 # GitHub settings
 
-What was applied automatically, and exactly what still needs a person.
+What is applied, and exactly what still needs a person.
 
 ## Applied and verified
 
-Repository **About descriptions** and **topics** for all seven public
-repositories were applied through the GitHub API and verified by reading them
-back. See [github-presence-map.md](github-presence-map.md) for the per-repository
-state.
+- Repository **About descriptions** and **topics** for all seven public repositories,
+  applied through the GitHub API and read back.
+- **Profile bio**, set on 15 November 2026 and read back through the public API:
+
+  ```
+  Applied AI Engineer · Arabic-first AI agents and LLM applications
+  ```
 
 ## Still manual
 
-GitHub exposes no API for the four settings below — a token cannot apply them,
-whatever its scopes. Each asset is committed and ready to upload.
+GitHub has no API for these, whatever a token's scopes.
 
-### 1. Profile avatar
-
-**File:** [`assets/profile/avatar.png`](../assets/profile/avatar.png) — 1024 × 1024,
-under 1 MB, composed for a circular crop and legible at 32px.
-Preview at four sizes: [`assets/profile/avatar-preview.png`](../assets/profile/avatar-preview.png).
-Editable master: [`assets/profile/avatar.svg`](../assets/profile/avatar.svg).
+### 1. Profile photo
 
 **Where:** [github.com/settings/profile](https://github.com/settings/profile) →
-profile picture → **Edit** → **Upload a photo…** → choose `avatar.png` → keep the
-default circular crop → **Set new profile picture**.
+profile picture → **Edit** → **Upload a photo…**
 
-### 2. Profile bio
+The account still shows GitHub's default identicon. A real, recent photo suits the
+Signature Terminal identity better than generated artwork, and none is committed
+here: the earlier generated avatar was retired with the old identity.
 
-**Where:** [github.com/settings/profile](https://github.com/settings/profile) → **Bio**.
+### 2. Pinned repositories
 
-**Value** (96 characters, inside GitHub's 160 limit):
-
-```
-AI Systems & Product Engineer | AI Agents · Voice AI · RAG | Arabic-first, accountable by design
-```
-
-Leave **Name** (`Abdulelah Alkhathami`), **Website** (`https://abdulelah.de`) and
-**Location** (`Riyadh, Saudi Arabia`) as they are.
-
-### 3. Pinned repositories
-
-**Where:** [github.com/Abdulel3h](https://github.com/Abdulel3h) →
-**Customize your pins**.
+**Where:** [github.com/Abdulel3h](https://github.com/Abdulel3h) → **Customize your pins**.
 
 Select exactly these six, in this order:
 
 1. `llm-application-engineering-Raqmi`
 2. `ChatUB`
-3. `Althil`
-4. `Stadium`
+3. `Abdulelah`
+4. `Althil`
 5. `absher-insight`
-6. `Abdulelah`
+6. `Stadium`
 
-The first five follow the project hierarchy; `Abdulelah` (the deployed
-portfolio) takes the sixth slot. Do **not** pin `Abdulel3h` — the profile
-README is already the page the visitor is looking at, so pinning it wastes a
-slot. Until pins are saved, GitHub shows its automatic "Popular repositories"
-list instead, which currently includes `Abdulel3h` and omits `Althil`.
+The first three match the profile's selected work. Do **not** pin `Abdulel3h`: the
+profile README is already the page the visitor is looking at. Until pins are saved,
+GitHub shows its automatic "Popular repositories" list instead.
 
-GitHub's pin dialog does not preserve click order in every case; after saving,
-open the profile logged out and confirm Raqmi appears first.
+GitHub's pin dialog does not preserve click order in every case; after saving, open
+the profile signed out and confirm Raqmi appears first.
 
-### 4. Social previews
+### Social previews (optional)
 
-For each repository: **Settings → General → Social preview → Edit → Upload an
-image**. All are 1280 × 640 and under 1 MB.
-
-| Repository | File |
-|---|---|
-| [Abdulel3h](https://github.com/Abdulel3h/Abdulel3h/settings) | [`assets/profile/social-preview.png`](../assets/profile/social-preview.png) |
-| [llm-application-engineering-Raqmi](https://github.com/Abdulel3h/llm-application-engineering-Raqmi/settings) | `assets/branding/social-preview.png` |
-| [Abdulelah](https://github.com/Abdulel3h/Abdulelah/settings) | `assets/branding/social-preview.png` |
-| [ChatUB](https://github.com/Abdulel3h/ChatUB/settings) | `assets/branding/social-preview.png` |
-| [absher-insight](https://github.com/Abdulel3h/absher-insight/settings) | `assets/branding/social-preview.png` |
-| [Stadium](https://github.com/Abdulel3h/Stadium/settings) | `assets/branding/social-preview.png` |
-| [Althil](https://github.com/Abdulel3h/Althil/settings) | `assets/branding/social-preview.png` |
+Every repository currently uses GitHub's generated preview, verified on
+15 November 2026. No custom previews are prepared in the new identity; the old
+ones were retired, unused, with the previous artwork.
 
 ## Why these are manual
 
-The REST API has no endpoint for the avatar, the pinned-repository list or the
-social preview image. Changing the bio needs a token with the `user` scope; the
-credential available here carries `gist, repo, workflow`, which is why
-descriptions and topics could be applied and the bio could not.
+The REST API has no endpoint for the profile photo, the pinned-repository list or
+the social preview image.
 
-No Actions or workflows are required: the artwork is self-contained SVG with no
+No Actions or workflows are required: every hero is a self-contained SVG with no
 scripts, remote fonts or external services.

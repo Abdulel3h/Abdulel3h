@@ -1,148 +1,100 @@
-# GitHub brand system
+# Signature Terminal
 
-The canonical rules for Abdulelah Alkhathami's public GitHub presence. Every
-public repository generates its artwork from these rules, so the account reads
-as one system rather than seven unrelated projects.
+The one visual language for this GitHub account: the profile and every project
+open with the same terminal window, and each project shows one motion of its own.
 
-## Purpose
+Source of truth: [`tools/terminal_system.py`](../tools/terminal_system.py) (the
+system) and [`tools/build_terminal.py`](../tools/build_terminal.py) (the scenes).
+Never hand-edit a generated SVG.
 
-A visitor should be able to tell, within a few seconds and from any repository,
-that they are looking at the same engineer's work — and should be able to tell
-the projects apart just as quickly. Shared material, distinct silhouettes.
+## Principles
+
+- **Restraint.** One window, one typeface, one accent. No badges, stats, glow or gradients.
+- **Truth.** Every value on screen comes from the project: captured evidence, its own
+  data, or its own rules run on a stated input. Sample inputs say so inside the hero.
+- **Still is finished.** The resting style of every element is its final state, so a
+  reader with reduced motion, or a renderer without CSS animation, sees the whole frame.
+- **Once.** Motion plays a single time in about four to six seconds. Only the last cursor blinks.
 
 ## Palette
 
-| Role | Hex |
-|---|---|
-| Deep black | `#030706` |
-| Frosted white | `#F4FFF9` |
-| Cyan | `#46F6FF` |
-| Aqua | `#22E3C5` |
-| Lime | `#C8FF54` |
-| Deep blue | `#3B65FF` |
+| Token | Value | Use |
+|---|---|---|
+| Background | `#0E0F11` | Window. Dark on both GitHub themes: an object on light, a quiet panel on dark |
+| Edge / rule | `#26292E` / `#1B1E22` | Window border and title-bar rule |
+| Ink / name | `#E9E6DF` / `#F4F1EB` | Commands, output, names |
+| Muted / faint | `#8F9299` / `#62676E` | Purpose lines, labels, status, comments |
+| Separator / track | `#5A5E65` / `#1C1F23` | Dividers, meter and bar tracks |
+| Accent (sand) | `#C9A86C` | `$`, cursors and each project's single highlight. Nothing else |
 
-Supporting tones: surface `#06100E`, hairline border `#123029`, muted text
-`#8FA8A1`, dim label `#5E7A74`.
+## Type
 
-**Lime is reserved.** It marks the travelling signal and the moment of
-authorization — never decoration. **The cold white-blue mix (`glassCold`) is
-reserved for boundaries**: the authorization monolith, Raqmi's threshold arch,
-Stadium's gate. That reservation is what makes "this is the boundary" legible
-without a padlock icon.
+- **Geist Mono** (The Geist Project Authors, SIL OFL 1.1), embedded per file as a WOFF2
+  subset of the glyphs on screen, because GitHub's image sandbox blocks remote fonts.
+  Regular for everything; Light 300 for names.
+- **IBM Plex Sans Arabic** Light (IBM Corp., SIL OFL 1.1), shaped with HarfBuzz and
+  drawn as outlines, so Arabic renders identically everywhere without bidi surprises.
+- Fonts come from pinned npm packages through jsDelivr and are checked against SHA-256.
 
-## Material
+## Window
 
-Flat geometry is inflated by a lighting filter: the blurred alpha channel
-becomes a height field, so any silhouette gains a soft bevel, diffuse shading, a
-cyan rim on the shadow side and a controlled specular highlight. Three sizes —
-`glossL`, `glossM`, `glossS` — matched to the mass of the form.
+Rounded window with three neutral dots and the title `abdulelah@github`. The profile
+is home: its prompt is `~ $`. Each project is a folder: `~/raqmi $` on wide screens; on
+phones the path moves to the title bar and the prompt is `$`.
 
-- One distant key light: azimuth 228°, elevation 58° (upper left). Never varies.
-- Overlapping parts are **separate filtered groups**, so they occlude and refract
-  each other instead of merging into one blob.
-- Depth: a dim light pool on the floor with the object's occlusion sitting in it.
-- Atmosphere: restrained aqua haze behind the hero object, plus a grain pass over
-  the whole composition.
-
-## Typography
-
-System fonts only; no webfont is ever fetched.
-
-- Sans: `ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif`
-- Mono: `ui-monospace, SFMono-Regular, "SF Mono", "Cascadia Mono", "Segoe UI Mono", Consolas, monospace`
-
-Mono carries slugs, eyebrows and status labels; sans carries names and taglines.
-Because fallback fonts differ in width, **long names get an explicit smaller size**
-rather than being allowed to run into the sculpture. Check any new copy against a
-wide fallback (Verdana or DejaVu Sans), not just the local font.
+Project heroes open with the name (Light 300), a purpose line, and an honest status
+tag. Then one command types itself and its output carries the project's motion.
 
 ## Motion
 
-Motion describes system behaviour; it never merely decorates.
+| Repository | Purpose line | Signature motion |
+|---|---|---|
+| Profile | Applied AI Engineer | `whoami` reveals the name and its Arabic form |
+| Raqmi | Authorized AI actions | The denied tool call is struck through; allowed calls light up |
+| ChatUB | Arabic local intelligence | The Arabic question types itself right to left |
+| Abdulelah.de | Verified AI portfolio | `uniq -c` tallies the portfolio's status counts |
+| Althil | Solar and shade intelligence | The sun climbs its arc to the computed altitude |
+| Absher Insight | Explainable risk signals | Risk meters fill to the rule-assigned probability |
+| Stadium | Computer vision monitoring | Gate bars rise; one crosses 80% and flips to OVERFLOW |
 
-- **Every animation is CSS.** SMIL is forbidden: no media query can stop it, so it
-  keeps repainting even for readers who asked for reduced motion.
-- **Two roles.** Identity and system diagrams may loop. Project cards play a single
-  activation when first painted, then rest.
-- **Stepped timing on a shared grid.** A browser re-rasterises an SVG loaded through
-  `<img>` in full on every animation frame, filters included, so a smooth 60fps
-  loop costs roughly a core per card. Each asset runs on one duration and one step
-  grid; animations on different phases multiply the repaint rate instead of
-  sharing it. Intervals where nothing changes collapse to a single step.
-- Reference cost, measured in headless Chrome at GitHub's content width with six
-  cards on screen: **0.56 of one core with motion, 0.01 with reduced motion.**
+Shared: character-by-character typing with a human rhythm, a 2 px sand cursor that
+travels with the text, soft 5 px rises for output, and a slow blink once at rest.
 
-Forbidden: bouncing, spinning, flashing, and any motion that harms readability.
+## Responsive and themes
 
-## Responsive rules
+Every hero ships as `assets/terminal.svg` (880 wide) and `assets/terminal-mobile.svg`
+(390 wide). READMEs swap them with `<picture>` and `(max-width: 600px)`, because an
+SVG inside `<img>` cannot reflow. The dark window reads correctly on GitHub's light
+and dark themes, so no theme variants are needed.
 
-Every main visual ships a wide variant and a portrait variant, selected in
-Markdown with `<picture>` and `media="(max-width: 600px)"` — GitHub preserves both
-the media query and relative `srcset` paths.
+## README structure
 
-The portrait variant is **recomposed, not shrunk**: sculpture above, type below,
-larger type, shorter supporting copy, safe edge spacing. Check every asset at the
-original canvas, ~800px (GitHub's content width), 640px and 360–400px.
+Every project README follows the same order:
 
-## Accessibility
+1. Hero, linked back to the profile
+2. One sentence on what it is, then an honest status line
+3. `###### HOW IT WORKS`: four or five steps
+4. `###### EVIDENCE`: what is verified, then what is not claimed
+5. `###### QUICK START`
+6. `###### DOCUMENTATION`, including the full overview the README used to hold
 
-- Every SVG carries `<title>` and `<desc>`.
-- Every README image carries meaningful alternative text.
-- `prefers-reduced-motion: reduce` stops every animation, hides `.motion` groups
-  and reveals `.still` groups. Verify with Chrome's
-  `--force-prefers-reduced-motion` flag: page-level emulation (DevTools,
-  Playwright) does **not** reach inside an SVG loaded as an image.
-- Each card's resting state is the end of its activation, so a reduced-motion
-  reader sees the finished story, not an empty stage.
-- The first painted frame is always a complete composition. Cards below the fold
-  start animating when they are first painted, so an activation brightens a
-  finished scene — it never fades one in from nothing.
+The small uppercase `######` labels match the profile's `SELECTED WORK` and `CONNECT`.
 
-## Repository asset structure
+## Build
 
-```text
-assets/branding/
-├── README.md             How the assets are made and what they mean
-├── hero.svg              Wide README hero, 1200 x 360
-├── hero-mobile.svg       Portrait README hero, ≤600px viewports
-├── cover.svg             Editorial cover, 1280 x 640
-├── social-preview.svg    Editable master for the social card
-└── social-preview.png    1280 x 640 upload, under 1 MB
-tools/build_brand_assets.py
+```bash
+pip install fonttools brotli uharfbuzz
+python tools/build_terminal.py                                    # profile -> assets/
+python tools/build_terminal.py raqmi --out ../llm-application-engineering-Raqmi/assets
+python tools/build_terminal.py --all --out build                  # every scene
 ```
 
-The profile repository uses `tools/build_retro_future_profile.py` for the same
-purpose and additionally generates the avatar.
+Scenes: `profile`, `raqmi`, `chatub`, `abdulelah.de`, `althil`, `absher-insight`,
+`stadium`. Two runs give byte-identical files.
 
-## Social previews
+## Retired
 
-1280 × 640, PNG under 1 MB, editable SVG master retained. Composed for a
-thumbnail: fewer elements, larger type, one project-specific sculpture, no
-unsupported claims. Uploading is a manual step — generating the PNG does not
-configure the repository setting.
-
-## Avatar
-
-One luminous sculptural "A" on deep black, sized to survive GitHub's circular
-crop and to stay recognisable at 32px. No text, no thin details. Files:
-`assets/profile/avatar.svg`, `avatar.png` (1024 × 1024), `avatar-preview.png`
-(1024 / 256 / 64 / 32 with circular crop).
-
-## Prohibited
-
-Rainbow gradients · generic purple AI branding · excessive bloom · cheap
-glassmorphism · random neon · crowded compositions · stock 3D icons · literal
-shields, brains, robots, cameras, chat bubbles or padlocks · contribution snakes
-· trophy widgets · badge walls · generic technology icon grids · remote images ·
-remote fonts · scripts, event handlers or `foreignObject` inside SVG.
-
-## Update workflow
-
-1. Edit the generator, never the generated SVG.
-2. Run the generator twice and confirm byte-identical output.
-3. Parse every SVG as XML and render it.
-4. Check the wide and portrait variants at 1200/800/640/380px, and against a wide
-   fallback font.
-5. Scan for scripts, event handlers, remote resources and `foreignObject`.
-6. Re-export the social preview PNG and confirm 1280 × 640 and under 1 MB.
-7. Commit the generator and the generated assets together.
+The previous sculptural identity (cyan–lime 3D artwork, per-repository
+`assets/branding/` folders, `tools/build_brand_assets.py`, the generated avatar and
+social previews) was removed in November 2026. It remains in each repository's Git
+history; the profile's last version of it is commit `2223e4f`.

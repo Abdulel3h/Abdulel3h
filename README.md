@@ -7,11 +7,11 @@
 
 ###### SELECTED WORK
 
-<samp>01</samp>&ensp;**[Raqmi](https://github.com/Abdulel3h/llm-application-engineering-Raqmi)** — Bilingual retail-support agent. The model proposes; code authorizes.
+<samp>01</samp>&ensp;**[Raqmi](https://github.com/Abdulel3h/llm-application-engineering-Raqmi)** — Authorized AI actions. The model proposes; code decides what runs.
 
-<samp>02</samp>&ensp;**[ChatUB](https://github.com/Abdulel3h/ChatUB)** — Arabic university assistant on local retrieval and a local model.
+<samp>02</samp>&ensp;**[ChatUB](https://github.com/Abdulel3h/ChatUB)** — Arabic local intelligence. Campus answers from local FAQs and a local model.
 
-<samp>03</samp>&ensp;**[Abdulelah.de](https://github.com/Abdulel3h/Abdulelah)** — Live bilingual portfolio with an assistant grounded in typed facts.
+<samp>03</samp>&ensp;**[Abdulelah.de](https://github.com/Abdulel3h/Abdulelah)** — Verified AI portfolio. Pages and assistant share one typed source.
 
 ###### CONNECT
 

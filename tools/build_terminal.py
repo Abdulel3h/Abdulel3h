@@ -1,344 +1,416 @@
 #!/usr/bin/env python3
-"""Build the animated terminal that opens the GitHub profile README.
+"""Build the Signature Terminal README heroes for the profile and its projects.
 
     pip install fonttools brotli uharfbuzz
-    python tools/build_terminal.py
+    python tools/build_terminal.py                     # profile -> assets/
+    python tools/build_terminal.py raqmi --out ../llm-application-engineering-Raqmi/assets
+    python tools/build_terminal.py --all --out build   # every scene -> build/<scene>/
 
-Writes assets/terminal.svg (wide) and assets/terminal-mobile.svg (phones; the
-README swaps it in below 600px). GitHub shows README SVGs through <img>, which
-blocks scripts and every external request, so each file carries its own type:
+Each scene writes terminal.svg (wide) and terminal-mobile.svg (phones; READMEs
+swap it in below 600px). The design system lives in terminal_system.py.
 
-  Geist Mono            The Geist Project Authors  embedded WOFF2 subset
-  IBM Plex Sans Arabic  IBM Corp.                  Arabic name as outlines
+Every scene shares the window, palette, type, prompt and typing. Each project
+has one signature motion of its own:
 
-Both fonts are SIL Open Font License 1.1. They are fetched from pinned npm
-packages, checked against SHA-256 and cut down to the glyphs on screen.
+  profile       whoami reveals the name
+  raqmi         a denied tool call is struck through; allowed calls light up
+  chatub        an Arabic question types itself right to left
+  abdulelah.de  `uniq -c` tallies the portfolio's honest status counts
+  althil        the sun climbs its arc to the computed altitude
+  absher        risk meters fill to the rule-assigned probability
+  stadium       gate bars rise; one crosses 80% and flips to OVERFLOW
 
-Motion: one pass of about five seconds, then the frame holds. Only the last
-cursor keeps blinking. With prefers-reduced-motion, or in a renderer that
-ignores CSS animation, the file shows its finished frame. Output is
-deterministic: two runs write byte-identical files.
+Values shown are real: captured evidence (Raqmi), repository data (ChatUB,
+Abdulelah.de), the projects' own rules and pysolar output (Althil, Absher,
+Stadium). Illustrative inputs are labelled as such inside the hero.
 """
 from __future__ import annotations
 
-import base64
-import hashlib
-import io
-import random
-import tempfile
-import urllib.request
-from dataclasses import dataclass
+import argparse
+import math
+import sys
 from pathlib import Path
 
-import uharfbuzz as hb
-from fontTools import subset
-from fontTools.pens.svgPathPen import SVGPathPen
-from fontTools.pens.transformPen import TransformPen
-from fontTools.ttLib import TTFont
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from terminal_system import (  # noqa: E402
+    ACCENT, BG, EASE, INK, PHONE, SEP, TRACK, WIDE, Frame, Layout, num,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
-CACHE = Path(tempfile.gettempdir()) / "abdulel3h-profile-fonts"
 
-CDN = "https://cdn.jsdelivr.net/npm/"
-FONTS = {
-    "mono": (
-        "@fontsource/geist-mono@5.3.0/files/geist-mono-latin-400-normal.woff2",
-        "3f98383b122fe015a48536cd4a1cda855a201718923ffe74931a01597107b9b5",
-    ),
-    "mono-light": (
-        "@fontsource/geist-mono@5.3.0/files/geist-mono-latin-300-normal.woff2",
-        "7fc5e1adebd264d7278a8d56e77e2e4550483fc5ad0e1013b8a47d03a59f9977",
-    ),
-    "arabic-light": (
-        "@fontsource/ibm-plex-sans-arabic@5.3.0/files/ibm-plex-sans-arabic-arabic-300-normal.woff2",
-        "441410df8013ca6c9a732c0497bb65aa6c9fc4abeb917b907a38fabe44263e2c",
-    ),
-}
 
-# ── Copy. Everything the terminal says. Keep it true, keep it short. ──────────
-HOST = "abdulelah@github"
-NAME = "Abdulelah Alkhathami"
-NAME_AR = "عبدالإله الخثعمي"
+# ── Profile ─────────────────────────────────────────────────────────────────
+NAME, NAME_AR = "Abdulelah Alkhathami", "عبدالإله الخثعمي"
 ROLE = "Applied AI Engineer · Riyadh"
 FOCUS = ("AI agents", "LLM systems", "Arabic-first AI")
-CMD_1 = "whoami"
-CMD_2 = "cat focus"
-PROMPT_COLS = 4  # "~ $ "
-
-# ── Palette. Graphite, warm off-white, one muted sand accent. ────────────────
-BG = "#0E0F11"
-EDGE = "#26292E"
-RULE = "#1B1E22"
-DOT = "#2B2E33"
-INK = "#E9E6DF"
-NAME_INK = "#F4F1EB"
-MUTED = "#8F9299"
-FAINT = "#62676E"
-SEP = "#5A5E65"
-ACCENT = "#C9A86C"
-
-MONO_STACK = 'ui-monospace,"SF Mono",Menlo,Consolas,monospace'
 
 
-@dataclass(frozen=True)
-class Layout:
-    file: str
-    width: int
-    height: int
-    radius: float
-    bar: float            # title bar height
-    dot_x: tuple
-    dot_r: float
-    title_size: float
-    left: float
-    right: float
-    size: float           # terminal type size
-    name_size: float
-    ar_size: float
-    role_size: float
-    y_p1: float
-    y_name: float
-    y_ar: float
-    y_role: float
-    y_p2: float
-    y_focus: tuple        # one baseline = inline list; several = one item per line
-    y_p3: float
-    cursor_w: float
-
-
-WIDE = Layout(
-    file="terminal.svg", width=880, height=356, radius=14, bar=42,
-    dot_x=(24, 42, 60), dot_r=5.5, title_size=12.5, left=46, right=834,
-    size=16, name_size=34, ar_size=27, role_size=16,
-    y_p1=92, y_name=150, y_ar=150, y_role=182, y_p2=236, y_focus=(268,), y_p3=318,
-    cursor_w=2,
-)
-
-# On phones the name spans the measure and the Arabic sits flush right beneath it.
-PHONE = Layout(
-    file="terminal-mobile.svg", width=390, height=446, radius=12, bar=38,
-    dot_x=(20, 36, 52), dot_r=4.5, title_size=12.5, left=24, right=366,
-    size=16, name_size=29, ar_size=22, role_size=15,
-    y_p1=86, y_name=140, y_ar=177, y_role=211, y_p2=264, y_focus=(298, 326, 354), y_p3=408,
-    cursor_w=2,
-)
-
-
-# ── Timeline (seconds). One main motion: the typing. ─────────────────────────
-def keystrokes(text: str, start: float, rng: random.Random) -> list[float]:
-    times, t = [], start
-    for i in range(len(text)):
-        if i:
-            t += 0.072 + rng.random() * 0.058 + (0.06 if text[i - 1] == " " else 0)
-        times.append(round(t, 3))
-    return times
-
-
-def timeline() -> dict:
-    rng = random.Random(11)
-    t1 = keystrokes(CMD_1, 0.6, rng)
-    enter1 = t1[-1] + 0.34
-    name = enter1 + 0.08
-    p2 = name + 0.86
-    t2 = keystrokes(CMD_2, p2 + 0.34, rng)
-    enter2 = t2[-1] + 0.34
-    focus = [enter2 + 0.08 + 0.13 * i for i in range(len(FOCUS))]
-    return {
-        "t1": t1, "enter1": enter1, "name": name, "ar": name + 0.18, "role": name + 0.34,
-        "p2": p2, "t2": t2, "enter2": enter2, "focus": focus, "p3": focus[-1] + 0.52,
-    }
-
-
-# ── Fonts ───────────────────────────────────────────────────────────────────
-def fetch(key: str) -> bytes:
-    path, digest = FONTS[key]
-    local = CACHE / Path(path).name
-    if local.exists():
-        data = local.read_bytes()
+def profile(L: Layout) -> Frame:
+    f = Frame(L, f"{NAME} — Applied AI Engineer",
+              f"{NAME} ({NAME_AR}), Applied AI Engineer, Riyadh. Focus: {', '.join(FOCUS)}.", size=16)
+    p = L.phone
+    y = dict(p1=86, name=140, ar=177, role=211, p2=264, focus=(298, 326, 354), p3=408, h=446) if p else \
+        dict(p1=92, name=150, ar=150, role=182, p2=236, focus=(268,), p3=318, h=356)
+    f.chrome(y["h"])
+    enter = f.command(y["p1"], "~", "whoami", .6)
+    t_name = enter + .08
+    f.text(f.col(0) - L.name_size * .04, y["name"], NAME, "n", f.rise(t_name, .62))
+    f.arabic(NAME_AR, 22 if p else 27, L.right, y["ar"], "ar", f.rise(t_name + .18, .62))
+    f.text(f.col(0), y["role"], ROLE, "m r", f.rise(t_name + .34, .5))
+    p2 = t_name + .86
+    enter2 = f.command(y["p2"], "~", "cat focus", p2 + .34, prompt_at=p2)
+    times = [enter2 + .08 + .13 * i for i in range(3)]
+    if p:
+        for item, yy, t in zip(FOCUS, y["focus"], times):
+            f.text(f.col(0), yy, item, "m", f.rise(t, .5))
     else:
-        with urllib.request.urlopen(CDN + path, timeout=30) as response:
-            data = response.read()
-    if hashlib.sha256(data).hexdigest() != digest:
-        raise SystemExit(f"checksum mismatch for {path}")
-    CACHE.mkdir(parents=True, exist_ok=True)
-    local.write_bytes(data)
-    return data
-
-
-def embedded(key: str, text: str) -> str:
-    font = TTFont(io.BytesIO(fetch(key)), recalcTimestamp=False)
-    options = subset.Options()
-    options.flavor = "woff2"
-    options.layout_features = []
-    options.hinting = False
-    options.desubroutinize = True
-    options.name_IDs = [0, 1, 2, 3, 4, 5, 6, 13, 14]  # keep copyright + OFL notice
-    subsetter = subset.Subsetter(options)
-    subsetter.populate(text="".join(sorted(set(text))))
-    subsetter.subset(font)
-    out = io.BytesIO()
-    subset.save_font(font, out, options)
-    return base64.b64encode(out.getvalue()).decode("ascii")
-
-
-def num(value: float) -> str:
-    text = f"{value:.2f}".rstrip("0").rstrip(".")
-    return "0" if text in ("", "-0") else text
-
-
-def arabic_outline(text: str, size: float, right: float, baseline: float) -> str:
-    """Shape the Arabic name with HarfBuzz and return it as one SVG path,
-    right-aligned at `right`. Outlines sidestep bidi and font fallback."""
-    font = TTFont(io.BytesIO(fetch("arabic-light")), recalcTimestamp=False)
-    font.flavor = None
-    raw = io.BytesIO()
-    font.save(raw)
-    hb_font = hb.Font(hb.Face(raw.getvalue()))
-    buf = hb.Buffer()
-    buf.add_str(text)
-    buf.guess_segment_properties()
-    hb.shape(hb_font, buf, {"kern": True, "liga": True})
-    scale = size / font["head"].unitsPerEm
-    width = sum(p.x_advance for p in buf.glyph_positions) * scale
-    glyphs, order = font.getGlyphSet(), font.getGlyphOrder()
-    pen = SVGPathPen(glyphs, ntos=num)
-    x = right - width
-    for info, pos in zip(buf.glyph_infos, buf.glyph_positions):
-        dx = x + pos.x_offset * scale
-        dy = baseline - pos.y_offset * scale
-        glyphs[order[info.codepoint]].draw(TransformPen(pen, (scale, 0, 0, -scale, dx, dy)))
-        x += pos.x_advance * scale
-    return pen.getCommands()
-
-
-# ── SVG ─────────────────────────────────────────────────────────────────────
-def pct(t: float, total: float) -> str:
-    return num(t / total * 100) + "%"
-
-
-def cursor_keyframes(name: str, frames: list[tuple[float, float, int]], total: float) -> str:
-    """frames: (time, x offset, opacity). Values hold until the next frame."""
-    body = "".join(
-        f"{pct(t, total)}{{opacity:{o};transform:translateX({num(x)}px)}}" for t, x, o in frames
-    )
-    return f"@keyframes {name}{{{body}}}"
-
-
-def build(L: Layout, fonts: dict) -> str:
-    T = timeline()
-    adv = 0.6 * L.size
-    col = lambda c: L.left + c * adv  # noqa: E731
-    out: list[str] = []
-    add = out.append
-
-    def delay(t: float) -> str:
-        return f' style="animation-delay:{num(t)}s"'
-
-    def prompt(y: float, at: float | None) -> None:
-        anim = (' class="k"' + delay(at)) if at is not None else ""
-        add(f'<g{anim}><text x="{num(col(0))}" y="{num(y)}" class="m dim">~</text>'
-            f'<text x="{num(col(2))}" y="{num(y)}" class="m acc">$</text></g>')
-
-    def typed(text: str, y: float, times: list[float]) -> None:
-        for i, (ch, t) in enumerate(zip(text, times)):
-            if ch != " ":
-                add(f'<text x="{num(col(PROMPT_COLS + i))}" y="{num(y)}" class="m k"{delay(t)}>{ch}</text>')
-
-    def cursor(y: float, cls: str) -> None:
-        h = L.size * 1.2
-        add(f'<rect class="cur {cls}" x="{num(col(PROMPT_COLS) + 1)}" y="{num(y - L.size * 0.9)}" '
-            f'width="{num(L.cursor_w)}" height="{num(h)}" rx="{num(L.cursor_w / 2)}"/>')
-
-    # Cursor travel, frame by frame.
-    c1 = [(0, 0, 1)] + [(t, (i + 1) * adv, 1) for i, t in enumerate(T["t1"])] + [(T["enter1"], len(CMD_1) * adv, 0)]
-    c2 = ([(0, 0, 0), (T["p2"], 0, 1)] + [(t, (i + 1) * adv, 1) for i, t in enumerate(T["t2"])]
-          + [(T["enter2"], len(CMD_2) * adv, 0)])
-    c1_total, c2_total = c1[-1][0], c2[-1][0]
-
-    style = f"""
-@font-face{{font-family:"T";src:url(data:font/woff2;base64,{fonts['mono']}) format("woff2")}}
-@font-face{{font-family:"TL";src:url(data:font/woff2;base64,{fonts['mono-light']}) format("woff2")}}
-.m{{font:{num(L.size)}px "T",{MONO_STACK};fill:{INK};font-variant-ligatures:none}}
-.t{{font:{num(L.title_size)}px "T",{MONO_STACK};fill:{FAINT};letter-spacing:.02em}}
-.n{{font:300 {num(L.name_size)}px "TL",{MONO_STACK};fill:{NAME_INK};letter-spacing:-.01em}}
-.r{{font-size:{num(L.role_size)}px;fill:{MUTED}}}
-.dim{{fill:{FAINT}}}.acc{{fill:{ACCENT}}}.sep{{fill:{SEP}}}.ar{{fill:{MUTED}}}
-.cur{{fill:{ACCENT}}}.c1,.c2{{opacity:0}}
-.k{{animation:k .01s linear both}}
-.up{{animation:up .62s cubic-bezier(.2,.65,.25,1) both}}
-.c1{{animation:c1 {num(c1_total)}s steps(1,end) both}}
-.c2{{animation:c2 {num(c2_total)}s steps(1,end) both}}
-.c3{{animation:k .01s linear {num(T['p3'])}s both,blink 1.15s ease-in-out {num(T['p3'] + 0.6)}s infinite}}
-@keyframes k{{from{{opacity:0}}to{{opacity:1}}}}
-@keyframes up{{from{{opacity:0;transform:translateY(5px)}}to{{opacity:1;transform:none}}}}
-@keyframes blink{{0%,42%{{opacity:1}}55%,88%{{opacity:0}}100%{{opacity:1}}}}
-{cursor_keyframes('c1', c1, c1_total)}
-{cursor_keyframes('c2', c2, c2_total)}
-@media (prefers-reduced-motion:reduce){{*{{animation:none!important}}}}
-""".strip()
-
-    alt = (f"{NAME} ({NAME_AR}), {ROLE.replace(' · ', ', ')}. "
-           f"Focus: {', '.join(FOCUS)}.")
-    add(f'<svg xmlns="http://www.w3.org/2000/svg" width="{L.width}" height="{L.height}" '
-        f'viewBox="0 0 {L.width} {L.height}" role="img" aria-labelledby="title desc">')
-    add(f"<title id=\"title\">{NAME} — Applied AI Engineer</title>")
-    add(f'<desc id="desc">{alt}</desc>')
-    add("<!-- Generated by tools/build_terminal.py. Type: Geist Mono (c) The Geist Project Authors; "
-        "IBM Plex Sans Arabic (c) IBM Corp. Both SIL Open Font License 1.1. -->")
-    add(f"<style>{style}</style>")
-
-    # Window
-    add(f'<rect x=".5" y=".5" width="{L.width - 1}" height="{L.height - 1}" rx="{num(L.radius)}" '
-        f'fill="{BG}" stroke="{EDGE}"/>')
-    for x in L.dot_x:
-        add(f'<circle cx="{x}" cy="{num(L.bar / 2)}" r="{num(L.dot_r)}" fill="{DOT}"/>')
-    add(f'<text x="{num(L.width / 2)}" y="{num(L.bar / 2 + L.title_size * 0.36)}" class="t" '
-        f'text-anchor="middle">{HOST}</text>')
-    add(f'<path d="M1 {num(L.bar + 0.5)}H{L.width - 1}" stroke="{RULE}"/>')
-
-    # 1 · whoami
-    prompt(L.y_p1, None)
-    typed(CMD_1, L.y_p1, T["t1"])
-    cursor(L.y_p1, "c1")
-    add(f'<text x="{num(col(0) - L.name_size * 0.04)}" y="{num(L.y_name)}" class="n up"'
-        f'{delay(T["name"])}>{NAME}</text>')
-    add(f'<path class="ar up" d="{arabic_outline(NAME_AR, L.ar_size, L.right, L.y_ar)}"'
-        f'{delay(T["ar"])}/>')
-    add(f'<text x="{num(col(0))}" y="{num(L.y_role)}" class="m r up"{delay(T["role"])}>{ROLE}</text>')
-
-    # 2 · cat focus
-    prompt(L.y_p2, T["p2"])
-    typed(CMD_2, L.y_p2, T["t2"])
-    cursor(L.y_p2, "c2")
-    if len(L.y_focus) == 1:
         c = 0
-        for i, item in enumerate(FOCUS):
-            sep = ""
+        for i, (item, t) in enumerate(zip(FOCUS, times)):
+            f.add(f"<g{f.rise(t, .5)}>")
             if i:
-                sep = f'<text x="{num(col(c + 2))}" y="{num(L.y_focus[0])}" class="m sep">·</text>'
+                f.text(f.col(c + 2), y["focus"][0], "·", "m sep")
                 c += 5
-            add(f'<g class="up"{delay(T["focus"][i])}>{sep}'
-                f'<text x="{num(col(c))}" y="{num(L.y_focus[0])}" class="m">{item}</text></g>')
+            f.text(f.col(c), y["focus"][0], item, "m")
+            f.add("</g>")
             c += len(item)
-    else:
-        for i, (item, y) in enumerate(zip(FOCUS, L.y_focus)):
-            add(f'<text x="{num(col(0))}" y="{num(y)}" class="m up"{delay(T["focus"][i])}>{item}</text>')
+    f.rest(y["p3"], "~", times[-1] + .52)
+    return f
 
-    # 3 · rest
-    prompt(L.y_p3, T["p3"])
-    cursor(L.y_p3, "c3")
-    add("</svg>")
-    return "\n".join(out) + "\n"
+
+# ── Project scenes ──────────────────────────────────────────────────────────
+def project(L: Layout, name: str, persona: str, tag: str, path: str, alt: str, height: dict) -> Frame:
+    f = Frame(L, f"{name} — {persona}", alt)
+    f.chrome(height["phone" if L.phone else "wide"], path)
+    if L.phone:
+        f.header(name, persona, tag, 92, 118, 142)
+    else:
+        f.header(name, persona, tag, 100, 130)
+    return f
+
+
+def raqmi(L: Layout) -> Frame:
+    path = "~/raqmi"
+    f = project(L, "Raqmi", "Authorized AI actions", "case study · fictional data", path,
+                "Raqmi, authorized AI actions. Captured live DeepSeek run: lookup_order for order 5521 was "
+                "denied by application authorization (authorization_denied); lookup_order for order 1024 and "
+                "create_return were allowed and created return R-1001.",
+                {"wide": 372, "phone": 440})
+    rows = [("lookup_order(order_id=5521)", "denied", "authorization_denied"),
+            ("lookup_order(order_id=1024)", "allowed", ""),
+            ("create_return(order_id=1024, …)", "allowed", "R-1001")]
+    f.rule(f"@keyframes struck{{from{{fill:{INK}}}}}"
+           "@keyframes draw{from{stroke-dashoffset:1}}")
+    enter = f.command(186, path, "# captured live run", .5)
+    t = enter + .1
+    for i, (call, verdict, detail) in enumerate(rows):
+        if L.phone:
+            y, yv, cv, cd = 220 + i * 58, 244 + i * 58, 2, 10
+        else:
+            y, yv, cv, cd = 222 + i * 32, 222 + i * 32, 36, 45
+        denied = verdict == "denied"
+        t_verdict = t + .55
+        cls = "m dim" if denied else "m"
+        style = f.rise(t, .45) if not denied else \
+            f' style="{f.anim("up", .45, t, EASE)},struck .5s ease {num(t_verdict + .1)}s both"'
+        f.text(f.col(0), y, call, cls, style)
+        f.text(f.col(cv), yv, verdict, "m mut" if denied else "m acc", f.rise(t_verdict, .35))
+        if detail:
+            f.text(f.col(cd), yv, detail, "m dim" if denied else "m mut", f.rise(t_verdict + .1, .35))
+        if denied:
+            x1, x2 = f.col(0) - 2, f.col(len(call)) + 2
+            f.add(f'<path d="M{num(x1)} {num(y - f.L.size * .3)}H{num(x2)}" stroke="{SEP}" stroke-width="1.5" '
+                  f'pathLength="1" stroke-dasharray="1" '
+                  f'style="{f.anim("draw", .45, t_verdict + .1, "cubic-bezier(.6,0,.2,1)")}"/>')
+        t += .78
+    f.rest(404 if L.phone else 336, path, t + .25)
+    return f
+
+
+CHATUB_Q = "ما الجهة المسؤولة عن التحويل الداخلي؟"
+CHATUB_A = "عمادة القبول والتسجيل"
+
+
+def chatub(L: Layout) -> Frame:
+    path = "~/chatub"
+    f = project(L, "ChatUB", "Arabic local intelligence", "prototype", path,
+                f"ChatUB, Arabic local intelligence. A question asks which office handles internal transfer "
+                f"({CHATUB_Q}); the nearest FAQ entry in data/faq2.json gives the context ({CHATUB_A}); the "
+                f"answer is generated by the chatub model through Ollama on the same machine.",
+                {"wide": 372, "phone": 434})
+    p = L.phone
+    enter = f.command(186, path, "curl -s :5000/ask --json @q.json", .5, pace=.5)
+    ar = 19 if p else 21
+    ys = dict(ql=222, q=252, cl=288, c=318, m=354, rest=398) if p else \
+        dict(ql=222, q=222, cl=256, c=256, m=290, rest=336)
+    t0 = enter + .15
+    f.text(f.col(0), ys["ql"], "question", "m dim", f.appear(t0))
+    # The Arabic question types itself right to left.
+    left, stops = f.arabic(CHATUB_Q, ar, L.right, ys["q"], "ink", "")
+    width = L.right - left
+    times = [t0 + .2 + .055 * i for i in range(len(stops))]
+    cover = "".join(f"{num((t - t0) / (times[-1] + .2 - t0) * 100)}%{{transform:scaleX({num((s - left + .5) / width)})}}"
+                    for s, t in zip(stops, times))
+    total = times[-1] + .2
+    f.rule(f"@keyframes rtl{{0%{{transform:scaleX(1)}}{cover}100%{{transform:scaleX(0)}}}}")
+    caret = "".join(f"{num((t - t0) / (total - t0) * 100)}%{{opacity:1;transform:translateX({num(s - L.right)}px)}}"
+                    for s, t in zip(stops, times))
+    f.rule(f"@keyframes caret{{0%{{opacity:1;transform:none}}{caret}100%{{opacity:0;transform:translateX({num(left - L.right)}px)}}}}")
+    top = ys["q"] - ar * 1.05
+    f.add(f'<rect x="{num(left - 3)}" y="{num(top)}" width="{num(width + 6)}" height="{num(ar * 1.5)}" fill="{BG}" '
+          f'style="transform:scaleX(0);transform-box:fill-box;transform-origin:left;'
+          f'{f.anim("rtl", total - t0, t0, "steps(1,end)")}"/>')
+    f.add(f'<rect x="{num(L.right + 2)}" y="{num(ys["q"] - L.size * .9)}" width="2" height="{num(L.size * 1.2)}" rx="1" '
+          f'fill="{ACCENT}" style="opacity:0;{f.anim("caret", total - t0, t0, "steps(1,end)")}"/>')
+    t1 = total + .25
+    if p:
+        f.text(f.col(0), ys["cl"], "context · data/faq2.json", "m dim", f.appear(t1))
+    else:
+        f.text(f.col(0), ys["cl"], "context", "m dim", f.appear(t1))
+        f.text(f.col(10), ys["cl"], "data/faq2.json", "m mut", f.appear(t1))
+    f.arabic(CHATUB_A, ar, L.right, ys["c"], "ink", f.rise(t1 + .12, .5))
+    t2 = t1 + .45
+    if p:
+        f.text(f.col(0), ys["m"], "model · chatub via Ollama, local", "m dim", f.rise(t2, .45))
+    else:
+        f.text(f.col(0), ys["m"], "model", "m dim", f.rise(t2, .45))
+        f.text(f.col(10), ys["m"], "chatub via Ollama · on this machine", "m mut", f.rise(t2, .45))
+    f.rest(ys["rest"], path, t2 + .45)
+    return f
+
+
+STATUS_COUNTS = [("concept", 3), ("graduation-project", 1), ("hackathon-prototype", 2), ("working-prototype", 2)]
+
+
+def portfolio(L: Layout) -> Frame:
+    path = "~/abdulelah.de"
+    f = project(L, "Abdulelah.de", "Verified AI portfolio", "deployed · abdulelah.de", path,
+                "Abdulelah.de, verified AI portfolio. Counting the status field in data/projects.ts gives "
+                "3 concept, 1 graduation-project, 2 hackathon-prototype and 2 working-prototype. The pages "
+                "and the assistant read this one file.",
+                {"wide": 420, "phone": 436})
+    p = L.phone
+    cmd = "grep -oE 'status: \"[a-z-]+\"' data/projects.ts | sort | uniq -c"
+    if p:
+        enter = f.command(186, path, "grep -oE 'status: \"[a-z-]+\"' \\", .5, pace=.4,
+                          wrap="data/projects.ts | sort | uniq -c", y_wrap=212)
+        y0, step, y_note, y_rest = 248, 26, 358, 400
+    else:
+        enter = f.command(186, path, cmd, .5, pace=.38)
+        y0, step, y_note, y_rest = 222, 28, 340, 384
+    t = enter + .12
+    for i, (status, count) in enumerate(STATUS_COUNTS):
+        y = y0 + i * step
+        f.text(f.col(8), y, f'status: "{status}"', "m", f.rise(t, .35))
+        # uniq -c tallies: each count steps up to its total.
+        for k in range(1, count + 1):
+            tk = t + .05 + .22 * (k - 1)
+            if k < count:
+                f.text(f.col(6), y, str(k), "m acc", f.window(tk, tk + .22))
+            else:
+                f.text(f.col(6), y, str(k), "m acc", f.appear(tk))
+        t += .16
+    t_end = t + .22 * 2 + .2
+    f.text(f.col(0), y_note, "# pages + assistant read this file" if p else
+           "# the pages and the assistant read this one file", "m dim", f.rise(t_end, .5))
+    f.rest(y_rest, path, t_end + .55)
+    return f
+
+
+def althil(L: Layout) -> Frame:
+    path = "~/althil"
+    # Real values: pysolar + Althil's own rules for Riyadh, 15 Jul 2026, 12:00 (UTC+3).
+    alt, az, heat, risk = 86.77, 182.98, 66.0, "Moderate"
+    f = project(L, "Althil", "Solar and shade intelligence", "hackathon prototype", path,
+                f"Althil, solar and shade intelligence. Analysing Riyadh (24.7136, 46.6753) at 12:00 on "
+                f"15 July 2026: sun altitude {alt:.1f} degrees, azimuth {az:.1f} degrees, heat score {heat} of 100 "
+                f"({risk}), recommended shade: Horizontal Canopy Structure.",
+                {"wide": 394, "phone": 504})
+    p = L.phone
+    if p:
+        enter = f.command(186, path, "curl -s :8000/analyze --json \\", .5, pace=.42,
+                          wrap="'{\"lat\":24.7136,\"lng\":46.6753}'", y_wrap=212)
+        ys = dict(sun=250, heat=276, shade=302, note=328, rest=468)
+        rows = [("sun", f"alt {alt:.1f}° · az {az:.1f}°"), ("heat", f"{heat}/100 · {risk}"),
+                ("shade", "Horizontal Canopy Structure")]
+        c1, cx, cy, r = 6, L.width / 2, 420, 62
+    else:
+        enter = f.command(186, path, "curl -s :8000/analyze --json '{\"lat\":24.7136,\"lng\":46.6753}'", .5, pace=.4)
+        ys = dict(sun=222, heat=252, shade=282, note=314, rest=358)
+        rows = [("sun", f"altitude {alt:.1f}°   azimuth {az:.1f}°"), ("heat", f"{heat} / 100 · {risk}"),
+                ("shade", "Horizontal Canopy Structure")]
+        c1, cx, cy, r = 8, 756, 296, 66
+    t = enter + .12
+    f.text(f.col(0), ys["sun"], rows[0][0], "m dim", f.rise(t, .4))
+    f.text(f.col(c1), ys["sun"], rows[0][1], "m", f.rise(t, .4))
+    # The sun climbs its arc from the eastern horizon to the computed altitude.
+    angle = 180 - alt if az > 180 else alt
+    t_sun, d_sun = t + .2, 1.4
+    f.add(f'<path d="M{num(cx - r)} {num(cy)}A{num(r)} {num(r)} 0 0 1 {num(cx + r)} {num(cy)}" fill="none" '
+          f'stroke="{TRACK}" stroke-width="1.5"/>')
+    f.add(f'<path d="M{num(cx - r - 12)} {num(cy + .5)}H{num(cx + r + 12)}" stroke="{SEP}" stroke-width="1"/>')
+    f.text(cx - r, cy + 18, "E", "m dim s", anchor="middle")
+    f.text(cx + r, cy + 18, "W", "m dim s", anchor="middle")
+    f.add(f'<path d="M{num(cx - r)} {num(cy)}A{num(r)} {num(r)} 0 0 1 {num(cx - r * math.cos(math.radians(angle)))} '
+          f'{num(cy - r * math.sin(math.radians(angle)))}" fill="none" stroke="{ACCENT}" '
+          f'stroke-width="1.5" stroke-opacity=".45" pathLength="1" stroke-dasharray="1" '
+          f'style="{f.anim("draw", d_sun, t_sun, "cubic-bezier(.45,0,.25,1)")}"/>')
+    f.rule("@keyframes draw{from{stroke-dashoffset:1}}"
+           f"@keyframes climb{{from{{transform:rotate(0deg)}}to{{transform:rotate({num(angle)}deg)}}}}")
+    f.add(f'<g style="transform:rotate({num(angle)}deg);transform-origin:{num(cx)}px {num(cy)}px;'
+          f'{f.anim("climb", d_sun, t_sun, "cubic-bezier(.45,0,.25,1)")}">'
+          f'<circle cx="{num(cx - r)}" cy="{num(cy)}" r="5" fill="{ACCENT}"/></g>')
+    t2 = t_sun + d_sun - .35
+    f.text(f.col(0), ys["heat"], rows[1][0], "m dim", f.rise(t2, .4))
+    f.text(f.col(c1), ys["heat"], rows[1][1], "m", f.rise(t2, .4))
+    f.text(f.col(0), ys["shade"], rows[2][0], "m dim", f.rise(t2 + .3, .4))
+    f.text(f.col(c1), ys["shade"], rows[2][1], "m acc", f.rise(t2 + .3, .4))
+    f.text(f.col(0), ys["note"], "# Riyadh · 15 Jul 2026 · 12:00" if p else
+           "# Riyadh, 15 Jul 2026, 12:00 · the API reads the current time", "m dim", f.rise(t2 + .6, .5))
+    f.rest(ys["rest"], path, t2 + .9)
+    return f
+
+
+EVENTS = [("Riyadh", "10:15", 2, "Normal", .10, ""),
+          ("Jeddah", "03:20", 4, "Suspicious", .85, "Behavior anomaly"),
+          ("London", "14:05", 3, "Suspicious", .95, "Location mismatch")]
+
+
+def absher(L: Layout) -> Frame:
+    path = "~/absher-insight"
+    f = project(L, "Absher Insight", "Explainable risk signals", "prototype · synthetic data", path,
+                "Absher Insight, explainable risk signals. Three synthetic events scored by the /predict rules: "
+                "Riyadh 10:15 with 2 actions is Normal (0.10); Jeddah 03:20 with 4 actions is Suspicious (0.85, "
+                "behavior anomaly); London 14:05 with 3 actions is Suspicious (0.95, location mismatch). "
+                "Not affiliated with Absher or any government entity.",
+                {"wide": 394, "phone": 512})
+    p = L.phone
+    f.rule("@keyframes fill{from{transform:scaleX(0)}}")
+    if p:
+        enter = f.command(186, path, "for e in a b c; do curl -s \\", .5, pace=.42,
+                          wrap=":8000/predict --json @$e.json; done", y_wrap=212)
+        meter_w, y0 = 72, 250
+    else:
+        enter = f.command(186, path, "for e in a b c; do curl -s :8000/predict --json @$e.json; done", .5, pace=.38)
+        meter_w, y0 = 120, 252
+        f.text(f.col(0), 222, "event", "m dim s", f.appear(enter + .1))
+        f.text(f.col(27), 222, "prediction", "m dim s", f.appear(enter + .1))
+        f.text(f.col(39), 222, "probability", "m dim s", f.appear(enter + .1))
+        f.text(f.col(59), 222, "reason", "m dim s", f.appear(enter + .1))
+    t = enter + .3
+    y = y0
+    for loc, time, actions, pred, prob, reason in EVENTS:
+        sus = pred == "Suspicious"
+        if p:
+            f.text(f.col(0), y, f"{loc}  {time}  {actions} actions", "m", f.rise(t, .35))
+            ym, xm, xp = y + 24, f.col(0), f.col(0) + meter_w + 12
+        else:
+            f.text(f.col(0), y, loc, "m", f.rise(t, .35))
+            f.text(f.col(9), y, time, "m mut", f.rise(t, .35))
+            f.text(f.col(16), y, f"{actions} actions", "m mut", f.rise(t, .35))
+            f.text(f.col(27), y, pred, "m acc" if sus else "m mut", f.rise(t + .1, .35))
+            ym, xm, xp = y, f.col(39), f.col(39) + meter_w + 12
+        # The meter fills to the rule-assigned probability.
+        f.add(f'<rect x="{num(xm)}" y="{num(ym - 9)}" width="{meter_w}" height="6" rx="3" fill="{TRACK}"/>')
+        f.add(f'<rect x="{num(xm)}" y="{num(ym - 9)}" width="{num(meter_w * prob)}" height="6" rx="3" '
+              f'fill="{ACCENT if sus else SEP}" style="transform-box:fill-box;transform-origin:left;'
+              f'{f.anim("fill", .8, t + .2, EASE)}"/>')
+        f.text(xp, ym, f"{prob:.2f}", "m", f.appear(t + .95))
+        if p:
+            f.text(xp + 5 * f.adv, ym, pred, "m acc" if sus else "m mut", f.appear(t + .95))
+            if reason:
+                f.text(f.col(0), ym + 24, reason, "m dim", f.rise(t + 1.05, .35))
+            y += 82 if reason else 58
+        else:
+            if reason:
+                f.text(f.col(59), y, reason, "m dim", f.rise(t + 1.05, .35))
+            y += 30
+        t += .5
+    f.rest(476 if p else 358, path, t + .45)
+    return f
+
+
+GATES = [("A", 18, "NORMAL"), ("B", 33, "BUSY"), ("C", 51, "OVERFLOW"), ("D", 27, "NORMAL")]
+
+
+def stadium(L: Layout) -> Frame:
+    path = "~/stadium"
+    f = project(L, "Stadium", "Computer vision monitoring", "prototype", path,
+                "Stadium, computer vision monitoring. Sample gate state from /api/status: gate A 18 of 60 "
+                "(normal), B 33 of 60 (busy), C 51 of 60 (overflow, past the 80 percent threshold), D 27 of 60 "
+                "(normal). Alert: Gate C is 85% full, redirect to gate A.",
+                {"wide": 414, "phone": 496})
+    p = L.phone
+    f.rule("@keyframes rise{from{transform:scaleY(0)}}")
+    enter = f.command(186, path, "curl -s :5000/api/status" if p else "curl -s :5000/api/status  # sample state", .5, pace=.55)
+    if p:
+        f.text(f.col(0), 212, "# sample state", "m dim", f.appear(enter))
+    step = 82 if p else 110
+    x0 = f.col(0)
+    top, bot = (240, 310) if p else (214, 288)
+    h = bot - top
+    grow, t0 = 1.3, enter + .2
+    # The 80% line is the decision engine's CRITICAL_OCCUPANCY threshold.
+    y80 = bot - .8 * h
+    f.add(f'<path d="M{num(x0)} {num(y80)}H{num(x0 + step * 3 + 40)}" stroke="{SEP}" stroke-width="1" '
+          f'stroke-dasharray="2 4" style="{f.anim("k", .01, t0)}"/>')
+    f.text(x0 + step * 3 + 48, y80 + 4, "80%", "m dim s", f.appear(t0))
+    for i, (gate, count, status) in enumerate(GATES):
+        x = x0 + i * step
+        pct = count / 60
+        hot = status in ("CRITICAL", "OVERFLOW")
+        f.add(f'<rect x="{num(x)}" y="{num(top)}" width="6" height="{num(h)}" rx="3" fill="{TRACK}"/>')
+        f.add(f'<rect x="{num(x)}" y="{num(bot - h * pct)}" width="6" height="{num(h * pct)}" rx="3" '
+              f'fill="{ACCENT if hot else SEP}" style="transform-box:fill-box;transform-origin:bottom;'
+              f'{f.anim("rise", grow * pct / .85, t0, "linear")}"/>')
+        yc, ys_ = bot + 24, bot + 46
+        f.text(x, yc, gate, "m mut", f.appear(t0))
+        f.text(x + 2 * f.adv, yc, f"{count}/60", "m", f.appear(t0 + grow * pct / .85))
+        if gate == "C":
+            # Status follows occupancy through every band on its way up.
+            bands = [("NORMAL", 0), ("BUSY", 50), ("CRITICAL", 75), ("OVERFLOW", 80)]
+            for j, (word, lo) in enumerate(bands):
+                start = t0 + grow * (lo / 100) / .85
+                if j < len(bands) - 1:
+                    end = t0 + grow * (bands[j + 1][1] / 100) / .85
+                    f.text(x, ys_, word, "m dim s", f.window(start, end))
+                else:
+                    f.text(x, ys_, word, "m acc s", f.appear(start))
+        else:
+            f.text(x, ys_, status, "m dim s", f.appear(t0 + grow * pct / .85))
+    t_alert = t0 + grow + .3
+    if p:
+        f.text(x0, 392, "alert", "m dim", f.rise(t_alert, .45))
+        f.text(x0 + 7 * f.adv, 392, "Gate C is 85% full", "m", f.rise(t_alert, .45))
+        f.text(x0 + 7 * f.adv, 416, "redirect to gate A", "m acc", f.rise(t_alert + .15, .45))
+        f.rest(460, path, t_alert + .7)
+    else:
+        xa = x0 + step * 3 + 120
+        f.text(xa, top + 12, "alert", "m dim", f.rise(t_alert, .45))
+        f.text(xa, top + 42, "Gate C is 85% full", "m", f.rise(t_alert, .45))
+        f.text(xa, top + 70, "redirect to gate A", "m acc", f.rise(t_alert + .15, .45))
+        f.rest(378, path, t_alert + .7)
+    return f
+
+
+SCENES = {"profile": profile, "raqmi": raqmi, "chatub": chatub, "abdulelah.de": portfolio,
+          "althil": althil, "absher-insight": absher, "stadium": stadium}
 
 
 def main() -> None:
-    mono_text = HOST + "~$ " + CMD_1 + CMD_2 + ROLE + "".join(FOCUS) + "·"
-    fonts = {"mono": embedded("mono", mono_text), "mono-light": embedded("mono-light", NAME)}
-    for layout in (WIDE, PHONE):
-        target = ROOT / "assets" / layout.file
-        target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_text(build(layout, fonts), encoding="utf-8", newline="\n")
-        print(f"wrote {target.relative_to(ROOT).as_posix()}  {target.stat().st_size:,} bytes")
+    parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
+    parser.add_argument("scenes", nargs="*", default=["profile"], help=", ".join(SCENES))
+    parser.add_argument("--all", action="store_true", help="build every scene")
+    parser.add_argument("--out", type=Path, help="output folder (default: assets/ for the profile)")
+    args = parser.parse_args()
+    names = list(SCENES) if args.all else args.scenes
+    for name in names:
+        target = args.out / name if (args.out and args.all) else (args.out or ROOT / "assets")
+        target.mkdir(parents=True, exist_ok=True)
+        for layout, file in ((WIDE, "terminal.svg"), (PHONE, "terminal-mobile.svg")):
+            out = target / file
+            out.write_text(SCENES[name](layout).build(), encoding="utf-8", newline="\n")
+            print(f"{name:<15} {out.as_posix()}  {out.stat().st_size:,} bytes")
 
 
 if __name__ == "__main__":
